@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+pom.xml - Maven parent POM for some Web Applications
+Copyright (C) 2016 Kaz Nishimura
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at
+your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero
+General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.vx68k.webapps</groupId>
+  <artifactId>webapps-parent</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Web Applications</name>
+  <description>Parent project for the Bitbucket API Client Library</description>
+  <url>http://www.vx68k.org/webapps</url>
+  <inceptionYear>2016</inceptionYear>
+  <licenses>
+    <license>
+      <name>GNU Affero General Public License v3.0 or later</name>
+      <url>http://www.gnu.org/licenses/agpl.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Kaz Nishimura</name>
+      <email>kazssym@vx68k.org</email>
+    </developer>
+  </developers>
+  <modules>
+  </modules>
+  <scm>
+    <connection>scm:hg:https://bitbucket.org/kazssym/webapps</connection>
+    <developerConnection>scm:hg:ssh://hg@bitbucket.org/kazssym/webapps</developerConnection>
+    <tag>master</tag>
+    <url>https://bitbucket.org/kazssym/webapps</url>
+  </scm>
+  <issueManagement>
+    <system>Bitbucket</system>
+    <url>https://bitbucket.org/kazssym/webapps</url>
+  </issueManagement>
+  <properties>
+    <encoding>US-ASCII</encoding>                                   
+    <locale>en_US</locale>                                                                                  
+    <maven.compiler.source>1.7</maven.compiler.source>                                                      
+    <maven.compiler.target>1.7</maven.compiler.target>                                                      
+    <maven.compiler.showWarnings>true</maven.compiler.showWarnings>                                         
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.glassfish</groupId>
+        <artifactId>javax.json</artifactId>
+        <version>1.0.4</version>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>3.0.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.10.4</version>
+          <configuration>
+            <links>
+              <link>https://json-processing-spec.java.net/nonav/releases/1.0/fcs/javadocs</link>
+              <link>https://developers.google.com/api-client-library/java/google-oauth-java-client/reference/1.20.0</link>
+              <link>https://developers.google.com/api-client-library/java/google-http-java-client/reference/1.20.0</link>
+            </links>
+            <detectLinks>true</detectLinks>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.10</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <version>3.0.0</version>
+          <configuration>
+            <xmlOutput>true</xmlOutput>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <profiles>
+    <profile>
+      <id>ossrh</id>
+      <distributionManagement>
+        <snapshotRepository>
+          <id>ossrh</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+      </distributionManagement>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadoc</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>                                                                                 
+              <keyname>${env.GPGKEYNAME}</keyname>
+              <passphrase>${env.GPGPASSPHRASE}</passphrase>                                                 
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.7</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>ossrh</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>
