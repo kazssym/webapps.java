@@ -1,0 +1,12 @@
+# .hgignore
+
+syntax: glob
+
+# Maven target directories
+target/
+
+# Backup and garbage files
+*~
+*.~*
+*.orig
+*.rej
