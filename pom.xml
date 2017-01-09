@@ -52,11 +52,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <url>https://bitbucket.org/kazssym/webapps</url>
   </issueManagement>
   <properties>
-    <encoding>US-ASCII</encoding>                                   
-    <locale>en_US</locale>                                                                                  
-    <maven.compiler.source>1.7</maven.compiler.source>                                                      
-    <maven.compiler.target>1.7</maven.compiler.target>                                                      
-    <maven.compiler.showWarnings>true</maven.compiler.showWarnings>                                         
+    <encoding>US-ASCII</encoding>
+    <locale>en_US</locale>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -156,9 +156,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                 </goals>
               </execution>
             </executions>
-            <configuration>                                                                                 
+            <configuration>
               <keyname>${env.GPGKEYNAME}</keyname>
-              <passphrase>${env.GPGPASSPHRASE}</passphrase>                                                 
+              <passphrase>${env.GPGPASSPHRASE}</passphrase>
             </configuration>
           </plugin>
           <plugin>
