@@ -40,6 +40,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </developer>
   </developers>
   <modules>
+    <module>editor</module>
   </modules>
   <scm>
     <connection>scm:hg:https://bitbucket.org/kazssym/webapps</connection>
