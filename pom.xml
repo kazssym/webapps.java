@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 pom.xml - Maven parent POM for some web applications
-Copyright (C) 2016 Kaz Nishimura
+Copyright (C) 2017 Kaz Nishimura
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <name>Web Applications</name>
   <description>Parent for some web applications</description>
   <url>http://www.vx68k.org/webapps</url>
-  <inceptionYear>2016</inceptionYear>
+  <inceptionYear>2017</inceptionYear>
   <licenses>
     <license>
       <name>GNU Affero General Public License v3.0 or later</name>
