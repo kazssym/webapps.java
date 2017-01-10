@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 pom.xml - Maven POM for the web text editor
-Copyright (C) 2016 Kaz Nishimura
+Copyright (C) 2017 Kaz Nishimura
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -27,7 +27,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <packaging>war</packaging>
   <name>Web Text Editor</name>
   <description>Experimental web text editor application</description>
-  <inceptionYear>2016</inceptionYear>
   <build>
   </build>
 </project>
