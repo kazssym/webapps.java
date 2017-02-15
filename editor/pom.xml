@@ -35,7 +35,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </dependency>
     <dependency>
       <groupId>${project.parent.groupId}</groupId>
-      <artifactId>pure</artifactId>
+      <artifactId>webapps-pure</artifactId>
     </dependency>
   </dependencies>
   <build>

@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <artifactId>webapps-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>pure</artifactId>
+  <artifactId>webapps-pure</artifactId>
   <name>Pure</name>
   <description>Pure CSS resources</description>
   <dependencies>

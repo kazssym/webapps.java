@@ -74,7 +74,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>pure</artifactId>
+        <artifactId>webapps-pure</artifactId>
         <version>${project.version}</version>
       </dependency>
     </dependencies>
