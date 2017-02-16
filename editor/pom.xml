@@ -34,8 +34,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>${project.parent.groupId}</groupId>
-      <artifactId>webapps-pure</artifactId>
+      <groupId>org.vx68k.webapp.pure</groupId>
+      <artifactId>pure-css-grids</artifactId>
     </dependency>
   </dependencies>
   <build>
