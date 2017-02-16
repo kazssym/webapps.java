@@ -18,13 +18,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <!DOCTYPE html>
 <html style="height: 100%" xmlns="http://www.w3.org/1999/xhtml" xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
-  <head jsf:id="head">
+  <head jsf:lang="en-US">
     <title>Text editor</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
   </head>
-  <body style="min-height: 100%" jsf:id="body">
+  <body jsf:lang="en-US" style="min-height: 100%">
     <h:outputStylesheet name="pure-min.css" library="pure" />
     <h:outputStylesheet name="grids-responsive-min.css" library="pure" />
+    <div id="top" class="pure-menu pure-menu-horizontal">
+      <a jsf:value="#{request.contextPath}/" class="pure-menu-heading">Text editor</a>
+    </div>
     <main>
       <ui:insert name="main">Main content</ui:insert>
     </main>
