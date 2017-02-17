@@ -83,6 +83,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </dependency>
     </dependencies>
   </dependencyManagement>
+  <repositories>
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+  </repositories>
   <build>
     <pluginManagement>
       <plugins>
