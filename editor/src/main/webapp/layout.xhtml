@@ -21,15 +21,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <head jsf:lang="en-US">
     <title>Text editor</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" jsf:name="pure-min.css" jsf:library="pure" />
+    <link rel="stylesheet" media="screen" jsf:name="grids-responsive-min.css" jsf:library="pure" />
   </head>
-  <body jsf:lang="en-US" style="min-height: 100%">
-    <h:outputStylesheet name="pure-min.css" library="pure" />
-    <h:outputStylesheet name="grids-responsive-min.css" library="pure" media="screen" />
+  <body style="min-height: 100%" jsf:lang="en-US">
     <div id="top" class="pure-menu pure-menu-horizontal">
-      <a jsf:value="#{request.contextPath}/" class="pure-menu-heading">Text editor</a>
+      <ul class="pure-menu-list" style="float: right">
+        <li class="pure-menu-item">
+          <a class="pure-menu-link pure-menu-disabled" title="Help"><ui:include src="/icons/ic_help_24px.svg" /></a>
+        </li>
+      </ul>
+      <span class="pure-menu-item">
+        <a class="pure-menu-link"><ui:include src="/icons/ic_menu_24px.svg" /></a>
+      </span>
+      <span class="pure-menu-item">
+        <a class="pure-menu-heading pure-menu-link" jsf:value="#{request.contextPath}/">Text editor</a>
+      </span>
     </div>
-    <main>
-      <ui:insert name="main">Main content</ui:insert>
-    </main>
+    <div id="content">
+      <main>
+        <ui:insert name="main">Main content</ui:insert>
+      </main>
+      <ui:debug />
+    </div>
   </body>
 </html>
