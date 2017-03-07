@@ -81,6 +81,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <artifactId>pure-css-grids</artifactId>
         <version>0.6.0-1</version>
       </dependency>
+      <dependency>
+        <groupId>org.vx68k.webapp.codemirror</groupId>
+        <artifactId>codemirror</artifactId>
+        <version>5.19.0-1-SNAPSHOT</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <repositories>
