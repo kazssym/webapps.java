@@ -23,21 +23,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" jsf:name="pure-min.css" jsf:library="pure" />
     <link rel="stylesheet" media="screen" jsf:name="grids-responsive-min.css" jsf:library="pure" />
+    <link rel="stylesheet" jsf:name="stylesheets/layout.css" />
     <script async="async" defer="defer" jsf:name="scripts/layout.js" jsf:target="body" />
   </head>
   <body style="min-height: 100%" jsf:lang="en-US">
     <div id="top" class="pure-menu pure-menu-horizontal">
-      <ul class="pure-menu-list" style="float: right">
+      <span class="pure-menu-item layout-left"><a class="pure-menu-link"><ui:include src="/icons/ic_menu_24px.svg" /></a></span>
+      <span class="pure-menu-heading layout-left">Text editor</span>
+      <ul class="pure-menu-list">
         <li class="pure-menu-item">
           <a class="pure-menu-link pure-menu-disabled" title="Help"><ui:include src="/icons/ic_help_24px.svg" /></a>
         </li>
       </ul>
-      <span class="pure-menu-item">
-        <a class="pure-menu-link"><ui:include src="/icons/ic_menu_24px.svg" /></a>
-      </span>
-      <span class="pure-menu-item">
-        <a class="pure-menu-heading pure-menu-link" jsf:value="#{request.contextPath}/">Text editor</a>
-      </span>
     </div>
     <div id="content">
       <main>
