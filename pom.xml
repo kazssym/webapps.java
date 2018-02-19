@@ -93,7 +93,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <releases>
         <enabled>false</enabled>
       </releases>
-      <id>ossrh</id>
+      <id>ossrh-snapshots</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </repository>
   </repositories>
