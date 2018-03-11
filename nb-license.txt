@@ -4,18 +4,20 @@ ${licenseFirst}
 ${licensePrefix?replace(" +$", "", "r")}
 ${licensePrefix}Copyright (C) ${date?date?string("yyyy")} ${project.organization!user}
 ${licensePrefix?replace(" +$", "", "r")}
-${licensePrefix}This program is free software: you can redistribute it and/or
-${licensePrefix}modify it under the terms of the GNU Affero General Public License
-${licensePrefix}as published by the Free Software Foundation, either version 3 of
-${licensePrefix}the License, or (at your option) any later version.
+${licensePrefix}This program is free software: you can redistribute it and/or modify it
+${licensePrefix}under the terms of the GNU Affero General Public License as published by
+${licensePrefix}the Free Software Foundation, either version 3 of the License, or (at your
+${licensePrefix}option) any later version.
 ${licensePrefix?replace(" +$", "", "r")}
-${licensePrefix}This program is distributed in the hope that it will be useful,
-${licensePrefix}but WITHOUT ANY WARRANTY; without even the implied warranty of
-${licensePrefix}MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
-${licensePrefix}the GNU Affero General Public License for more details.
+${licensePrefix}This program is distributed in the hope that it will be useful, but WITHOUT
+${licensePrefix}ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+${licensePrefix}FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License
+${licensePrefix}for more details.
 ${licensePrefix?replace(" +$", "", "r")}
 ${licensePrefix}You should have received a copy of the GNU Affero General Public License
 ${licensePrefix}along with this program.  If not, see <http://www.gnu.org/licenses/>.
+${licensePrefix?replace(" +$", "", "r")}
+${licensePrefix}SPDX-License-Identifier: AGPL-3.0-or-later
 <#if licenseLast??>
 ${licenseLast}
 </#if>
