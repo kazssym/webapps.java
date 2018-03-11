@@ -17,33 +17,33 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.vx68k.webapp</groupId>
-    <artifactId>webapps-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
-  <artifactId>texteditor</artifactId>
-  <packaging>war</packaging>
-  <name>Text Editor Web Application</name>
-  <description>Experimental text editor web application.</description>
-  <dependencies>
-    <dependency>
-      <groupId>javax</groupId>
-      <artifactId>javaee-web-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.vx68k.webapp.pure</groupId>
-      <artifactId>pure-css-grids</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.vx68k.webapp.codemirror</groupId>
-      <artifactId>codemirror</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-  </dependencies>
-  <build>
-  </build>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.vx68k.webapp</groupId>
+        <artifactId>webapps-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>texteditor</artifactId>
+    <packaging>war</packaging>
+    <name>Text Editor Web Application</name>
+    <description>Experimental text editor web application.</description>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.vx68k.webapp.pure</groupId>
+            <artifactId>pure-css-grids</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.vx68k.webapp.codemirror</groupId>
+            <artifactId>codemirror</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+    <build>
+    </build>
 </project>
