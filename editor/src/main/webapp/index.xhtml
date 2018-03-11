@@ -25,8 +25,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <ui:composition template="/layout.xhtml">
       <ui:define name="main">
         <link rel="stylesheet" jsf:name="codemirror.css" jsf:library="codemirror" />
-        <script async="async" defer="defer" jsf:name="codemirror.js" jsf:library="codemirror" jsf:target="body" />
+        <script async="async" defer="defer" jsf:name="codemirror.js" jsf:library="codemirror" jsf:target="body"></script>
+        <script async="async" defer="defer" jsf:name="scripts/editor.js" jsf:target="body"></script>
         Hello from Facelets
+        <textarea style="width: 100%" jsf:id="editor-text" jsf:value="text"></textarea>
       </ui:define>
     </ui:composition>
   </body>
