@@ -37,9 +37,9 @@ public class AccessControlFilter implements Filter {
   private FilterConfig config;
 
   @Override
-  public void init(FilterConfig config) throws ServletException
+  public void init(FilterConfig filterConfig) throws ServletException
   {
-    this.config = config;
+    config = filterConfig;
   }
 
   @Override
