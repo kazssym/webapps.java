@@ -1,12 +1,8 @@
-# .hgignore
-
-syntax: glob
-
-# Maven target directories
-target/
-
-# Backup and garbage files
-*~
-*.~*
-*.orig
-*.rej
+syntax: regexp
+(^|/)target$
+(^|/)\.project$
+(^|/)\.classpath$
+(^|/)\.settings/[^/]*\.prefs$
+\.rej$
+\.orig$
+~$
