@@ -37,14 +37,15 @@ public class AccessControlFilter implements Filter {
   private FilterConfig config;
 
   @Override
-  public void init(FilterConfig filterConfig) throws ServletException
+  public void init(final FilterConfig filterConfig) throws ServletException
   {
     config = filterConfig;
   }
 
   @Override
-  public void doFilter(ServletRequest request, ServletResponse response,
-      FilterChain chain) throws ServletException, IOException
+  public void doFilter(final ServletRequest request,
+      final ServletResponse response, final FilterChain chain)
+      throws ServletException, IOException
   {
     chain.doFilter(request, response);
   }
