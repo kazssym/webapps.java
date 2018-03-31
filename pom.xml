@@ -54,7 +54,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </issueManagement>
     <properties>
         <encoding>UTF-8</encoding>
-        <locale>en_US</locale>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
@@ -110,6 +109,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>2.10.4</version>
                     <configuration>
+                        <locale>en_US</locale>
                         <links>
                             <link>https://json-processing-spec.java.net/nonav/releases/1.0/fcs/javadocs</link>
                             <link>https://developers.google.com/api-client-library/java/google-oauth-java-client/reference/1.20.0</link>
