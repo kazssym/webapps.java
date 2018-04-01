@@ -15,8 +15,9 @@ pipelines:
         script:
           - mvn -B -s etc/settings.xml install
   branches:
-    staging:
+    production:
       - step:
+          deployment: production
           caches:
             - maven
           script:
