@@ -20,5 +20,5 @@ pipelines:
           caches:
             - maven
           script:
-            - gpg --import < etc/keys.asc
+            - gpg --batch --import < etc/keys.asc
             - mvn -B -s etc/settings.xml ${OSSRHUSERNAME+-P ossrh} -Dmaven.deploy.skip deploy
