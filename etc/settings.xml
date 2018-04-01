@@ -19,4 +19,15 @@
             <id>gpg.passphrase</id>
         </server>
     </servers>
+    <profiles>
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <gpg.keyname>${env.GPGKEYNAME}</gpg.keyname>
+            </properties>
+            <id>pipelines</id>
+        </profile>
+    </profiles>
 </settings>
