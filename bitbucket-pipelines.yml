@@ -21,5 +21,6 @@ pipelines:
           caches:
             - maven
           script:
+            - gpg --dump-options | grep -qx -e --pinentry-mode && (echo pinentry-mode loopback) >> ${GNUPGHOME:-$HOME/.gnupg}/gpg.conf
             - gpg --batch --import < etc/keys.asc
             - mvn -B -s etc/settings.xml ${OSSRHUSERNAME+-P ossrh} -Dmaven.deploy.skip deploy
