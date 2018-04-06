@@ -48,11 +48,11 @@
         <connection>scm:hg:https://bitbucket.org/kazssym/webapps</connection>
         <developerConnection>scm:hg:ssh://hg@bitbucket.org/kazssym/webapps</developerConnection>
         <tag>master</tag>
-        <url>https://bitbucket.org/kazssym/webapps</url>
+        <url>https://bitbucket.org/kazssym/webapps/src</url>
     </scm>
     <issueManagement>
         <system>Bitbucket</system>
-        <url>https://bitbucket.org/kazssym/webapps</url>
+        <url>https://bitbucket.org/kazssym/webapps/issues</url>
     </issueManagement>
     <properties>
         <encoding>UTF-8</encoding>
