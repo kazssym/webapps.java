@@ -43,6 +43,7 @@
     </developers>
     <modules>
         <module>editor</module>
+        <module>api</module>
     </modules>
     <scm>
         <connection>scm:hg:https://bitbucket.org/kazssym/webapps</connection>
