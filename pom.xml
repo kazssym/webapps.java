@@ -55,6 +55,12 @@
         <system>Bitbucket</system>
         <url>https://bitbucket.org/kazssym/webapps/issues</url>
     </issueManagement>
+    <distributionManagement>
+        <site>
+            <id>localhost</id>
+            <url>file:site</url>
+        </site>
+    </distributionManagement>
     <properties>
         <encoding>UTF-8</encoding>
         <maven.compiler.source>1.7</maven.compiler.source>
