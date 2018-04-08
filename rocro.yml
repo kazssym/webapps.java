@@ -8,9 +8,6 @@
 # See <https://inspecode.rocro.com/help/configuration.html> for details.
 ---
 inspecode:
-  experimental:
-    ignore:
-      - "**/src/test"
   misspell: {}
   checkstyle: {}
   pmd: {}
