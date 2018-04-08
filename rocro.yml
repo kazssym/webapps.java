@@ -14,3 +14,7 @@ inspecode:
   tidy:
     options:
       --input-xml: true
+  csslint: {}
+  eslint:
+    options:
+      --env: browser
