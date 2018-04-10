@@ -11,9 +11,6 @@ inspecode:
   misspell: {}
   checkstyle: {}
   pmd: {}
-  tidy:
-    options:
-      --input-xml: true
   csslint: {}
   eslint:
     options:
