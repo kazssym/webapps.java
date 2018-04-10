@@ -8,7 +8,7 @@
 */
 
 (function () {
-  "strict";
+  "use strict";
 
   function fill() {
     var htmlRect = document.documentElement.getBoundingClientRect();
