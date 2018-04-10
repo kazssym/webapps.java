@@ -22,7 +22,7 @@
     content.style.height = height + "px";
   };
 
-  window.addEventListener("resize", function (event) {
+  window.addEventListener("resize", function (/*event*/) {
     fill();
   });
 
