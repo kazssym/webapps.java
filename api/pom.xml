@@ -25,9 +25,9 @@
         <artifactId>webapps-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>httpapi</artifactId>
+    <artifactId>restapi</artifactId>
     <packaging>war</packaging>
-    <name>HTTP API Web Application</name>
+    <name>REST API Web Application</name>
     <description>Experimental HTTP API web application.</description>
     <dependencies>
         <dependency>
