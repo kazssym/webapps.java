@@ -10,7 +10,7 @@
 (function () {
   "use strict";
 
-  function fill() {
+  var fill = function () {
     var htmlRect = document.documentElement.getBoundingClientRect();
     var height = htmlRect.bottom - htmlRect.top;
 
