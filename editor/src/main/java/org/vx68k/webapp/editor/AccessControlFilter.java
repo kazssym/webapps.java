@@ -36,24 +36,24 @@ import javax.servlet.annotation.WebFilter;
 @WebFilter(urlPatterns = {"/*"})
 public class AccessControlFilter implements Filter {
 
-  private FilterConfig config;
+    private FilterConfig config;
 
-  @Override
-  public void init(final FilterConfig filterConfig) throws ServletException
-  {
-    config = filterConfig;
-  }
+    @Override
+    public void init(final FilterConfig filterConfig) throws ServletException
+    {
+        config = filterConfig;
+    }
 
-  @Override
-  public void doFilter(final ServletRequest request,
-      final ServletResponse response, final FilterChain chain)
-      throws ServletException, IOException
-  {
-    chain.doFilter(request, response);
-  }
+    @Override
+    public void doFilter(final ServletRequest request,
+        final ServletResponse response, final FilterChain chain)
+        throws ServletException, IOException
+    {
+        chain.doFilter(request, response);
+    }
 
-  @Override
-  public void destroy()
-  {
-  }
+    @Override
+    public void destroy()
+    {
+    }
 }
