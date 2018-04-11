@@ -30,20 +30,31 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 /**
+ * Controls access to resources.
  *
  * @author Kaz Nishimura
+ * @since 1.0
  */
 @WebFilter(urlPatterns = {"/*"})
 public class AccessControlFilter implements Filter {
 
+    /**
+     * Configuration given to {@code #init}.
+     */
     private FilterConfig config;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void init(final FilterConfig filterConfig) throws ServletException
     {
         config = filterConfig;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void doFilter(final ServletRequest request,
         final ServletResponse response, final FilterChain chain)
@@ -52,6 +63,9 @@ public class AccessControlFilter implements Filter {
         chain.doFilter(request, response);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void destroy()
     {
