@@ -31,6 +31,7 @@ import javax.servlet.annotation.WebFilter;
 
 /**
  * Controls access to resources.
+ *
  * @author Kaz Nishimura
  * @since 1.0
  */
