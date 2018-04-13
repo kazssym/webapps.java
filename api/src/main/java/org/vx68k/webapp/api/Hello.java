@@ -25,6 +25,7 @@ import javax.ws.rs.Path;
 
 /**
  * Simple REST API resource.
+ *
  * @author Kaz Nishimura
  * @since 1.0
  */
@@ -33,6 +34,7 @@ public final class Hello
 {
     /**
      * Returns a sample message.
+     *
      * @return sample message
      */
     @GET
