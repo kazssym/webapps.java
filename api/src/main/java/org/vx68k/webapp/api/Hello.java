@@ -22,7 +22,6 @@ package org.vx68k.webapp.api;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
 
 /**
  * Simple REST API resource.
