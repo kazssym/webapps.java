@@ -25,6 +25,7 @@ import javax.ws.rs.core.Application;
 
 /**
  * REST API application.
+ *
  * @author Kaz Nishimura
  * @since 1.0
  */
