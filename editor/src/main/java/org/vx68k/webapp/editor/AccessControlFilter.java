@@ -44,6 +44,16 @@ public final class AccessControlFilter implements Filter {
     private FilterConfig config;
 
     /**
+     * Returns the filter configuration given to {@code init}.
+     *
+     * @return the filter configuration
+     */
+    public FilterConfig getFilterConfig()
+    {
+        return config;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
