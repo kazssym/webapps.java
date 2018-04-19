@@ -36,7 +36,7 @@ import javax.servlet.annotation.WebFilter;
  * @since 1.0
  */
 @WebFilter(urlPatterns = {"/*"})
-public class AccessControlFilter implements Filter {
+public final class AccessControlFilter implements Filter {
 
     /**
      * Configuration given to {@code #init}.
