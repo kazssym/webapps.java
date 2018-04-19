@@ -64,6 +64,17 @@ public final class AccessControlFilter implements Filter {
 
     /**
      * {@inheritDoc}
+     *
+     * Forgets the filter configuration.
+     */
+    @Override
+    public void destroy()
+    {
+        config = null;
+    }
+
+    /**
+     * {@inheritDoc}
      */
     @Override
     public void doFilter(final ServletRequest request,
@@ -71,13 +82,5 @@ public final class AccessControlFilter implements Filter {
         throws ServletException, IOException
     {
         chain.doFilter(request, response);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void destroy()
-    {
     }
 }
