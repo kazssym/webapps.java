@@ -14,7 +14,7 @@ services:
     volumes:
       - ./editor/target/texteditor-1.0-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war:ro
     working_dir: /opt/jboss/wildfly/standalone
-    command: /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0
+    command: /opt/jboss/wildfly/bin/standalone.sh -b=0.0.0.0
     cap_drop:
       - ALL
   restapi:
@@ -24,6 +24,6 @@ services:
     volumes:
       - ./api/target/restapi-1.0-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war:ro
     working_dir: /opt/jboss/wildfly/standalone
-    command: /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0
+    command: /opt/jboss/wildfly/bin/standalone.sh -b=0.0.0.0
     cap_drop:
       - ALL
