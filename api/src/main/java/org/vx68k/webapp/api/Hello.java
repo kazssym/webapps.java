@@ -30,7 +30,7 @@ import javax.ws.rs.Path;
  * @since 1.0
  */
 @Path("hello")
-public final class Hello
+public class Hello
 {
     /**
      * Returns a sample message.
