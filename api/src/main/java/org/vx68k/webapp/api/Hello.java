@@ -38,7 +38,7 @@ public class Hello
      * @return sample message
      */
     @GET
-    String echo()
+    public String echo()
     {
         return "hello";
     }
