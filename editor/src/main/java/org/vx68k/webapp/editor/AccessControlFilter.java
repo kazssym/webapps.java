@@ -59,6 +59,7 @@ public final class AccessControlFilter implements Filter {
     @Override
     public void init(final FilterConfig filterConfig) throws ServletException
     {
+        assert filterConfig != null;
         config = filterConfig;
     }
 
