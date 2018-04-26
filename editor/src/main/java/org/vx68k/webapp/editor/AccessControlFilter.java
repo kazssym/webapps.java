@@ -21,6 +21,7 @@
 package org.vx68k.webapp.editor;
 
 import java.io.IOException;
+import java.io.Serializable;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -36,12 +37,14 @@ import javax.servlet.annotation.WebFilter;
  * @since 1.0
  */
 @WebFilter(urlPatterns = {"/*"})
-public final class AccessControlFilter implements Filter {
+public final class AccessControlFilter implements Filter, Serializable
+{
+    private static final long serialVersionUID = 1L;
 
     /**
      * Configuration given to {@code #init}.
      */
-    private FilterConfig config;
+    private transient FilterConfig config;
 
     /**
      * Returns the filter configuration given to {@code init}.
