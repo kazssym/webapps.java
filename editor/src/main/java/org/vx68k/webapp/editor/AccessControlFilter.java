@@ -42,12 +42,12 @@ public final class AccessControlFilter implements Filter, Serializable
     private static final long serialVersionUID = 1L;
 
     /**
-     * Configuration given to {@code #init}.
+     * Configuration given to {@link #init init}.
      */
     private transient FilterConfig config;
 
     /**
-     * Returns the filter configuration given to {@code init}.
+     * Returns the filter configuration given to {@link #init init}.
      *
      * @return the filter configuration
      */
@@ -67,9 +67,11 @@ public final class AccessControlFilter implements Filter, Serializable
     }
 
     /**
-     * {@inheritDoc}
+     * Makes this filter inactive and forgets the filter configuration.
+     * After an invocation of this method, this filter does not work until
+     * {@link #init init} is invoked again.
      *
-     * Forgets the filter configuration.
+     * {@inheritDoc}
      */
     @Override
     public void destroy()
