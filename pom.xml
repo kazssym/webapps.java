@@ -80,16 +80,6 @@
                 <version>4.12</version>
             </dependency>
             <dependency>
-                <groupId>org.vx68k.webapp.pure</groupId>
-                <artifactId>pure-css</artifactId>
-                <version>0.6.0-1</version>
-            </dependency>
-            <dependency>
-                <groupId>org.vx68k.webapp.pure</groupId>
-                <artifactId>pure-css-grids</artifactId>
-                <version>0.6.0-1</version>
-            </dependency>
-            <dependency>
                 <groupId>org.vx68k.webapp.codemirror</groupId>
                 <artifactId>codemirror</artifactId>
                 <version>5.19.0-1-SNAPSHOT</version>
