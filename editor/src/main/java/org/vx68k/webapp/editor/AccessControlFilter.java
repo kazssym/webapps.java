@@ -47,9 +47,10 @@ public final class AccessControlFilter implements Filter, Serializable
     private transient FilterConfig config;
 
     /**
-     * Returns the filter configuration given to {@link #init init}.
+     * Returns the stored configuration previously given to
+     * {@link #init init}.
      *
-     * @return the filter configuration
+     * @return the stored configuration, or {@code null}
      */
     public FilterConfig getFilterConfig()
     {
@@ -57,7 +58,14 @@ public final class AccessControlFilter implements Filter, Serializable
     }
 
     /**
+     * Initializes this filter.
+     * The given configuration is to be stored until {@link #destroy destroy}
+     * is invoked later.
+     *
      * {@inheritDoc}
+     *
+     * @param filterConfig the configuration for this filter
+     * @exception ServletException if an error occurred
      */
     @Override
     public void init(final FilterConfig filterConfig) throws ServletException
@@ -67,7 +75,7 @@ public final class AccessControlFilter implements Filter, Serializable
     }
 
     /**
-     * Makes this filter inactive and forgets the filter configuration.
+     * Makes this filter inactive and releases the stored configuration.
      * After an invocation of this method, this filter does not work until
      * {@link #init init} is invoked again.
      *
