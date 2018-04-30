@@ -26,7 +26,7 @@
     <packaging>pom</packaging>
     <name>Web Applications Parent</name>
     <description>Parent project for web applications</description>
-    <url>https://vx68k.bitbucket.io/webapps</url>
+    <url>https://linuxfront.bitbucket.io/webapps/</url>
     <inceptionYear>2017</inceptionYear>
     <licenses>
         <license>
