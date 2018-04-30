@@ -8,10 +8,22 @@ notice and this notice are preserved.  This file is offered as-is,
 without any warranty.
 */
 
+html
+{
+    height: 100%;
+}
+
+body
+{
+    height: 100%;
+    color: #333333;
+    background: #ffffff;
+}
+
 #top {
-  text-align: right;
+    text-align: right;
 }
 
 #top .layout-left {
-  float: left;
+    float: left;
 }
