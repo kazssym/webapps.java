@@ -37,11 +37,3 @@ body
 {
     flex: auto;
 }
-
-#top {
-    text-align: right;
-}
-
-#top .layout-left {
-    float: left;
-}
