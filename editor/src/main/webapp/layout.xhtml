@@ -10,7 +10,7 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <script async="async" defer="defer" jsf:name="scripts/layout.js" jsf:target="body" />
     </head>
-    <body jsf:lang="en-US">
+    <body class="app-vbox" jsf:lang="en-US">
         <div id="top" class="pure-menu pure-menu-horizontal">
             <span class="pure-menu-item layout-left">
                 <a class="pure-menu-link">
@@ -26,8 +26,8 @@
                 </li>
             </ul>
         </div>
-        <div id="content">
-            <main>
+        <div class="app-vbox-grow app-vbox">
+            <main class="app-vbox-grow">
                 <ui:insert name="main">Main content</ui:insert>
             </main>
             <ui:debug />

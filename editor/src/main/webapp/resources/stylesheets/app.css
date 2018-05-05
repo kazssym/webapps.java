@@ -20,6 +20,28 @@ body
     background: #ffffff;
 }
 
+main
+{
+}
+
+.app-hbox
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.app-vbox
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.app-hbox > .app-hbox-grow,
+.app-vbox > .app-vbox-grow
+{
+    flex: auto;
+}
+
 #top {
     text-align: right;
 }
