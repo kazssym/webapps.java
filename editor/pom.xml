@@ -35,11 +35,6 @@
             <artifactId>javaee-web-api</artifactId>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.vx68k.webapp.codemirror</groupId>
-            <artifactId>codemirror</artifactId>
-            <scope>runtime</scope>
-        </dependency>
     </dependencies>
     <build>
     </build>
