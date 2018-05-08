@@ -5,10 +5,12 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:define name="main">
-        <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.37.0/codemirror.css" crossorigin="anonymous" />
         <script async="async" defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.37.0/codemirror.js" crossorigin="anonymous"></script>
         <script async="async" defer="defer" jsf:name="scripts/editor.js" jsf:target="body"></script>
 Hello from Facelets
         <textarea style="width: 100%" jsf:id="editor-text" jsf:value="text"></textarea>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.37.0/codemirror.min.css"
+              crossorigin="anonymous" rel="stylesheet"
+              integrity="sha256-I8NyGs4wjbMuBSUE40o55W6k6P7tu/7G28/JGUUYCIs=" />
     </ui:define>
 </ui:composition>
