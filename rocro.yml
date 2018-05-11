@@ -13,4 +13,4 @@ inspecode:
   pmd: {}
   eslint:
     options:
-      --env: browser
+      --env: browser,es6
