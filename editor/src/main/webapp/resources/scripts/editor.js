@@ -7,10 +7,15 @@
 
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => {
-        let textArea = document.getElementById("editor-text");
-        if (textArea != null) {
-            window.editor = CodeMirror.fromTextArea(textArea, {
-                });
-        }
-    });
+((scriptId) => {
+    let script = document.getElementById(scriptId);
+    if (script != null) {
+        script.addEventListener("load", () => {
+                let textArea = document.getElementById("editor-text");
+                if (textArea != null) {
+                    window.editor = CodeMirror.fromTextArea(textArea, {
+                        });
+                }
+            });
+    }
+})("codemirror-script");
