@@ -10,7 +10,9 @@
 inspecode:
   misspell: {}
   checkstyle: {}
-  pmd: {}
+  pmd:
+    ignore:
+      - "**/*.js"
   eslint:
     options:
       --env: browser,es6
