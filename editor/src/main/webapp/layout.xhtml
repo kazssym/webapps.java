@@ -31,9 +31,7 @@
             </ul>
         </div>
         <div class="app-vbox-grow app-hbox">
-            <main class="app-hbox-grow">
-                <ui:insert name="main">Main content</ui:insert>
-            </main>
+            <ui:insert name="main">Main content</ui:insert>
         </div>
         <ui:debug />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css"
@@ -45,5 +43,6 @@
         <link href="#{facesContext.externalContext
                     .encodeResourceURL(resource['stylesheets/app.css'])}"
               rel="stylesheet" />
+        <ui:insert name="end-body" />
     </body>
 </html>
