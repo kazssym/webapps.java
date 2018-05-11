@@ -7,15 +7,25 @@
 
 "use strict";
 
-((scriptId) => {
-    let script = document.getElementById(scriptId);
-    if (script != null) {
+((textAreaId, scriptId) => {
+    let activate = () => {
+        const CodeMirror = window.CodeMirror;
+
+        let textArea = document.getElementById(textAreaId);
+        if (textArea != null) {
+            window.editor = CodeMirror.fromTextArea(textArea, {
+                });
+        }
+    };
+
+    // To cope with asynchronous script loading.
+    if ('CodeMirror' in window) {
+        activate();
+    }
+    else {
+        let script = document.getElementById(scriptId);
         script.addEventListener("load", () => {
-                let textArea = document.getElementById("editor-text");
-                if (textArea != null) {
-                    window.editor = CodeMirror.fromTextArea(textArea, {
-                        });
-                }
+                activate();
             });
     }
-})("codemirror-script");
+})("editor-text", "codemirror-script");
