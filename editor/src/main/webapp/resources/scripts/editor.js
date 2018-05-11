@@ -7,13 +7,10 @@
 
 "use strict";
 
-// CodeMirror instance.
-let editor;
-
 document.addEventListener("DOMContentLoaded", () => {
         let textArea = document.getElementById("editor-text");
         if (textArea != null) {
-            editor = CodeMirror.fromTextArea(textArea, {
+            window.editor = CodeMirror.fromTextArea(textArea, {
                 });
         }
     });
