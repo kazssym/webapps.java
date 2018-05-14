@@ -29,7 +29,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Application manifest generator.
+ *
  * @author Kaz Nishimura
+ * @see <a href="https://www.w3.org/TR/appmanifest/">Web App Manifest</a>
  */
 @WebServlet(value = {"/manifest/*"}, name = "ManifestServlet")
 public final class ManifestServlet extends HttpServlet
@@ -43,8 +45,6 @@ public final class ManifestServlet extends HttpServlet
 
     /**
      * Generates an application manifest.
-     *
-     * @see <a href="https://www.w3.org/TR/appmanifest/">Web App Manifest</a>
      */
     @Override
     protected void doGet(final HttpServletRequest request,
