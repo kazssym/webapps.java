@@ -6,9 +6,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <head jsf:lang="en-US">
         <meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
-        <title>Text editor</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <script async="async" defer="defer" jsf:name="scripts/layout.js" jsf:target="body" />
+        <title>Text editor</title>
     </head>
     <body class="app-vbox" jsf:lang="en-US">
         <div id="top" class="pure-menu pure-menu-horizontal app-hbox">
@@ -33,7 +32,9 @@
         <div class="app-vbox-grow app-hbox">
             <ui:insert name="main">Main content</ui:insert>
         </div>
-        <ui:debug />
+        <script async="async" defer="defer"
+                src="#{facesContext.externalContext
+                     .encodeResourceURL(resource['scripts/layout.js'])}"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css"
               crossorigin="anonymous" rel="stylesheet"
               integrity="sha256-Q0zCrUs2IfXWYx0uMKJfG93CvF6oVII21waYsAV4/8Q=" />
@@ -44,5 +45,6 @@
                     .encodeResourceURL(resource['stylesheets/app.css'])}"
               rel="stylesheet" />
         <ui:insert name="end-body" />
+        <ui:debug />
     </body>
 </html>
