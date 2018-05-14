@@ -36,15 +36,15 @@ public final class ManifestServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
+    /**
+     * Content type of application manifests.
+     */
     private static final String CONTENT_TYPE = "application/manifest+json";
 
     /**
      * Generates an application manifest.
      *
-     * @param request {@inheritDoc}
-     * @param response {@inheritDoc}
-     * @exception ServletException {@inheritDoc}
-     * @exception IOException {@inheritDoc}
+     * @see <a href="https://www.w3.org/TR/appmanifest/">Web App Manifest</a>
      */
     @Override
     protected void doGet(final HttpServletRequest request,
