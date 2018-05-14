@@ -31,7 +31,7 @@ import javax.servlet.http.HttpServletResponse;
  * Application manifest generator.
  * @author Kaz Nishimura
  */
-@WebServlet(value = {"/manifest/*"})
+@WebServlet(value = {"/manifest/*"}, name="ManifestServlet")
 public final class ManifestServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
