@@ -32,6 +32,7 @@ import javax.servlet.http.HttpServletResponse;
  * Application manifest generator.
  *
  * @author Kaz Nishimura
+ * @since 1.0
  * @see <a href="https://www.w3.org/TR/appmanifest/">Web App Manifest</a>
  */
 @WebServlet(name = "ManifestServlet", urlPatterns = {"/manifest/*"})
