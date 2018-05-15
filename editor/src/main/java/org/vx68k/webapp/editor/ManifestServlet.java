@@ -21,6 +21,7 @@
 package org.vx68k.webapp.editor;
 
 import java.io.IOException;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,6 +43,32 @@ public final class ManifestServlet extends HttpServlet
      * Content type of application manifests.
      */
     private static final String CONTENT_TYPE = "application/manifest+json";
+
+    /**
+     * Generated manifest.
+     */
+    protected transient Manifest manifest;
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void init(final ServletConfig config)
+        throws ServletException
+    {
+        super.init(config);
+        manifest = new Manifest();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void destroy()
+    {
+        super.destroy();
+        manifest = null;
+    }
 
     /**
      * Generates an application manifest.
