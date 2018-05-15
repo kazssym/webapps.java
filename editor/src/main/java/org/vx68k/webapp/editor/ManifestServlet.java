@@ -34,7 +34,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Kaz Nishimura
  * @see <a href="https://www.w3.org/TR/appmanifest/">Web App Manifest</a>
  */
-@WebServlet(name = "ManifestServlet", value = {"/manifest/*"})
+@WebServlet(name = "ManifestServlet", urlPatterns = {"/manifest/*"})
 public final class ManifestServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
