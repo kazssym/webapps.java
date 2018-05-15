@@ -36,7 +36,7 @@ import javax.servlet.annotation.WebFilter;
  * @author Kaz Nishimura
  * @since 1.0
  */
-@WebFilter(urlPatterns = {"/*"})
+@WebFilter(filterName = "AccessControlFilter", urlPatterns = {"/*"})
 public final class AccessControlFilter implements Filter, Serializable
 {
     private static final long serialVersionUID = 1L;
