@@ -16,7 +16,7 @@ See the [repository wiki][wiki] for more information.
 
 # Prerequisites
 
-To deploy the contained applications, a server platform compatible to the
+To deploy the contained applications, a server platform compatible with the
 following specifications is required:
 
   - [Java SE][] 8
