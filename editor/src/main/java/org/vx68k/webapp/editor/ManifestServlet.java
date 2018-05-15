@@ -48,7 +48,7 @@ public final class ManifestServlet extends HttpServlet
     /**
      * Generated manifest.
      */
-    protected transient Manifest manifest;
+    private transient Manifest manifest;
 
     /**
      * {@inheritDoc}
