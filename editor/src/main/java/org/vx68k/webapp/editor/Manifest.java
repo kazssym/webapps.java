@@ -51,7 +51,7 @@ public class Manifest implements Serializable
      *
      * @return the name, or {@code null} if not specified
      */
-    public String getName()
+    public final String getName()
     {
         return name;
     }
@@ -61,7 +61,7 @@ public class Manifest implements Serializable
      *
      * @return the short name, or {@code null} if not specified
      */
-    public String getShortName()
+    public final String getShortName()
     {
         return shortName;
     }
@@ -71,7 +71,7 @@ public class Manifest implements Serializable
      *
      * @return a JSON object
      */
-    public JsonObject toJsonObject()
+    public final JsonObject toJsonObject()
     {
         JsonObjectBuilder builder = Json.createObjectBuilder();
         if (name != null) {
