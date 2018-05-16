@@ -21,6 +21,8 @@
 package org.vx68k.webapp.editor;
 
 import java.io.IOException;
+import javax.json.Json;
+import javax.json.JsonWriter;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,12 +53,23 @@ public final class ManifestServlet extends HttpServlet
     private transient Manifest manifest;
 
     /**
+     * Returns the generated manifest.
+     *
+     * @return the generated manifest
+     */
+    public Manifest getManifest()
+    {
+        return manifest;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public void init(final ServletConfig config)
         throws ServletException
     {
+        assert config != null;
         super.init(config);
         manifest = new Manifest();
     }
@@ -79,10 +92,17 @@ public final class ManifestServlet extends HttpServlet
                          final HttpServletResponse response)
         throws ServletException, IOException
     {
+        if (manifest == null) {
+            throw new IllegalStateException("Not initialized");
+        }
+
         response.setContentType(CONTENT_TYPE);
-        // TODO: Construct a real manifest.
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().print("{}");
-        response.getWriter().close();
+        JsonWriter writer = Json.createWriter(response.getOutputStream());
+        try {
+            writer.writeObject(manifest.toJsonObject());
+        }
+        finally {
+            writer.close();
+        }
     }
 }
