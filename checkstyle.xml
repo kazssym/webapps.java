@@ -51,10 +51,12 @@
         <module name="AvoidNestedBlocks" />
         <module name="EmptyBlock" />
         <module name="LeftCurly">
-            <property name="tokens" value="LITERAL_WHILE, LITERAL_TRY, LITERAL_CATCH, LITERAL_FINALLY, LITERAL_SYNCHRONIZED, LITERAL_SWITCH, LITERAL_DO, LITERAL_IF, LITERAL_ELSE, LITERAL_FOR" />
+            <property name="tokens" value="LITERAL_WHILE, LITERAL_TRY, LITERAL_CATCH, LITERAL_FINALLY, LITERAL_SYNCHRONIZED, LITERAL_SWITCH, LITERAL_DO, LITERAL_IF, LITERAL_ELSE, LITERAL_FOR, LAMBDA" />
         </module>
         <module name="NeedBraces" />
-        <module name="RightCurly" />
+        <module name="RightCurly">
+            <property name="option" value="alone" />
+        </module>
         <module name="AvoidInlineConditionals" />
         <module name="EmptyStatement" />
         <module name="EqualsHashCode" />
