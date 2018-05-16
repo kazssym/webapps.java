@@ -47,13 +47,23 @@ public class Manifest implements Serializable
     private String shortName;
 
     /**
-     * Returns the (long) name of the application.
+     * Returns the name of the application.
      *
      * @return the name, or {@code null} if not specified
      */
     public final String getName()
     {
         return name;
+    }
+
+    /**
+     * Sets the name of the application.
+     *
+     * @param newName the new name
+     */
+    public final void setName(final String newName)
+    {
+        name = newName;
     }
 
     /**
@@ -64,6 +74,16 @@ public class Manifest implements Serializable
     public final String getShortName()
     {
         return shortName;
+    }
+
+    /**
+     * Sets the short name of the application.
+     *
+     * @param newShortName the new short name
+     */
+    public final void setShortName(final String newShortName)
+    {
+        shortName = newShortName;
     }
 
     /**
