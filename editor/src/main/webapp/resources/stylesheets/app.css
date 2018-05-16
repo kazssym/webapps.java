@@ -20,6 +20,11 @@ body
     background: #ffffff;
 }
 
+.app-top
+{
+    background: #eeeeee;
+}
+
 .app-hbox
 {
     display: flex;
@@ -33,7 +38,8 @@ body
 }
 
 .app-hbox > .app-hbox-grow,
-.app-vbox > .app-vbox-grow
+.app-vbox > .app-vbox-grow,
+.CodeMirror
 {
     flex: auto;
 }
