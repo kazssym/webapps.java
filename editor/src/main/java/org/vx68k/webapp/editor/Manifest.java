@@ -34,13 +34,23 @@ public class Manifest implements Serializable
     private static final long serialVersionUID = 1L;
 
     /**
+     * Name of the application.
+     */
+    private String name;
+
+    /**
+     * Short name of the application.
+     */
+    private String shortName;
+
+    /**
      * Returns the (long) name of the application.
      *
      * @return the name, or {@code null} if not specified
      */
     public String getName()
     {
-        return null;
+        return name;
     }
 
     /**
@@ -50,6 +60,6 @@ public class Manifest implements Serializable
      */
     public String getShortName()
     {
-        return null;
+        return shortName;
     }
 }
