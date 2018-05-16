@@ -21,6 +21,9 @@
 package org.vx68k.webapp.editor;
 
 import java.io.Serializable;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 
 /**
  * Application manifest.
@@ -61,5 +64,23 @@ public class Manifest implements Serializable
     public String getShortName()
     {
         return shortName;
+    }
+
+    /**
+     * Returns a JSON object that represents this manifest.
+     *
+     * @return a JSON object
+     */
+    public JsonObject toJsonObject()
+    {
+        JsonObjectBuilder builder = Json.createObjectBuilder();
+        if (name != null) {
+            builder.add("name", name);
+        }
+        if (shortName != null) {
+            builder.add("short_name", shortName);
+        }
+        // TODO: Add other properties.
+        return builder.build();
     }
 }
