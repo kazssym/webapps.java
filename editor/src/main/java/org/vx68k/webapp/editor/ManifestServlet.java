@@ -72,6 +72,7 @@ public final class ManifestServlet extends HttpServlet
         assert config != null;
         super.init(config);
         manifest = new Manifest();
+        manifest.setName("Dummy");
     }
 
     /**
