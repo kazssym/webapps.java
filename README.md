@@ -1,6 +1,6 @@
 # Description
 
-This project contains miscellaneous web applications implemented in Java.
+This directory contains miscellaneous web applications implemented in Java.
 
 See the [repository wiki][wiki] for more information.
 
@@ -20,7 +20,9 @@ To deploy the contained applications, a server platform compatible with the
 following specifications is required:
 
   - [Java SE][] 8
-  - [Java EE][] 7
+  - [Java EE][] 7 Web Profile
 
 [Java SE]: http://www.oracle.com/technetwork/java/javase/index.html
+           "Java Platform, Standard Edition"
 [Java EE]: http://www.oracle.com/technetwork/java/javaee/index.html
+           "Java Platform, Enterprise Edition"
