@@ -30,14 +30,14 @@
         <module>api</module>
     </modules>
     <scm>
-        <connection>scm:hg:https://bitbucket.org/kazssym/webapps</connection>
-        <developerConnection>scm:hg:ssh://hg@bitbucket.org/kazssym/webapps</developerConnection>
+        <connection>scm:hg:https://bitbucket.org/linuxfront/webapps</connection>
+        <developerConnection>scm:hg:ssh://hg@bitbucket.org/linuxfront/webapps</developerConnection>
         <tag>master</tag>
-        <url>https://bitbucket.org/kazssym/webapps/src</url>
+        <url>https://bitbucket.org/linuxfront/webapps/src</url>
     </scm>
     <issueManagement>
         <system>Bitbucket</system>
-        <url>https://bitbucket.org/kazssym/webapps/issues</url>
+        <url>https://bitbucket.org/linuxfront/webapps/issues</url>
     </issueManagement>
     <distributionManagement>
         <site>
