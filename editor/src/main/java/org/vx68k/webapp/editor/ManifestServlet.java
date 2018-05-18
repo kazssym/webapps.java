@@ -48,6 +48,16 @@ public final class ManifestServlet extends HttpServlet
     private static final String CONTENT_TYPE = "application/manifest+json";
 
     /**
+     * Name of the initialization parameter for the name of the application.
+     */
+    public static final String NAME = "name";
+
+    /**
+     * Name of the initialization parameter for the short name of the application.
+     */
+    public static final String SHORT_NAME = "shortName";
+
+    /**
      * Generated manifest.
      */
     private transient Manifest manifest;
@@ -63,6 +73,20 @@ public final class ManifestServlet extends HttpServlet
     }
 
     /**
+     * Generates a new manifest from the {@link ServletConfig} object.
+     *
+     * @return a new manifest
+     */
+    protected Manifest newManifest()
+    {
+        ServletConfig servletConfig = getServletConfig();
+        Manifest newManifest = new Manifest();
+        newManifest.setName(servletConfig.getInitParameter(NAME));
+        newManifest.setShortName(servletConfig.getInitParameter(SHORT_NAME));
+        return newManifest;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -71,8 +95,7 @@ public final class ManifestServlet extends HttpServlet
     {
         assert config != null;
         super.init(config);
-        manifest = new Manifest();
-        manifest.setName("Dummy");
+        manifest = newManifest();
     }
 
     /**
