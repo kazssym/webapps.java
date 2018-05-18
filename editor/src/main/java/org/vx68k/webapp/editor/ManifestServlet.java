@@ -25,6 +25,7 @@ import javax.json.Json;
 import javax.json.JsonWriter;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +38,11 @@ import javax.servlet.http.HttpServletResponse;
  * @since 1.0
  * @see <a href="https://www.w3.org/TR/appmanifest/">Web App Manifest</a>
  */
-@WebServlet(name = "ManifestServlet", urlPatterns = {"/manifest/*"})
+@WebServlet(name = "ManifestServlet", urlPatterns = {"/manifest/*"},
+    initParams = {
+        @WebInitParam(name = ManifestServlet.NAME, value = "Dummy App"),
+        @WebInitParam(name = ManifestServlet.SHORT_NAME, value = "Dummy"),
+    })
 public final class ManifestServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
