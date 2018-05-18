@@ -86,12 +86,14 @@ public final class ManifestServlet extends HttpServlet
     }
 
     /**
-     * Generates an application manifest.
+     * Serves the generated manifest as the response body.
+     *
+     * @exception IOException if an I/O exception has occurred
      */
     @Override
     protected void doGet(final HttpServletRequest request,
                          final HttpServletResponse response)
-        throws ServletException, IOException
+        throws IOException
     {
         if (manifest == null) {
             throw new IllegalStateException("Not initialized");
