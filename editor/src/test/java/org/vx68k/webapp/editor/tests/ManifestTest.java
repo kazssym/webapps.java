@@ -20,12 +20,13 @@
 
 package org.vx68k.webapp.editor.tests;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.vx68k.webapp.editor.Manifest;
 
+import static org.junit.Assert.*;
+
 /**
- * Test case for {@link Manifest}.
+ * Test fixture for {@link Manifest}.
  *
  * @author Kaz Nishimura
  * @since 1.0
@@ -33,13 +34,30 @@ import org.vx68k.webapp.editor.Manifest;
 public class ManifestTest
 {
     /**
-     * Tests the default properties.
+     * Tests the {@code name} property.
      */
     @Test
-    public void testDefaults()
+    public void testName()
     {
         Manifest manifest = new Manifest();
-        Assert.assertNull(manifest.getName());
-        Assert.assertNull(manifest.getShortName());
+        assertNull(manifest.getName());
+        manifest.setName("a name");
+        assertEquals("a name", manifest.getName());
+        manifest.setName(null);
+        assertNull(manifest.getName());
+    }
+
+    /**
+     * Tests the {@code shortName} property.
+     */
+    @Test
+    public void testShortName()
+    {
+        Manifest manifest = new Manifest();
+        assertNull(manifest.getShortName());
+        manifest.setShortName("a short name");
+        assertEquals("a short name", manifest.getShortName());
+        manifest.setShortName(null);
+        assertNull(manifest.getShortName());
     }
 }
