@@ -1,9 +1,10 @@
 syntax: regexp
 (^|/)target$
 (^|/).env$
+(^|/)faces-config\.NavData$
 (^|/)\.project$
 (^|/)\.classpath$
-(^|/)\.settings/[^/]*\.prefs$
+(^|/)\.settings$
 \.rej$
 \.orig$
 ~$
