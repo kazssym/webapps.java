@@ -23,7 +23,8 @@ package org.vx68k.webapp.editor.tests;
 import org.junit.Test;
 import org.vx68k.webapp.editor.Manifest;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 /**
  * Test fixture for {@link Manifest}.
