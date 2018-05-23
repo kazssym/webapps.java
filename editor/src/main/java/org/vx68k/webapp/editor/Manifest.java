@@ -130,7 +130,12 @@ public class Manifest implements Serializable
         if (icons != null) {
             JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
             Arrays.stream(icons).forEachOrdered((icon) -> {
-                    arrayBuilder.add(icon.toJsonObject());
+                    if (icon != null) {
+                        arrayBuilder.add(icon.toJsonObject());
+                    }
+                    else {
+                        arrayBuilder.addNull();
+                    }
                 });
             builder.add("icons", arrayBuilder);
         }
