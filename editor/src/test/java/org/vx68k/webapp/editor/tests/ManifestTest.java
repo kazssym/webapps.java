@@ -20,11 +20,12 @@
 
 package org.vx68k.webapp.editor.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Test;
 import org.vx68k.webapp.editor.Manifest;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 /**
  * Test fixture for {@link Manifest}.
@@ -32,7 +33,7 @@ import static org.junit.Assert.assertNull;
  * @author Kaz Nishimura
  * @since 1.0
  */
-public class ManifestTest
+public final class ManifestTest
 {
     /**
      * Tests the {@code name} property.
@@ -41,11 +42,13 @@ public class ManifestTest
     public void testName()
     {
         Manifest manifest = new Manifest();
-        assertNull(manifest.getName());
+        assertNull("manifest.name", manifest.getName());
+        assertFalse("'name' in JSON(manifest)", manifest.toJsonObject().containsKey("name"));
         manifest.setName("a name");
-        assertEquals("a name", manifest.getName());
+        assertEquals("manifest.name", "a name", manifest.getName());
+        assertEquals("JSON(manifest)['name']", "a name", manifest.toJsonObject().getString("name"));
         manifest.setName(null);
-        assertNull(manifest.getName());
+        assertNull("manifest.name", manifest.getName());
     }
 
     /**
@@ -55,10 +58,12 @@ public class ManifestTest
     public void testShortName()
     {
         Manifest manifest = new Manifest();
-        assertNull(manifest.getShortName());
+        assertNull("manifest.shortName", manifest.getShortName());
+        assertFalse("'short_name' in JSON(manifest)", manifest.toJsonObject().containsKey("short_name"));
         manifest.setShortName("a short name");
-        assertEquals("a short name", manifest.getShortName());
+        assertEquals("manifest.shortName", "a short name", manifest.getShortName());
+        assertEquals("JSON(manifest)['short_name']", "a short name", manifest.toJsonObject().getString("short_name"));
         manifest.setShortName(null);
-        assertNull(manifest.getShortName());
+        assertNull("manifest.shortName", manifest.getShortName());
     }
 }
