@@ -21,6 +21,7 @@
 package org.vx68k.webapp.editor;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
@@ -128,9 +129,9 @@ public class Manifest implements Serializable
         }
         if (icons != null) {
             JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-            for (ManifestImage icon : icons) {
-                arrayBuilder.add(icon.toJsonObject());
-            }
+            Arrays.stream(icons).forEachOrdered((icon) -> {
+                    arrayBuilder.add(icon.toJsonObject());
+                });
             builder.add("icons", arrayBuilder);
         }
         return builder.build();
