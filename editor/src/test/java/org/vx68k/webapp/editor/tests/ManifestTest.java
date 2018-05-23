@@ -22,10 +22,15 @@ package org.vx68k.webapp.editor.tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import javax.json.JsonValue;
 
 import org.junit.Test;
 import org.vx68k.webapp.editor.Manifest;
+import org.vx68k.webapp.editor.ManifestImage;
 
 /**
  * Test fixture for {@link Manifest}.
@@ -43,10 +48,14 @@ public final class ManifestTest
     {
         Manifest manifest = new Manifest();
         assertNull("manifest.name", manifest.getName());
-        assertFalse("'name' in JSON(manifest)", manifest.toJsonObject().containsKey("name"));
+        assertFalse("'name' in JSON(manifest)",
+            manifest.toJsonObject().containsKey("name"));
+
         manifest.setName("a name");
         assertEquals("manifest.name", "a name", manifest.getName());
-        assertEquals("JSON(manifest)['name']", "a name", manifest.toJsonObject().getString("name"));
+        assertEquals("JSON(manifest)['name']", "a name",
+            manifest.toJsonObject().getString("name"));
+
         manifest.setName(null);
         assertNull("manifest.name", manifest.getName());
     }
@@ -59,11 +68,46 @@ public final class ManifestTest
     {
         Manifest manifest = new Manifest();
         assertNull("manifest.shortName", manifest.getShortName());
-        assertFalse("'short_name' in JSON(manifest)", manifest.toJsonObject().containsKey("short_name"));
+        assertFalse("'short_name' in JSON(manifest)",
+            manifest.toJsonObject().containsKey("short_name"));
+
         manifest.setShortName("a short name");
-        assertEquals("manifest.shortName", "a short name", manifest.getShortName());
-        assertEquals("JSON(manifest)['short_name']", "a short name", manifest.toJsonObject().getString("short_name"));
+        assertEquals("manifest.shortName", "a short name",
+            manifest.getShortName());
+        assertEquals("JSON(manifest)['short_name']", "a short name",
+            manifest.toJsonObject().getString("short_name"));
+
         manifest.setShortName(null);
         assertNull("manifest.shortName", manifest.getShortName());
+    }
+
+    /**
+     * Tests the {@code icons} property.
+     */
+    @Test
+    public void testIcons()
+    {
+        Manifest manifest = new Manifest();
+        assertNull("manifest.icons", manifest.getIcons());
+        assertFalse("'icons' in JSON(manifest)",
+            manifest.toJsonObject().containsKey("icons"));
+
+        manifest.setIcons(new ManifestImage[0]);
+        assertEquals("manifest.icons.length", 0, manifest.getIcons().length);
+        assertEquals("JSON(manifest)['icons'].length", 0,
+            manifest.toJsonObject().getJsonArray("icons").size());
+
+        manifest.setIcons(new ManifestImage[1]);
+        assertNull("manifest.icons[0]", manifest.getIcons()[0]);
+        assertTrue("JSON(manifest)['icons'][0]",
+            manifest.toJsonObject().getJsonArray("icons").isNull(0));
+
+        manifest.setIcons(new ManifestImage[] {new ManifestImage()});
+        assertNotNull("manifest.icons[0]", manifest.getIcons()[0]);
+        assertNotNull("JSON(manifest)['icons'][0]",
+            manifest.toJsonObject().getJsonArray("icons").getJsonObject(0));
+
+        manifest.setIcons(null);
+        assertNull("manifest.icons", manifest.getIcons());
     }
 }
