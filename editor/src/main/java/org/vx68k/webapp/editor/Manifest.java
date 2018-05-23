@@ -22,6 +22,7 @@ package org.vx68k.webapp.editor;
 
 import java.io.Serializable;
 import javax.json.Json;
+import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 
@@ -45,6 +46,11 @@ public class Manifest implements Serializable
      * Short name of the application.
      */
     private String shortName;
+
+    /**
+     * Icon resources of the application.
+     */
+    private ManifestImage[] icons;
 
     /**
      * Returns the name of the application.
@@ -87,6 +93,26 @@ public class Manifest implements Serializable
     }
 
     /**
+     * Returns the icon resources of the application.
+     *
+     * @return the icon resouces, or {@code null} if not specified
+     */
+    public final ManifestImage[] getIcons()
+    {
+        return icons;
+    }
+
+    /**
+     * Sets the icon resources of the application.
+     *
+     * @param newIcons the new icon resources
+     */
+    public final void setIcons(final ManifestImage[] newIcons)
+    {
+        icons = newIcons;
+    }
+
+    /**
      * Returns a JSON object that represents this manifest.
      *
      * @return a JSON object
@@ -100,7 +126,13 @@ public class Manifest implements Serializable
         if (shortName != null) {
             builder.add("short_name", shortName);
         }
-        // TODO: Add other properties.
+        if (icons != null) {
+            JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
+            for (ManifestImage icon : icons) {
+                arrayBuilder.add(icon.toJsonObject());
+            }
+            builder.add("icons", arrayBuilder);
+        }
         return builder.build();
     }
 }
