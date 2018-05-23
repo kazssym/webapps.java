@@ -61,9 +61,9 @@ public class ManifestImage implements Serializable
     }
 
     /**
-     * Returns the JSON representation for this instance.
+     * Returns a JSON object that represents this image resource.
      *
-     * @return the JSON representation
+     * @return a JSON object
      */
     public final JsonObject toJsonObject()
     {
