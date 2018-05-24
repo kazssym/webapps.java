@@ -61,7 +61,7 @@ public final class ManifestServlet extends HttpServlet
      * Name of the initialization parameter for the short name of the
      * application.
      */
-    public static final String SHORT_NAME = "shortName";
+    public static final String SHORT_NAME = "short_name";
 
     /**
      * Generated manifest.
