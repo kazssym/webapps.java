@@ -64,6 +64,11 @@ public final class ManifestServlet extends HttpServlet
     public static final String SHORT_NAME = "short_name";
 
     /**
+     * Name of the initialization parameter for the icons of the application.
+     */
+    public static final String ICONS = "icons";
+
+    /**
      * Generated manifest.
      */
     private transient Manifest manifest;
