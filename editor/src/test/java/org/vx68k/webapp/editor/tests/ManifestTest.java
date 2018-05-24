@@ -26,8 +26,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import javax.json.JsonValue;
-
 import org.junit.Test;
 import org.vx68k.webapp.editor.Manifest;
 import org.vx68k.webapp.editor.ManifestImage;
