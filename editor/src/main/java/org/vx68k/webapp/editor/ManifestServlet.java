@@ -21,8 +21,6 @@
 package org.vx68k.webapp.editor;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Arrays;
 import javax.json.Json;
 import javax.json.JsonWriter;
