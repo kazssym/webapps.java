@@ -43,10 +43,14 @@ public final class ManifestImageTest
     {
         ManifestImage image = new ManifestImage();
         assertNull("image.src", image.getSrc());
-        assertFalse("'src' in JSON(image)", image.toJsonObject().containsKey("src"));
+        assertFalse("'src' in JSON(image)",
+            image.toJsonObject().containsKey("src"));
+
         image.setSrc("http://example.com/");
         assertEquals("image.src", "http://example.com/", image.getSrc());
-        assertEquals("JSON(image)['src']", "http://example.com/", image.toJsonObject().getString("src"));
+        assertEquals("JSON(image)['src']", "http://example.com/",
+            image.toJsonObject().getString("src"));
+
         image.setSrc(null);
         assertNull("image.src", image.getSrc());
     }
