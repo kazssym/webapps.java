@@ -94,7 +94,19 @@ public final class ManifestServlet extends HttpServlet
         Manifest newManifest = new Manifest();
         newManifest.setName(servletConfig.getInitParameter(NAME));
         newManifest.setShortName(servletConfig.getInitParameter(SHORT_NAME));
+        newManifest.setIcons(createIcons(servletConfig));
         return newManifest;
+    }
+
+    /**
+     * Creates a new array of icons from a {@link ServletConfig} object.
+     *
+     * @param config a {@link ServletConfig} object
+     * @return a new array of icons
+     */
+    protected static ManifestImage[] createIcons(final ServletConfig config)
+    {
+        return null;
     }
 
     /**
