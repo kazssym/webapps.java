@@ -84,7 +84,7 @@ public class ManifestServlet extends HttpServlet
      * @param config a {@link ServletConfig} object
      * @return a new manifest
      */
-    protected static final Manifest createManifest(final ServletConfig config)
+    protected static Manifest createManifest(final ServletConfig config)
     {
         Manifest newManifest = new Manifest();
         newManifest.setName(config.getInitParameter(NAME));
@@ -99,8 +99,7 @@ public class ManifestServlet extends HttpServlet
      * @param config a {@link ServletConfig} object
      * @return a new array of icons
      */
-    protected static final ManifestImage[] createIcons(
-        final ServletConfig config)
+    protected static ManifestImage[] createIcons(final ServletConfig config)
     {
         final ServletContext context = config.getServletContext();
 
