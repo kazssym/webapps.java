@@ -21,9 +21,13 @@
 package org.vx68k.webapp.editor;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
 import javax.json.Json;
 import javax.json.JsonWriter;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -108,7 +112,21 @@ public final class ManifestServlet extends HttpServlet
      */
     protected static ManifestImage[] createIcons(final ServletConfig config)
     {
-        return null;
+        final ServletContext context = config.getServletContext();
+
+        String[] keys = config.getInitParameter(ICONS).split("\\s+");
+        return Arrays.stream(keys).map((key) -> {
+                String baseName = ICONS + "." + key;
+                ManifestImage icon = new ManifestImage();
+                String src = config.getInitParameter(baseName);
+                if (src != null) {
+                    if (src.startsWith("/")) {
+                        src = context.getContextPath() + src;
+                    }
+                    icon.setSrc(src);
+                }
+                return icon;
+            }).toArray(ManifestImage[]::new);
     }
 
     /**
