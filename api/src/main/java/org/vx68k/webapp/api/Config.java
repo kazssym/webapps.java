@@ -54,17 +54,19 @@ public final class Config
 
     /**
      * Sets the client identifier for Google Sign-In.
-     * If the value is {@code "!"}, the client identifier is set to the value
-     * of system property {@value #SIGN_IN_CLIENT_ID_PROPERTY}.
+     * If the new value is {@code null} or {@code "!"}, the value of system
+     * property {@value #SIGN_IN_CLIENT_ID_PROPERTY} is used instead.
      *
      * @param value the new client identifier
      */
     @Resource(name = "signInClientId")
-    public void setSignInClientId(String value)
+    public void setSignInClientId(final String value)
     {
-        if ("!".equals(value)) {
-            value = System.getProperty(SIGN_IN_CLIENT_ID_PROPERTY);
+        if (value == null || value.equals("!")) {
+            signInClientId = System.getProperty(SIGN_IN_CLIENT_ID_PROPERTY);
         }
-        signInClientId = value;
+        else {
+            signInClientId = value;
+        }
     }
 }
