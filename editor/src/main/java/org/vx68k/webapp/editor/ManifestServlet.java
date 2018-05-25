@@ -84,11 +84,11 @@ public final class ManifestServlet extends HttpServlet
     }
 
     /**
-     * Generates a new manifest from the {@link ServletConfig} object.
+     * Creates a new manifest from the {@link ServletConfig} object.
      *
      * @return a new manifest
      */
-    protected Manifest newManifest()
+    protected Manifest createManifest()
     {
         ServletConfig servletConfig = getServletConfig();
         Manifest newManifest = new Manifest();
@@ -106,7 +106,7 @@ public final class ManifestServlet extends HttpServlet
     {
         assert config != null;
         super.init(config);
-        manifest = newManifest();
+        manifest = createManifest();
     }
 
     /**
