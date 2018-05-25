@@ -12,7 +12,7 @@
     const init = function () {
         if (!once) {
             once = true;
-            console.log("init once");
+            window.console.log("init once");
         }
     };
 
