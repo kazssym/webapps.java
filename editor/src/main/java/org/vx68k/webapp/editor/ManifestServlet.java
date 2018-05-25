@@ -42,6 +42,8 @@ import javax.servlet.http.HttpServletResponse;
     initParams = {
         @WebInitParam(name = ManifestServlet.NAME, value = "Dummy App"),
         @WebInitParam(name = ManifestServlet.SHORT_NAME, value = "Dummy"),
+        @WebInitParam(name = ManifestServlet.ICONS, value = "1"),
+        @WebInitParam(name = ManifestServlet.ICONS + ".1", value = ""),
     })
 public final class ManifestServlet extends HttpServlet
 {
