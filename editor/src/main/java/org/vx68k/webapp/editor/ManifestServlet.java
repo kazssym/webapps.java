@@ -84,17 +84,17 @@ public final class ManifestServlet extends HttpServlet
     }
 
     /**
-     * Creates a new manifest from the {@link ServletConfig} object.
+     * Creates a new manifest from a {@link ServletConfig} object.
      *
+     * @param config a {@link ServletConfig} object
      * @return a new manifest
      */
-    protected Manifest createManifest()
+    protected static Manifest createManifest(final ServletConfig config)
     {
-        ServletConfig servletConfig = getServletConfig();
         Manifest newManifest = new Manifest();
-        newManifest.setName(servletConfig.getInitParameter(NAME));
-        newManifest.setShortName(servletConfig.getInitParameter(SHORT_NAME));
-        newManifest.setIcons(createIcons(servletConfig));
+        newManifest.setName(config.getInitParameter(NAME));
+        newManifest.setShortName(config.getInitParameter(SHORT_NAME));
+        newManifest.setIcons(createIcons(config));
         return newManifest;
     }
 
@@ -118,7 +118,7 @@ public final class ManifestServlet extends HttpServlet
     {
         assert config != null;
         super.init(config);
-        manifest = createManifest();
+        manifest = createManifest(getServletConfig());
     }
 
     /**
