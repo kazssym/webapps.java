@@ -1,5 +1,5 @@
 /*
- * ManifestTest.java
+ * ManifestTest.java - class ManifestTest
  * Copyright (C) 2018 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -27,8 +27,8 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.vx68k.webapp.manifest.ImageResource;
 import org.vx68k.webapp.manifest.Manifest;
-import org.vx68k.webapp.manifest.ManifestImage;
 
 /**
  * Test fixture for {@link Manifest}.
@@ -90,17 +90,17 @@ public final class ManifestTest
         assertFalse("'icons' in JSON(manifest)",
             manifest.toJsonObject().containsKey("icons"));
 
-        manifest.setIcons(new ManifestImage[0]);
+        manifest.setIcons(new ImageResource[0]);
         assertEquals("manifest.icons.length", 0, manifest.getIcons().length);
         assertEquals("JSON(manifest)['icons'].length", 0,
             manifest.toJsonObject().getJsonArray("icons").size());
 
-        manifest.setIcons(new ManifestImage[1]);
+        manifest.setIcons(new ImageResource[1]);
         assertNull("manifest.icons[0]", manifest.getIcons()[0]);
         assertTrue("JSON(manifest)['icons'][0]",
             manifest.toJsonObject().getJsonArray("icons").isNull(0));
 
-        manifest.setIcons(new ManifestImage[] {new ManifestImage()});
+        manifest.setIcons(new ImageResource[] {new ImageResource()});
         assertNotNull("manifest.icons[0]", manifest.getIcons()[0]);
         assertNotNull("JSON(manifest)['icons'][0]",
             manifest.toJsonObject().getJsonArray("icons").getJsonObject(0));

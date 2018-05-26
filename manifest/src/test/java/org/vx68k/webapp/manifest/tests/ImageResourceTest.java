@@ -1,5 +1,5 @@
 /*
- * ManifestImageTest.java
+ * ImageResourceTest.java - class ImageResourceTest
  * Copyright (C) 2018 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -25,15 +25,15 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
-import org.vx68k.webapp.manifest.ManifestImage;
+import org.vx68k.webapp.manifest.ImageResource;
 
 /**
- * Test fixture for {@link ManifestImage}.
+ * Test fixture for {@link ImageResource}.
  *
  * @author Kaz Nishimura
  * @since 1.0
  */
-public final class ManifestImageTest
+public final class ImageResourceTest
 {
     /**
      * Tests the {@code src} property.
@@ -41,7 +41,7 @@ public final class ManifestImageTest
     @Test
     public void testSrc()
     {
-        ManifestImage image = new ManifestImage();
+        ImageResource image = new ImageResource();
         assertNull("image.src", image.getSrc());
         assertFalse("'src' in JSON(image)",
             image.toJsonObject().containsKey("src"));
@@ -61,7 +61,7 @@ public final class ManifestImageTest
     @Test
     public void testSizes()
     {
-        ManifestImage image = new ManifestImage();
+        ImageResource image = new ImageResource();
         assertNull("image.sizes", image.getSizes());
         assertFalse("'sizes' in JSON(image)",
             image.toJsonObject().containsKey("sizes"));
@@ -81,7 +81,7 @@ public final class ManifestImageTest
     @Test
     public void testType()
     {
-        ManifestImage image = new ManifestImage();
+        ImageResource image = new ImageResource();
         assertNull("image.type", image.getType());
         assertFalse("'type' in JSON(image)",
             image.toJsonObject().containsKey("type"));

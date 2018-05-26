@@ -51,7 +51,7 @@ public class Manifest implements Serializable
     /**
      * Icons of the web app.
      */
-    private ManifestImage[] icons;
+    private ImageResource[] icons;
 
     /**
      * Returns the name of the web app.
@@ -98,7 +98,7 @@ public class Manifest implements Serializable
      *
      * @return the icons, or {@code null} if not specified
      */
-    public final ManifestImage[] getIcons()
+    public final ImageResource[] getIcons()
     {
         return icons;
     }
@@ -108,7 +108,7 @@ public class Manifest implements Serializable
      *
      * @param value the new icons
      */
-    public final void setIcons(final ManifestImage[] value)
+    public final void setIcons(final ImageResource[] value)
     {
         icons = value;
     }

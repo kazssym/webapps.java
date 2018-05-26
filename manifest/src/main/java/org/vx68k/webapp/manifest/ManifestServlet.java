@@ -1,5 +1,5 @@
 /*
- * ManifestServlet.java - web app manifest generator
+ * ManifestServlet.java - class ManifestServlet
  * Copyright (C) 2018 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -99,14 +99,14 @@ public class ManifestServlet extends HttpServlet
      * @param config a {@link ServletConfig} object
      * @return a new array of icons
      */
-    protected static ManifestImage[] createIcons(final ServletConfig config)
+    protected static ImageResource[] createIcons(final ServletConfig config)
     {
         final ServletContext context = config.getServletContext();
 
         String[] keys = config.getInitParameter(ICONS).split("\\s+");
         return Arrays.stream(keys).map((key) -> {
                 String baseName = ICONS + "." + key;
-                ManifestImage icon = new ManifestImage();
+                ImageResource icon = new ImageResource();
                 String src = config.getInitParameter(baseName);
                 String sizes = config.getInitParameter(baseName + ".sizes");
                 String type = config.getInitParameter(baseName + ".type");
@@ -123,7 +123,7 @@ public class ManifestServlet extends HttpServlet
                     icon.setType(type);
                 }
                 return icon;
-            }).toArray(ManifestImage[]::new);
+            }).toArray(ImageResource[]::new);
     }
 
     /**

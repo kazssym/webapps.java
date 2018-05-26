@@ -1,5 +1,5 @@
 /*
- * ManifestImage.java - image resource in web app manifests
+ * ImageResource.java - class ImageResource
  * Copyright (C) 2018 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -31,7 +31,7 @@ import javax.json.JsonObjectBuilder;
  * @author Kaz Nishimura
  * @since 1.0
  */
-public class ManifestImage implements Serializable
+public class ImageResource implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
