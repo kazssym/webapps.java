@@ -1,5 +1,5 @@
 /*
- * ManifestTest.java - class ManifestTest
+ * WebAppManifestTest.java - class WebAppManifestTest
  * Copyright (C) 2018 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -28,15 +28,15 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.vx68k.webapp.manifest.ImageResource;
-import org.vx68k.webapp.manifest.Manifest;
+import org.vx68k.webapp.manifest.WebAppManifest;
 
 /**
- * Test fixture for {@link Manifest}.
+ * Test fixture for {@link WebAppManifest}.
  *
  * @author Kaz Nishimura
  * @since 1.0
  */
-public final class ManifestTest
+public final class WebAppManifestTest
 {
     /**
      * Tests the {@code name} property.
@@ -44,7 +44,7 @@ public final class ManifestTest
     @Test
     public void testName()
     {
-        Manifest manifest = new Manifest();
+        WebAppManifest manifest = new WebAppManifest();
         assertNull("manifest.name", manifest.getName());
         assertFalse("'name' in JSON(manifest)",
             manifest.toJsonObject().containsKey("name"));
@@ -64,7 +64,7 @@ public final class ManifestTest
     @Test
     public void testShortName()
     {
-        Manifest manifest = new Manifest();
+        WebAppManifest manifest = new WebAppManifest();
         assertNull("manifest.shortName", manifest.getShortName());
         assertFalse("'short_name' in JSON(manifest)",
             manifest.toJsonObject().containsKey("short_name"));
@@ -85,7 +85,7 @@ public final class ManifestTest
     @Test
     public void testIcons()
     {
-        Manifest manifest = new Manifest();
+        WebAppManifest manifest = new WebAppManifest();
         assertNull("manifest.icons", manifest.getIcons());
         assertFalse("'icons' in JSON(manifest)",
             manifest.toJsonObject().containsKey("icons"));

@@ -1,5 +1,5 @@
 /*
- * Manifest.java - web app manifest
+ * WebAppManifest.java - class WebAppManifest
  * Copyright (C) 2018 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -34,7 +34,7 @@ import javax.json.JsonObjectBuilder;
  * @since 1.0
  * @see <a href="https://www.w3.org/TR/appmanifest/">Web App Manifest</a>
  */
-public class Manifest implements Serializable
+public class WebAppManifest implements Serializable
 {
     private static final long serialVersionUID = 1L;
 

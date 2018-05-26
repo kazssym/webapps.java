@@ -66,14 +66,14 @@ public class ManifestServlet extends HttpServlet
     /**
      * Generated manifest.
      */
-    private transient Manifest manifest;
+    private transient WebAppManifest manifest;
 
     /**
      * Returns the generated manifest.
      *
      * @return the generated manifest
      */
-    public final Manifest getManifest()
+    public final WebAppManifest getManifest()
     {
         return manifest;
     }
@@ -84,13 +84,13 @@ public class ManifestServlet extends HttpServlet
      * @param config a {@link ServletConfig} object
      * @return a new manifest
      */
-    protected static Manifest createManifest(final ServletConfig config)
+    protected static WebAppManifest createManifest(final ServletConfig config)
     {
-        Manifest newManifest = new Manifest();
-        newManifest.setName(config.getInitParameter(NAME));
-        newManifest.setShortName(config.getInitParameter(SHORT_NAME));
-        newManifest.setIcons(createIcons(config));
-        return newManifest;
+        WebAppManifest manifest = new WebAppManifest();
+        manifest.setName(config.getInitParameter(NAME));
+        manifest.setShortName(config.getInitParameter(SHORT_NAME));
+        manifest.setIcons(createIcons(config));
+        return manifest;
     }
 
     /**
