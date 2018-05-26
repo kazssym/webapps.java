@@ -108,11 +108,15 @@ public class ManifestServlet extends HttpServlet
                 String baseName = ICONS + "." + key;
                 ManifestImage icon = new ManifestImage();
                 String src = config.getInitParameter(baseName);
+                String sizes = config.getInitParameter(baseName + ".sizes");
                 if (src != null) {
                     if (src.startsWith("/")) {
                         src = context.getContextPath() + src;
                     }
                     icon.setSrc(src);
+                }
+                if (sizes != null) {
+                    icon.setSizes(sizes);
                 }
                 return icon;
             }).toArray(ManifestImage[]::new);
