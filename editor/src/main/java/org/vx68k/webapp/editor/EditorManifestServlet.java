@@ -39,6 +39,8 @@ import org.vx68k.webapp.manifest.ManifestServlet;
             value = "/icons/dummy-48.png"),
         @WebInitParam(name = ManifestServlet.ICONS + ".1.sizes",
             value = "48x48"),
+        @WebInitParam(name = ManifestServlet.ICONS + ".1.type",
+            value = "image/png"),
     })
 public final class EditorManifestServlet extends ManifestServlet
 {
