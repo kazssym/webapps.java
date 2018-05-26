@@ -11,7 +11,7 @@
     </parent>
     <artifactId>manifest</artifactId>
     <packaging>jar</packaging>
-    <name>Web App Manifest API</name>
+    <name>Web App Manifest</name>
     <description>Java API for Web App Manifest.</description>
     <dependencies>
         <dependency>
