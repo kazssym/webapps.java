@@ -49,9 +49,29 @@ public final class ManifestImageTest
         image.setSrc("http://example.com/");
         assertEquals("image.src", "http://example.com/", image.getSrc());
         assertEquals("JSON(image)['src']", "http://example.com/",
-            image.toJsonObject().getString("src"));
+            image.toJsonObject().getString("src", null));
 
         image.setSrc(null);
         assertNull("image.src", image.getSrc());
+    }
+
+    /**
+     * Tests the {@code sizes} property.
+     */
+    @Test
+    public void testSizes()
+    {
+        ManifestImage image = new ManifestImage();
+        assertNull("image.sizes", image.getSizes());
+        assertFalse("'sizes' in JSON(image)",
+            image.toJsonObject().containsKey("sizes"));
+
+        image.setSizes("48x48");
+        assertEquals("image.sizes", "48x48", image.getSizes());
+        assertEquals("JSON(image)['sizes']", "48x48",
+            image.toJsonObject().getString("sizes", null));
+
+        image.setSizes(null);
+        assertNull("image.sizes", image.getSizes());
     }
 }

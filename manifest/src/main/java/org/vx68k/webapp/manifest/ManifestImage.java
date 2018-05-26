@@ -26,7 +26,7 @@ import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 
 /**
- * Image resource in web app manifests.
+ * Image resource in a web app manifest.
  *
  * @author Kaz Nishimura
  * @since 1.0
@@ -39,6 +39,11 @@ public class ManifestImage implements Serializable
      * URL ({@code src}) of the image resource.
      */
     private String src;
+
+    /**
+     * Sizes of the image resource.
+     */
+    private String sizes;
 
     /**
      * Returns the URL ({@code src}) of the image resource.
@@ -61,6 +66,26 @@ public class ManifestImage implements Serializable
     }
 
     /**
+     * Returns the sizes of the image resource.
+     *
+     * @return the sizes, or {@code null} if not specified
+     */
+    public final String getSizes()
+    {
+        return sizes;
+    }
+
+    /**
+     * Sets the sizes of the image resource.
+     *
+     * @param value the new sizes
+     */
+    public final void setSizes(final String value)
+    {
+        sizes = value;
+    }
+
+    /**
      * Returns a JSON object that represents this image resource.
      *
      * @return a JSON object
@@ -70,6 +95,9 @@ public class ManifestImage implements Serializable
         JsonObjectBuilder builder = Json.createObjectBuilder();
         if (src != null) {
             builder.add("src", src);
+        }
+        if (sizes != null) {
+            builder.add("sizes", sizes);
         }
         return builder.build();
     }
