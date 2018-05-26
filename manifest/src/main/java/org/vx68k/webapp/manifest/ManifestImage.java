@@ -46,6 +46,11 @@ public class ManifestImage implements Serializable
     private String sizes;
 
     /**
+     * Media type of the image resource.
+     */
+    private String type;
+
+    /**
      * Returns the URL ({@code src}) of the image resource.
      *
      * @return the URL, or {@code null} if not specified
@@ -86,6 +91,26 @@ public class ManifestImage implements Serializable
     }
 
     /**
+     * Returns the media type of the image resource.
+     *
+     * @return the media type, or {@code null} if not specified
+     */
+    public final String getType()
+    {
+        return type;
+    }
+
+    /**
+     * Sets the media type of the image resource.
+     *
+     * @param value the new type
+     */
+    public final void setType(final String value)
+    {
+        type = value;
+    }
+
+    /**
      * Returns a JSON object that represents this image resource.
      *
      * @return a JSON object
@@ -98,6 +123,9 @@ public class ManifestImage implements Serializable
         }
         if (sizes != null) {
             builder.add("sizes", sizes);
+        }
+        if (type != null) {
+            builder.add("type", type);
         }
         return builder.build();
     }

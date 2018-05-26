@@ -74,4 +74,24 @@ public final class ManifestImageTest
         image.setSizes(null);
         assertNull("image.sizes", image.getSizes());
     }
+
+    /**
+     * Tests the {@code type} property.
+     */
+    @Test
+    public void testType()
+    {
+        ManifestImage image = new ManifestImage();
+        assertNull("image.type", image.getType());
+        assertFalse("'type' in JSON(image)",
+            image.toJsonObject().containsKey("type"));
+
+        image.setType("image/png");
+        assertEquals("image.type", "image/png", image.getType());
+        assertEquals("JSON(image)['type']", "image/png",
+            image.toJsonObject().getString("type", null));
+
+        image.setType(null);
+        assertNull("image.type", image.getType());
+    }
 }
