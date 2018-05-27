@@ -1,5 +1,5 @@
 /*
- * Config.java
+ * Config.java - class Config
  * Copyright (C) 2018 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -40,16 +40,16 @@ public final class Config
     /**
      * Client identifier for Google Sign-In.
      */
-    private String signInClientId;
+    private String signinClientId;
 
     /**
      * Returns the client identifier for Google Sign-In.
      *
      * @return the client identifier
      */
-    public String getSignInClientId()
+    public String getSigninClientId()
     {
-        return signInClientId;
+        return signinClientId;
     }
 
     /**
@@ -59,14 +59,14 @@ public final class Config
      *
      * @param value the new client identifier
      */
-    @Resource(name = "signInClientId")
-    public void setSignInClientId(final String value)
+    @Resource(name = "signinClientId")
+    public void setSigninClientId(final String value)
     {
         if (value == null || value.equals("!")) {
-            signInClientId = System.getProperty(SIGNIN_CLIENT_ID_PROPERTY);
+            signinClientId = System.getProperty(SIGNIN_CLIENT_ID_PROPERTY);
         }
         else {
-            signInClientId = value;
+            signinClientId = value;
         }
     }
 }
