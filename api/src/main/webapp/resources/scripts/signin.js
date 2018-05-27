@@ -8,19 +8,19 @@
 "use strict";
 
 ((scriptId) => {
-    let once = false;
     const init = () => {
-        if (!once) {
-            once = true;
-            // Here goes initialization.
-        }
+        // Here goes initialization.
     };
 
-    let script = document.getElementById(scriptId);
-    script.addEventListener("load", function onLoad() {
-            init();
-        });
+    // The 'init' function shall be invoked later if the API script has not
+    // been loaded yet.
     if ("gapi" in window) {
         init();
+    }
+    else {
+        let script = document.getElementById(scriptId);
+        script.addEventListener("load", function onLoad() {
+                init();
+            });
     }
 })("gapi-script");
