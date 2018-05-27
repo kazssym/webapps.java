@@ -34,8 +34,8 @@ public final class Config
     /**
      * Name of the system property for client identifier for Google Sign-In.
      */
-    public static final String SIGN_IN_CLIENT_ID_PROPERTY =
-        "org.vx68k.webapp.api.SIGN_IN_CLIENT_ID";
+    public static final String SIGNIN_CLIENT_ID_PROPERTY =
+        "org.vx68k.webapp.api.signin.clientId";
 
     /**
      * Client identifier for Google Sign-In.
@@ -55,7 +55,7 @@ public final class Config
     /**
      * Sets the client identifier for Google Sign-In.
      * If the new value is {@code null} or {@code "!"}, the value of system
-     * property {@value #SIGN_IN_CLIENT_ID_PROPERTY} is used instead.
+     * property {@value #SIGNIN_CLIENT_ID_PROPERTY} is used instead.
      *
      * @param value the new client identifier
      */
@@ -63,7 +63,7 @@ public final class Config
     public void setSignInClientId(final String value)
     {
         if (value == null || value.equals("!")) {
-            signInClientId = System.getProperty(SIGN_IN_CLIENT_ID_PROPERTY);
+            signInClientId = System.getProperty(SIGNIN_CLIENT_ID_PROPERTY);
         }
         else {
             signInClientId = value;
