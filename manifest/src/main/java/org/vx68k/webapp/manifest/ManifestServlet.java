@@ -34,6 +34,13 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Web app manifest servlet.
  *
+ * <p>This implementation takes the following initialization parameters:</p>
+ * <ul>
+ * <li>{@code name}</li>
+ * <li>{@code short_name}</li>
+ * <li>{@code icons} and {@code icons.*}</lib>
+ * </ul>
+ *
  * @author Kaz Nishimura
  * @since 1.0
  * @see <a href="https://www.w3.org/TR/appmanifest/">Web App Manifest</a>
@@ -67,6 +74,11 @@ public class ManifestServlet extends HttpServlet
      * Generated manifest.
      */
     private transient WebAppManifest manifest;
+
+    /**
+     * Last modified time from {@code 1970-01-01T00:00:00Z} in milliseconds.
+     */
+    private transient long lastModified;
 
     /**
      * Returns the generated manifest.
@@ -136,6 +148,7 @@ public class ManifestServlet extends HttpServlet
         assert config != null;
         super.init(config);
         manifest = createManifest(getServletConfig());
+        lastModified = System.currentTimeMillis();
     }
 
     /**
@@ -170,5 +183,14 @@ public class ManifestServlet extends HttpServlet
         finally {
             writer.close();
         }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected long getLastModified(HttpServletRequest request)
+    {
+        return lastModified;
     }
 }

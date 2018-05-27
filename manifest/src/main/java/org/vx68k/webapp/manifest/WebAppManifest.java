@@ -30,9 +30,17 @@ import javax.json.JsonObjectBuilder;
 /**
  * Web app manifest.
  *
+ * <p>This implementation in not complete, and has only the following
+ * properties:</p>
+ * <ul>
+ * <li>{@code name}</li>
+ * <li>{@code shortName} ({@code short_name} in JSON)</li>
+ * <li>{@code icons}</li>
+ * </ul>
+ *
  * @author Kaz Nishimura
  * @since 1.0
- * @see <a href="https://www.w3.org/TR/appmanifest/">Web App Manifest</a>
+ * @see <a href="https://www.w3.org/TR/appmanifest/">"Web App Manifest"</a>
  */
 public class WebAppManifest implements Serializable
 {

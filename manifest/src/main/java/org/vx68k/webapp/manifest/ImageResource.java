@@ -28,8 +28,17 @@ import javax.json.JsonObjectBuilder;
 /**
  * Image resource in a web app manifest.
  *
+ * <p>This implementation is not complete, and has only the following
+ * properties:</p>
+ * <ul>
+ * <li>{@code src}</li>
+ * <li>{@code sizes}</li>
+ * <li>{@code type}</li>
+ * </ul>
+ *
  * @author Kaz Nishimura
  * @since 1.0
+ * @see <a href="https://www.w3.org/TR/appmanifest/">"Web App Manifest"</a>
  */
 public class ImageResource implements Serializable
 {
