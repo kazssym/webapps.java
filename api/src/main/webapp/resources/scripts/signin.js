@@ -9,15 +9,15 @@
 
 ((scriptId) => {
     let once = false;
-    const init = function () {
+    const init = () => {
         if (!once) {
             once = true;
-            window.console.log("init once");
+            // Here goes initialization.
         }
     };
 
     let script = document.getElementById(scriptId);
-    script.addEventListener("load", () => {
+    script.addEventListener("load", function onLoad() {
             init();
         });
     if ("gapi" in window) {
