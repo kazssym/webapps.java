@@ -38,7 +38,7 @@ import javax.servlet.http.HttpServletResponse;
  * <ul>
  * <li>{@code name}</li>
  * <li>{@code short_name}</li>
- * <li>{@code icons} and {@code icons.*}</lib>
+ * <li>{@code icons} and {@code icons.*}</li>
  * </ul>
  *
  * @author Kaz Nishimura
