@@ -1,5 +1,5 @@
 /*
- * EditorManifestServlet.java
+ * EditorManifestServlet.java - class EditorManifestServlet
  * Copyright (C) 2018 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
