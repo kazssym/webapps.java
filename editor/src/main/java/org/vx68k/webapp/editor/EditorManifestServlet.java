@@ -30,7 +30,7 @@ import org.vx68k.webapp.manifest.ManifestServlet;
  * @author Kaz Nishimura
  * @since 1.0
  */
-@WebServlet(name = "ManifestServlet", urlPatterns = {"/manifest/*"},
+@WebServlet(urlPatterns = {"/manifest/*"},
     initParams = {
         @WebInitParam(name = ManifestServlet.NAME, value = "Dummy App"),
         @WebInitParam(name = ManifestServlet.SHORT_NAME, value = "Dummy"),
