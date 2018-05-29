@@ -189,7 +189,7 @@ public class ManifestServlet extends HttpServlet
      * {@inheritDoc}
      */
     @Override
-    protected long getLastModified(HttpServletRequest request)
+    protected long getLastModified(final HttpServletRequest request)
     {
         return lastModified;
     }
