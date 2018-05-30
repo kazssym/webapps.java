@@ -43,7 +43,7 @@
     <distributionManagement>
         <site>
             <id>localhost</id>
-            <url>file:site</url>
+            <url>file:site/</url>
         </site>
     </distributionManagement>
     <properties>
