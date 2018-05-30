@@ -128,25 +128,21 @@ public class WebAppManifest implements Serializable
      */
     public final JsonObject toJsonObject()
     {
-        JsonObjectBuilder builder = Json.createObjectBuilder();
+        JsonObjectBuilder object = Json.createObjectBuilder();
         if (name != null) {
-            builder.add("name", name);
+            object.add("name", name);
         }
         if (shortName != null) {
-            builder.add("short_name", shortName);
+            object.add("short_name", shortName);
         }
         if (icons != null) {
-            JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-            Arrays.stream(icons).forEachOrdered((icon) -> {
-                    if (icon != null) {
-                        arrayBuilder.add(icon.toJsonObject());
-                    }
-                    else {
-                        arrayBuilder.addNull();
-                    }
+            JsonArrayBuilder iconsArray = Json.createArrayBuilder();
+            Arrays.stream(icons)
+                .forEachOrdered((icon) -> {
+                    iconsArray.add(icon.toJsonObject());
                 });
-            builder.add("icons", arrayBuilder);
+            object.add("icons", iconsArray);
         }
-        return builder.build();
+        return object.build();
     }
 }
