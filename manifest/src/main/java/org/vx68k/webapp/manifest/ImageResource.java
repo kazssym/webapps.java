@@ -40,7 +40,7 @@ import javax.json.JsonObjectBuilder;
  * @since 1.0
  * @see <a href="https://www.w3.org/TR/appmanifest/">"Web App Manifest"</a>
  */
-public class ImageResource implements Serializable
+public class ImageResource implements Cloneable, Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -137,5 +137,21 @@ public class ImageResource implements Serializable
             object.add("type", type);
         }
         return object.build();
+    }
+
+    /**
+     * Returns a copy of this object.
+     *
+     * @return a copy
+     */
+    @Override
+    public ImageResource clone()
+    {
+        try {
+            return (ImageResource) super.clone();
+        }
+        catch (CloneNotSupportedException exception) {
+            throw new RuntimeException("Unexpected exception", exception);
+        }
     }
 }
