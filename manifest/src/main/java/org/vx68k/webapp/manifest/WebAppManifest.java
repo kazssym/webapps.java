@@ -108,17 +108,32 @@ public class WebAppManifest implements Serializable
      */
     public final ImageResource[] getIcons()
     {
-        return icons;
+        ImageResource[] value = null;
+        if (icons != null) {
+            value = Arrays.stream(icons)
+                .map((icon) -> icon.clone())
+                .toArray(ImageResource[]::new);
+        }
+        return value;
     }
 
     /**
      * Sets the icons of the web app.
      *
+     * <p>Each element must not be {@code null}.</p>
+     *
      * @param value the new icons
      */
     public final void setIcons(final ImageResource[] value)
     {
-        icons = value;
+        if (value != null) {
+            icons = Arrays.stream(value)
+                .map((icon) -> icon.clone())
+                .toArray(ImageResource[]::new);
+        }
+        else {
+            icons = null;
+        }
     }
 
     /**
