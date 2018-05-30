@@ -126,16 +126,16 @@ public class ImageResource implements Serializable
      */
     public final JsonObject toJsonObject()
     {
-        JsonObjectBuilder builder = Json.createObjectBuilder();
+        JsonObjectBuilder object = Json.createObjectBuilder();
         if (src != null) {
-            builder.add("src", src);
+            object.add("src", src);
         }
         if (sizes != null) {
-            builder.add("sizes", sizes);
+            object.add("sizes", sizes);
         }
         if (type != null) {
-            builder.add("type", type);
+            object.add("type", type);
         }
-        return builder.build();
+        return object.build();
     }
 }
