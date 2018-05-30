@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition template="/layout.xhtml"
-                xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:jsf="http://xmlns.jcp.org/jsf"
-                xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:define name="main">
         <main class="app-hbox-grow app-vbox">
             <textarea id="editor-text" class="app-vbox-grow">text</textarea>
             <script id="codemirror-script"
-                    src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.37.0/codemirror.min.js"
-                    async="async" defer="defer" crossorigin="anonymous"
-                    integrity="sha256-U/4XQwZXDFDdAHjIZt1Lm7sFfmMiFDZzFYprq6XJ0gk="></script>
+                src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.37.0/codemirror.min.js"
+                async="async" defer="defer" crossorigin="anonymous"
+                integrity="sha256-U/4XQwZXDFDdAHjIZt1Lm7sFfmMiFDZzFYprq6XJ0gk="></script>
             <script src="#{facesContext.externalContext
                         .encodeResourceURL(resource['scripts/editor.js'])}"
-                    async="async" defer="defer"></script>
+                async="async" defer="defer"></script>
             <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.37.0/codemirror.min.css"
-                  crossorigin="anonymous" rel="stylesheet"
-                  integrity="sha256-I8NyGs4wjbMuBSUE40o55W6k6P7tu/7G28/JGUUYCIs=" />
+                crossorigin="anonymous" rel="stylesheet"
+                integrity="sha256-I8NyGs4wjbMuBSUE40o55W6k6P7tu/7G28/JGUUYCIs=" />
         </main>
     </ui:define>
 </ui:composition>
