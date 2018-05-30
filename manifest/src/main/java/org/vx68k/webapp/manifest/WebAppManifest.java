@@ -42,7 +42,7 @@ import javax.json.JsonObjectBuilder;
  * @since 1.0
  * @see <a href="https://www.w3.org/TR/appmanifest/">"Web App Manifest"</a>
  */
-public class WebAppManifest implements Serializable
+public class WebAppManifest implements Cloneable, Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -159,5 +159,23 @@ public class WebAppManifest implements Serializable
             object.add("icons", iconsArray);
         }
         return object.build();
+    }
+
+    /**
+     * Returns a copy of this object.
+     *
+     * @return a copy
+     */
+    @Override
+    public WebAppManifest clone()
+    {
+        try {
+            WebAppManifest manifest = (WebAppManifest) super.clone();
+            manifest.setIcons(icons); // This also makes a copy.
+            return manifest;
+        }
+        catch (CloneNotSupportedException exception) {
+            throw new RuntimeException("Unexpected exception", exception);
+        }
     }
 }
