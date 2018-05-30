@@ -95,11 +95,6 @@ public final class WebAppManifestTest
         assertEquals("JSON(manifest)['icons'].length", 0,
             manifest.toJsonObject().getJsonArray("icons").size());
 
-        manifest.setIcons(new ImageResource[1]);
-        assertNull("manifest.icons[0]", manifest.getIcons()[0]);
-        assertTrue("JSON(manifest)['icons'][0]",
-            manifest.toJsonObject().getJsonArray("icons").isNull(0));
-
         manifest.setIcons(new ImageResource[] {new ImageResource()});
         assertNotNull("manifest.icons[0]", manifest.getIcons()[0]);
         assertNotNull("JSON(manifest)['icons'][0]",
