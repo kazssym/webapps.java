@@ -2,12 +2,15 @@
 <ui:composition template="/layout.xhtml"
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:define name="main">
         <main class="app-hbox-grow app-vbox">
             <textarea id="editor-text" class="app-vbox-grow"
-                jsf:value="#{buffer.text}"></textarea>
+                jsf:value="#{buffer.text}">
+                <f:ajax />
+            </textarea>
             <script id="codemirror-script"
                 src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.37.0/codemirror.min.js"
                 async="async" defer="defer" crossorigin="anonymous"
