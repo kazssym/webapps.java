@@ -13,6 +13,7 @@ services:
       - "${TEXTEDITOR_HTTP_PORT:-8080}:8080"
       - "${TEXTEDITOR_DEBUG_PORT:-8787}:8787"
     environment:
+      JAVA_OPTS:
       DEBUG:
     volumes:
       - ./editor/target/texteditor-1.0-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war:ro
@@ -26,6 +27,7 @@ services:
       - "${RESTAPI_HTTP_PORT:-8081}:8080"
       - "${RESTAPI_DEBUG_PORT:-8788}:8787"
     environment:
+      JAVA_OPTS:
       DEBUG:
     volumes:
       - ./api/target/restapi-1.0-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war:ro
