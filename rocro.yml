@@ -9,7 +9,8 @@
 ---
 inspecode:
   misspell: {}
-  checkstyle: {}
+  checkstyle:
+    config-file: etc/checkstyle.xml
   pmd:
     ignore:
       - "**/*.js"
