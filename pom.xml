@@ -11,7 +11,7 @@
 <packaging>pom</packaging>
 <name>Web Apps Parent</name>
 <description>Parent project for web apps</description>
-<url>https://linuxfront.bitbucket.io/webapps/</url>
+<url>https://linuxfront.bitbucket.io/webapps/1/</url>
 <inceptionYear>2017</inceptionYear>
 
 <licenses>
@@ -41,7 +41,7 @@
 <connection>scm:hg:https://bitbucket.org/linuxfront/webapps</connection>
 <developerConnection>scm:hg:ssh://hg@bitbucket.org/linuxfront/webapps</developerConnection>
 <tag>master</tag>
-<url>https://bitbucket.org/linuxfront/webapps/src</url>
+<url>https://bitbucket.org/linuxfront/webapps/src/master/</url>
 </scm>
 
 <issueManagement>
@@ -113,8 +113,8 @@
 <configuration>
 <locale>en_US</locale>
 <links>
-<link>https://docs.oracle.com/javase/8/docs/api/</link>
-<link>https://docs.oracle.com/javaee/7/api/</link>
+<link>https://docs.oracle.com/javase/8/docs/api</link>
+<link>https://docs.oracle.com/javaee/7/api</link>
 </links>
 <detectLinks>true</detectLinks>
 </configuration>
