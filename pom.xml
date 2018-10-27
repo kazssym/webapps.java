@@ -32,7 +32,7 @@
 <modules>
 <module>manifest</module>
 <module>editor</module>
-<module>api</module>
+<module>restapi</module>
 </modules>
 
 <scm>
@@ -144,6 +144,7 @@
 </distributionManagement>
 
 <build>
+
 <plugins>
 
 <plugin>
