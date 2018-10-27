@@ -14,9 +14,10 @@
 <licenses>
 
 <license>
-<name>GNU Affero General Public License v3.0 or later</name>
-<url>https://opensource.org/licenses/AGPL-3.0</url>
+<name>GNU Affero General Public License</name>
+<url>https://www.gnu.org/licenses/agpl.txt</url>
 <distribution>repo</distribution>
+<comments>Version 3 or any later version.</comments>
 </license>
 </licenses>
 
