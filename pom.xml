@@ -38,7 +38,7 @@
 <connection>scm:hg:https://bitbucket.org/linuxfront/webapps</connection>
 <developerConnection>scm:hg:ssh://hg@bitbucket.org/linuxfront/webapps</developerConnection>
 <tag>master</tag>
-<url>https://bitbucket.org/linuxfront/webapps/src/master/</url>
+<url>https://bitbucket.org/linuxfront/webapps/src/${project.scm.tag}/</url>
 </scm>
 
 <issueManagement>
