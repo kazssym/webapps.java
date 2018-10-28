@@ -31,7 +31,7 @@
 
 <modules>
 <module>manifest</module>
-<module>editor</module>
+<module>texteditor</module>
 <module>restapi</module>
 </modules>
 
