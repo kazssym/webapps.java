@@ -161,6 +161,52 @@
 </pluginManagement>
 </build>
 
+<reporting>
+
+<plugins>
+
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-javadoc-plugin</artifactId>
+<reportSets>
+<reportSet>
+<reports>
+<!-- No default reports -->
+</reports>
+</reportSet>
+<reportSet>
+<id>aggregate</id>
+<reports>
+<report>aggregate</report>
+<report>test-aggregate</report>
+</reports>
+<inherited>false</inherited>
+<configuration>
+<doctitle>${project.name} ${project.version}</doctitle>
+</configuration>
+</reportSet>
+</reportSets>
+<configuration>
+<notimestamp>true</notimestamp>
+</configuration>
+</plugin>
+
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-pmd-plugin</artifactId>
+
+<reportSets>
+
+<reportSet>
+<reports>
+<report>pmd</report>
+</reports>
+</reportSet>
+</reportSets>
+</plugin>
+</plugins>
+</reporting>
+
 <profiles>
 
 <profile>
