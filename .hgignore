@@ -4,6 +4,7 @@ syntax: regexp
 (^|/)faces-config\.NavData$
 (^|/)\.project$
 (^|/)\.classpath$
+(^|/)\.factorypath$
 (^|/)\.settings$
 \.rej$
 \.orig$
