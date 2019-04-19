@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compile",
+            "type": "process",
+            "command": "${config:maven.executable.path}",
+            "args": [
+                "-B",
+                "compile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "test",
+            "type": "process",
+            "command": "${config:maven.executable.path}",
+            "args": [
+                "-B",
+                "test"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "clean",
+            "type": "process",
+            "command": "${config:maven.executable.path}",
+            "args": [
+                "-B",
+                "clean"
+            ],
+            "group": "none"
+        }
+    ]
+}
