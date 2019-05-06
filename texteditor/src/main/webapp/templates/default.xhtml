@@ -6,8 +6,8 @@
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <title>Text editor</title>
 
-<link href="#{facesContext.externalContext.applicationContextPath
-            .concat('/manifest')}" rel="manifest" />
+<link href="#{facesContext.application.viewHandler.getBookmarkableURL(facesContext, view.viewId, null, true)}" rel="canonical" />
+<link href="#{facesContext.externalContext.applicationContextPath}/manifest" rel="manifest" />
 </head>
 
 <body class="app-vbox" jsf:id="body">
