@@ -11,38 +11,35 @@
 </head>
 
 <body class="app-vbox" jsf:id="body">
-    <div id="top" class="pure-menu pure-menu-horizontal app-hbox app-top">
-        <span class="pure-menu-item">
-            <a class="pure-menu-link">
-                <span class="app-icon">
-                    <ui:include src="/icons/ic_menu_24px.svg" />
-                </span>
-            </a>
-        </span>
-        <span class="pure-menu-heading app-hbox-grow">API Demo</span>
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item">
-                <a class="pure-menu-link pure-menu-disabled" title="Help">
-                    <span class="app-icon">
-                        <ui:include src="/icons/ic_help_24px.svg" />
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="app-vbox-grow app-hbox">
-        <ui:insert name="main" />
-    </div>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css"
-            crossorigin="anonymous" rel="stylesheet"
-            integrity="sha256-Q0zCrUs2IfXWYx0uMKJfG93CvF6oVII21waYsAV4/8Q=" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css"
-            crossorigin="anonymous" rel="stylesheet" media="screen"
-            integrity="sha256-YqnnS/cQ7vE7gfVjdfx+JMi5EFD6m6Zqdemj81rs6PU=" />
-    <link href="#{facesContext.externalContext
-                .encodeResourceURL(resource['stylesheets/app.css'])}"
-            rel="stylesheet" />
-    <ui:insert name="end-body" />
-    <ui:debug />
+<div id="top" class="pure-menu pure-menu-horizontal app-hbox app-top">
+<span class="pure-menu-item">
+<a class="pure-menu-link">
+<span class="app-icon">
+<ui:include src="/icons/ic_menu_24px.svg" />
+</span>
+</a>
+</span>
+<span class="pure-menu-heading app-hbox-grow">API Demo</span>
+
+<ul class="pure-menu-list">
+<li class="pure-menu-item">
+<a class="pure-menu-link pure-menu-disabled" title="Help">
+<span class="app-icon">
+<ui:include src="/icons/ic_help_24px.svg" />
+</span>
+</a>
+</li>
+</ul>
+</div>
+
+<div class="app-vbox-grow app-hbox">
+<ui:insert name="main" />
+</div>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" crossorigin="anonymous" rel="stylesheet" integrity="sha256-Q0zCrUs2IfXWYx0uMKJfG93CvF6oVII21waYsAV4/8Q=" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" crossorigin="anonymous" rel="stylesheet" media="screen" integrity="sha256-YqnnS/cQ7vE7gfVjdfx+JMi5EFD6m6Zqdemj81rs6PU=" />
+<link href="#{facesContext.externalContext.encodeResourceURL(resource['stylesheets/app.css'])}" rel="stylesheet" />
+<ui:insert name="end-body" />
+<ui:debug />
 </body>
 </html>
