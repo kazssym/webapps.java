@@ -13,11 +13,12 @@ services:
       - "${TEXTEDITOR_HTTP_PORT:-8080}:8080"
       - "${TEXTEDITOR_DEBUG_PORT:-8787}:8787"
     environment:
-      JAVA_OPTS:
       DEBUG:
       DEBUG_PORT: 0.0.0.0:8787
+      OPENJ9_JAVA_OPTIONS: -Xtune:virtualized -Xshareclasses
     volumes:
       - ./texteditor/target/texteditor-1.0-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war:ro
+      - javasharedresources:/root/javasharedresources:rw
     working_dir: /opt/jboss/wildfly/standalone
     command: /opt/jboss/wildfly/bin/standalone.sh -b=0.0.0.0
     cap_drop:
@@ -28,12 +29,15 @@ services:
       - "${RESTAPI_HTTP_PORT:-8081}:8080"
       - "${RESTAPI_DEBUG_PORT:-8788}:8787"
     environment:
-      JAVA_OPTS:
       DEBUG:
       DEBUG_PORT: 0.0.0.0:8787
+      OPENJ9_JAVA_OPTIONS: -Xtune:virtualized -Xshareclasses
     volumes:
       - ./restapi/target/restapi-1.0-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war:ro
+      - javasharedresources:/root/javasharedresources:rw
     working_dir: /opt/jboss/wildfly/standalone
     command: /opt/jboss/wildfly/bin/standalone.sh -b=0.0.0.0
     cap_drop:
       - ALL
+volumes:
+  javasharedresources: {}
