@@ -32,7 +32,7 @@
 <modules>
 <module>manifest</module>
 <module>texteditor</module>
-<module>restapi</module>
+<module>toybox</module>
 </modules>
 
 <scm>
