@@ -4,10 +4,11 @@
 <head jsf:id="head">
 <meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
 <meta content="width=device-width, initial-scale=1" name="viewport" />
-<title>Text editor</title>
+<title><ui:insert name="title">Text editor</ui:insert></title>
 
 <link href="#{facesContext.application.viewHandler.getBookmarkableURL(facesContext, view.viewId, null, true)}" rel="canonical" />
 <link href="#{facesContext.externalContext.applicationContextPath}/manifest" rel="manifest" />
+<ui:insert name="head-additions" />
 </head>
 
 <body class="app-vbox" jsf:id="body">
