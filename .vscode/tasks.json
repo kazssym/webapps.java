@@ -5,10 +5,7 @@
             "label": "compile",
             "type": "process",
             "command": "${config:maven.executable.path}",
-            "args": [
-                "-B",
-                "compile"
-            ],
+            "args": ["-B", "compile"],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -18,23 +15,24 @@
             "label": "test",
             "type": "process",
             "command": "${config:maven.executable.path}",
-            "args": [
-                "-B",
-                "test"
-            ],
+            "args": ["-B", "test"],
             "group": {
                 "kind": "test",
                 "isDefault": true
             }
         },
         {
+            "label": "install",
+            "type": "process",
+            "command": "${config:maven.executable.path}",
+            "args": ["-B", "install"],
+            "group": "none"
+        },
+        {
             "label": "clean",
             "type": "process",
             "command": "${config:maven.executable.path}",
-            "args": [
-                "-B",
-                "clean"
-            ],
+            "args": ["-B", "clean"],
             "group": "none"
         }
     ]
