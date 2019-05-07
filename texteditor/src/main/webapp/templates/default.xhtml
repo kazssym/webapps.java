@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <title><ui:insert name="title">Text editor</ui:insert></title>
 
-<link href="#{facesContext.application.viewHandler.getBookmarkableURL(facesContext, view.viewId, null, true)}" rel="canonical" />
+<link href="#{facesContext.application.viewHandler.getActionURL(facesContext, view.viewId)}" rel="canonical" />
 <link href="#{facesContext.externalContext.applicationContextPath}/manifest" rel="manifest" />
 <ui:insert name="head-additions" />
 </head>
