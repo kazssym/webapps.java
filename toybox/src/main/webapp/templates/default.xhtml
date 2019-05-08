@@ -5,7 +5,7 @@
 <meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <meta content="#{config.signinClientId}" name="google-signin-client_id" />
-<title>API Demo</title>
+<title><ui:insert name="title">API Demo</ui:insert></title>
 
 <link href="#{facesContext.application.viewHandler.getActionURL(facesContext, view.viewId)}" rel="canonical" />
 </head>
@@ -38,6 +38,7 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" crossorigin="anonymous" rel="stylesheet" integrity="sha256-Q0zCrUs2IfXWYx0uMKJfG93CvF6oVII21waYsAV4/8Q=" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" crossorigin="anonymous" rel="stylesheet" media="screen" integrity="sha256-YqnnS/cQ7vE7gfVjdfx+JMi5EFD6m6Zqdemj81rs6PU=" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" crossorigin="anonymous" rel="stylesheet"/>
 <link href="#{facesContext.externalContext.encodeResourceURL(resource['stylesheets/app.css'])}" rel="stylesheet" />
 <ui:insert name="end-body" />
 <ui:debug />
