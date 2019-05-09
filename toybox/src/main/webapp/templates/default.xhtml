@@ -11,9 +11,9 @@
 <ui:insert name="head:end"/>
 </head>
 
-<body class="app-vbox" jsf:id="body">
-<header class="pure-menu pure-menu-horizontal app-hbox app-header">
-<span class="pure-menu-heading app-hbox-grow">Toybox App</span>
+<body class="site-vbox" jsf:id="body">
+<header class="pure-menu pure-menu-horizontal site-hbox site-header">
+<span class="pure-menu-heading site-hbox-grow">Toybox App</span>
 
 <ul class="pure-menu-list">
 <li class="pure-menu-item">
@@ -22,14 +22,14 @@
 </ul>
 </header>
 
-<div class="app-vbox-grow app-hbox">
+<div class="site-vbox-grow site-hbox">
 <ui:insert name="main">Main contents</ui:insert>
 </div>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" crossorigin="anonymous" rel="stylesheet" integrity="sha256-Q0zCrUs2IfXWYx0uMKJfG93CvF6oVII21waYsAV4/8Q=" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" crossorigin="anonymous" rel="stylesheet" media="screen" integrity="sha256-YqnnS/cQ7vE7gfVjdfx+JMi5EFD6m6Zqdemj81rs6PU=" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" crossorigin="anonymous" rel="stylesheet"/>
-<link href="#{facesContext.externalContext.encodeResourceURL(resource['stylesheets/app.css'])}" rel="stylesheet" />
+<link href="#{resource['stylesheets/site.css']}" rel="stylesheet"/>
 <ui:insert name="body:end"/>
 <ui:debug />
 </body>
