@@ -1,6 +1,6 @@
 /*
  * WebAppManifestTest.java - class WebAppManifestTest
- * Copyright (C) 2018 Kaz Nishimura
+ * Copyright (C) 2018-2019 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Affero General Public License as published by
@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-package org.vx68k.webapp.manifest.tests;
+package org.vx68k.webapp.manifest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -26,8 +26,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
-import org.vx68k.webapp.manifest.ImageResource;
-import org.vx68k.webapp.manifest.WebAppManifest;
 
 /**
  * Test fixture for {@link WebAppManifest}.

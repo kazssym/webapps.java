@@ -1,6 +1,6 @@
 /*
- * package-info.java
- * Copyright (C) 2018 Kaz Nishimura
+ * package-info.java - package org.vx68k.webapp.manifest (test)
+ * Copyright (C) 2018-2019 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Affero General Public License as published by
@@ -19,6 +19,6 @@
  */
 
 /**
- * Package of unit tests for {@link org.vx68k.webapp.manifest}.
+ * Unit tests for {@link org.vx68k.webapp.manifest}.
  */
-package org.vx68k.webapp.manifest.tests;
+package org.vx68k.webapp.manifest;
