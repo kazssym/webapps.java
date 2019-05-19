@@ -6,7 +6,7 @@ See the [repository wiki][wiki] for more information.
 
 [![(License)](https://img.shields.io/badge/license-AGPL--3.0--or--later-blue.svg)][AGPL-3.0]
 [![(Issues)](https://img.shields.io/bitbucket/issues/vx68k/webapps.java.svg)][open issues]
-[![(Build)](https://linuxfront-functions.azurewebsites.net/api/bitbucket/build/vx68k/webapps.java?branch=master)][pipelines]
+[![(Build)](https://linuxfront-functions.azurewebsites.net/api/bitbucket/build/vx68k/webapps.java/?branch=master)][pipelines]
 
 [AGPL-3.0]: https://opensource.org/licenses/AGPL-3.0
 
