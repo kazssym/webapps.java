@@ -1,58 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  pom.xml - project for an experimental text editor web application
-  Copyright (C) 2017 Kaz Nishimura
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+    http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
 
-  This program is free software: you can redistribute it and/or modify it
-  under the terms of the GNU Affero General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or (at your
-  option) any later version.
+<parent>
+<groupId>org.vx68k.webapp</groupId>
+<artifactId>webapps-parent</artifactId>
+<version>1.0-SNAPSHOT</version>
+</parent>
 
-  This program is distributed in the hope that it will be useful, but WITHOUT
-  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License
-  for more details.
+<artifactId>texteditor</artifactId>
+<packaging>war</packaging>
+<name>Text Editor Web Application</name>
+<description>Experimental text editor web application.</description>
 
-  You should have received a copy of the GNU Affero General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+<dependencies>
 
-  SPDX-License-Identifier: AGPL-3.0-or-later
--->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.vx68k.webapp</groupId>
-        <artifactId>webapps-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
-    <artifactId>texteditor</artifactId>
-    <packaging>war</packaging>
-    <name>Text Editor Web Application</name>
-    <description>Experimental text editor web application.</description>
-    <dependencies>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.json</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>manifest</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
-    <build>
-        <plugins>
-        </plugins>
-    </build>
+<dependency>
+<groupId>javax</groupId>
+<artifactId>javaee-web-api</artifactId>
+<scope>provided</scope>
+</dependency>
+
+<dependency>
+<groupId>org.glassfish</groupId>
+<artifactId>javax.json</artifactId>
+<scope>test</scope>
+</dependency>
+
+<dependency>
+<groupId>junit</groupId>
+<artifactId>junit</artifactId>
+<scope>test</scope>
+</dependency>
+
+<dependency>
+<groupId>${project.groupId}</groupId>
+<artifactId>manifest</artifactId>
+<version>1.0-SNAPSHOT</version>
+</dependency>
+</dependencies>
+
+<build>
+
+<plugins>
+</plugins>
+</build>
 </project>
