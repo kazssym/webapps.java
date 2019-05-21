@@ -1,6 +1,6 @@
 /*
  * ManifestServlet.java - class ManifestServlet
- * Copyright (C) 2018 Kaz Nishimura
+ * Copyright (C) 2018-2019 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Affero General Public License as published by
@@ -71,7 +71,7 @@ public class ManifestServlet extends HttpServlet
     public static final String ICONS = "icons";
 
     /**
-     * Generated manifest.
+     * Manifest that is served by this object.
      */
     private transient WebAppManifest manifest;
 
@@ -88,6 +88,17 @@ public class ManifestServlet extends HttpServlet
     public final WebAppManifest getManifest()
     {
         return (WebAppManifest) manifest.clone();
+    }
+
+    /**
+     * Sets the manifest.
+     *
+     * @param newManifest a new manifest
+     */
+    public final void setManifest(final WebAppManifest newManifest)
+    {
+        manifest = (WebAppManifest) newManifest.clone();
+        lastModified = System.currentTimeMillis();
     }
 
     /**
@@ -147,8 +158,7 @@ public class ManifestServlet extends HttpServlet
     {
         assert config != null;
         super.init(config);
-        manifest = createManifest(getServletConfig());
-        lastModified = System.currentTimeMillis();
+        setManifest(createManifest(getServletConfig()));
     }
 
     /**
