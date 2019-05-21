@@ -172,7 +172,9 @@ public class ManifestServlet extends HttpServlet
     }
 
     /**
-     * Serves the generated manifest as the response body.
+     * Serves the manifest as the response body.
+     *
+     * {@inheritDoc}
      *
      * @exception IOException if an I/O exception has occurred
      */
