@@ -81,13 +81,13 @@ public class ManifestServlet extends HttpServlet
     private transient long lastModified;
 
     /**
-     * Returns the generated manifest.
+     * Creates and returns a copy of the manifest.
      *
-     * @return the generated manifest
+     * @return a copy of the manifest
      */
     public final WebAppManifest getManifest()
     {
-        return manifest;
+        return (WebAppManifest) manifest.clone();
     }
 
     /**
