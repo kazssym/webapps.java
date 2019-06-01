@@ -22,7 +22,7 @@ package org.vx68k.webapp.editor;
 
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
-import org.vx68k.webapp.manifest.ManifestServlet;
+import org.vx68k.webapp.manifest.WebAppManifestServlet;
 
 /**
  * Web application manifest servlet for this web app.
@@ -32,17 +32,17 @@ import org.vx68k.webapp.manifest.ManifestServlet;
  */
 @WebServlet(urlPatterns = {"/manifest/*"},
     initParams = {
-        @WebInitParam(name = ManifestServlet.NAME, value = "Dummy App"),
-        @WebInitParam(name = ManifestServlet.SHORT_NAME, value = "Dummy"),
-        @WebInitParam(name = ManifestServlet.ICONS, value = "1"),
-        @WebInitParam(name = ManifestServlet.ICONS + ".1",
+        @WebInitParam(name = WebAppManifestServlet.NAME, value = "Dummy App"),
+        @WebInitParam(name = WebAppManifestServlet.SHORT_NAME, value = "Dummy"),
+        @WebInitParam(name = WebAppManifestServlet.ICONS, value = "1"),
+        @WebInitParam(name = WebAppManifestServlet.ICONS + ".1",
             value = "/icons/dummy-48.png"),
-        @WebInitParam(name = ManifestServlet.ICONS + ".1.sizes",
+        @WebInitParam(name = WebAppManifestServlet.ICONS + ".1.sizes",
             value = "48x48"),
-        @WebInitParam(name = ManifestServlet.ICONS + ".1.type",
+        @WebInitParam(name = WebAppManifestServlet.ICONS + ".1.type",
             value = "image/png"),
     })
-public final class EditorManifestServlet extends ManifestServlet
+public final class EditorManifestServlet extends WebAppManifestServlet
 {
     private static final long serialVersionUID = 1L;
 }

@@ -1,5 +1,5 @@
 /*
- * ManifestServlet.java - class ManifestServlet
+ * WebAppManifestServlet.java - class WebAppManifestServlet
  * Copyright (C) 2018-2019 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -45,7 +45,7 @@ import javax.servlet.http.HttpServletResponse;
  * @since 1.0
  * @see <a href="https://www.w3.org/TR/appmanifest/">Web App Manifest</a>
  */
-public class ManifestServlet extends HttpServlet
+public class WebAppManifestServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
