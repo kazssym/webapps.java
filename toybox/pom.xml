@@ -11,8 +11,8 @@
 
 <artifactId>toybox</artifactId>
 <packaging>war</packaging>
-<name>REST API Web Application</name>
-<description>Experimental HTTP API web application.</description>
+<name>Toybox Web Application</name>
+<description>Experimental web application.</description>
 
 <dependencies>
 
