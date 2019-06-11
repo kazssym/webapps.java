@@ -87,7 +87,7 @@ public class WebAppManifestServlet extends HttpServlet
      */
     public final WebAppManifest getManifest()
     {
-        return (WebAppManifest) manifest.clone();
+        return manifest.copy();
     }
 
     /**
@@ -97,7 +97,7 @@ public class WebAppManifestServlet extends HttpServlet
      */
     public final void setManifest(final WebAppManifest newManifest)
     {
-        manifest = (WebAppManifest) newManifest.clone();
+        manifest = newManifest.copy();
         lastModified = System.currentTimeMillis();
     }
 

@@ -166,11 +166,10 @@ public class WebAppManifest implements Cloneable, Serializable
      *
      * @return a copy of this object
      */
-    @Override
-    public Object clone()
+    public WebAppManifest copy()
     {
         try {
-            WebAppManifest manifest = (WebAppManifest) super.clone();
+            WebAppManifest manifest = (WebAppManifest) clone();
             manifest.setIcons(icons); // This also makes a copy.
             return manifest;
         }
