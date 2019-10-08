@@ -11,7 +11,7 @@
 
 <artifactId>toybox</artifactId>
 <packaging>war</packaging>
-<name>Toybox Web Application</name>
+<name>Toybox Web App</name>
 <description>Experimental web application.</description>
 
 <dependencies>
