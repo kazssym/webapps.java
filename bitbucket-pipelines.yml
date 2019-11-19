@@ -1,5 +1,5 @@
 # bitbucket-pipelines.yml - Bitbucket Pipelines configuration
-# Copyright (C) 2016-2018 Kaz Nishimura
+# Copyright (C) 2016-2019 Kaz Nishimura
 #
 # Copying and distribution of this file, with or without modification, are
 # permitted in any medium without royalty provided the copyright notice and
@@ -39,9 +39,8 @@ definitions:
 image: adoptopenjdk/maven-openjdk8-openj9
 pipelines:
   branches:
-    default:
+    master:
       - step: *test
-  bookmarks:
     deployment/test:
       - step:
           <<: *deploy
