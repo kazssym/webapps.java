@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/templates/default.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:define name="main">
+        <script id="gapi-script"
+            src="https://apis.google.com/js/platform.js"
+            async="async" defer="defer"></script>
+        <script src="#{facesContext.externalContext
+                     .encodeResourceURL(resource['scripts/signin.js'])}"
+            async="async" defer="defer"></script>
+        <main class="site-hbox-grow site-vbox">
+            <p>This page is a sample.</p>
+            <div id="signin" class="g-signin2"></div>
+        </main>
+    </ui:define>
+</ui:composition>
