@@ -1,5 +1,5 @@
 # bitbucket-pipelines.yml - Bitbucket Pipelines configuration
-# Copyright (C) 2016-2018 Kaz Nishimura
+# Copyright (C) 2016-2019 Kaz Nishimura
 #
 # Copying and distribution of this file, with or without modification, are
 # permitted in any medium without royalty provided the copyright notice and
@@ -14,6 +14,7 @@ definitions:
   steps:
     - step: &test
         name: Test
+        image: maven:3-jdk-8-openj9
         caches:
           - maven
           - openj9
@@ -23,6 +24,7 @@ definitions:
           - mvn -B -s etc/settings.xml ${OSSRH_USERNAME+-P ossrh} test
     - step: &deploy
         name: Deploy
+        image: maven:3-jdk-8-openj9
         caches:
           - maven
           - openj9
@@ -36,12 +38,10 @@ definitions:
           - mvn -B -s etc/settings.xml ${OSSRH_USERNAME+-P ossrh} -Dmaven.deploy.skip deploy
         artifacts:
           - target/*
-image: adoptopenjdk/maven-openjdk8-openj9
 pipelines:
   branches:
-    default:
+    master:
       - step: *test
-  bookmarks:
     deployment/test:
       - step:
           <<: *deploy
