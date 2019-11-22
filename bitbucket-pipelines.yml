@@ -48,3 +48,6 @@ pipelines:
       - step:
           <<: *deploy
           deployment: staging
+  pull-requests:
+    "**":
+      - step: *test
