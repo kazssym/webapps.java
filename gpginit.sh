@@ -1,6 +1,6 @@
 #!/bin/sh
-# gpginit.sh - GnuPG key initialization for BitbucketPipelines
-# Copyright (C) 2018 Kaz Nishimura
+# gpginit.sh - GnuPG key initialization for Bitbucket Pipelines
+# Copyright (C) 2018-2020 Kaz Nishimura
 #
 # Copying and distribution of this file, with or without modification, are
 # permitted in any medium without royalty provided the copyright notice and
@@ -12,7 +12,7 @@ if test -n "$GNUPGHOME"; then
         (echo "pinentry-mode loopback") >> "$GNUPGHOME"/gpg.conf || exit 1;
     fi
 
-    gpg --batch --import < etc/keys.asc || exit 1
+    gpg --batch --import < keys.asc || exit 1
 fi
 
 exit 0

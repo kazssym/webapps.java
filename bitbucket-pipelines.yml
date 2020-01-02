@@ -1,5 +1,5 @@
 # bitbucket-pipelines.yml - Bitbucket Pipelines configuration
-# Copyright (C) 2016-2019 Kaz Nishimura
+# Copyright (C) 2016-2020 Kaz Nishimura
 #
 # Copying and distribution of this file, with or without modification, are
 # permitted in any medium without royalty provided the copyright notice and
@@ -12,8 +12,8 @@ definitions:
   caches:
     openj9: /root/javasharedresources
   steps:
-    - step: &test
-        name: Test
+    - step: &build
+        name: Build
         image: maven:3-jdk-8-openj9
         caches:
           - maven
@@ -21,6 +21,8 @@ definitions:
         script:
           - export MAVEN_OPTS="-Xgcpolicy:optthruput -Xshareclasses"
           - mvn -B -s etc/settings.xml ${OSSRH_USERNAME+-P ossrh} test
+        artifacts:
+          - target/*
     - step: &deploy
         name: Deploy
         image: maven:3-jdk-8-openj9
@@ -31,23 +33,27 @@ definitions:
           - apt-get update --quiet=2
           - apt-get install --quiet=2 --no-install-recommends gpg gpg-agent
           - export GNUPGHOME=`mktemp -d`
-          - sh etc/gpginit.sh
+          - sh ./gpginit.sh
           - export MAVEN_OPTS="-Xgcpolicy:optthruput -Xshareclasses"
           - mvn -B -s etc/settings.xml ${OSSRH_USERNAME+-P ossrh} -Dmaven.deploy.skip deploy
         artifacts:
           - target/*
+    - step: &upload-bitbucket
+        name: Upload to Bitbucket Cloud
+        script:
+          - sh ./upload.sh */target/*.war */target/*.war.asc
 pipelines:
   branches:
     master:
-      - step: *test
-    deployment/test:
       - step:
           <<: *deploy
           deployment: test
+      - step: *upload-bitbucket
     deployment/staging:
       - step:
           <<: *deploy
           deployment: staging
+      - step: *upload-bitbucket
   pull-requests:
     "**":
-      - step: *test
+      - step: *build
