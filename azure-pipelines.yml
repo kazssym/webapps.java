@@ -20,3 +20,9 @@ stages:
             inputs:
               options: -B -P ossrh
               jdkVersion: "1.8"
+          - task: Maven@3
+            displayName: Sign artifacts
+            inputs:
+              goals: gpg:sign
+              options: -B -P ossrh
+              jdkVersion: "1.8"
