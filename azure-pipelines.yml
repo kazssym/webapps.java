@@ -15,14 +15,19 @@ stages:
       - job: Build
         pool:
           vmImage: ubuntu-latest
+        variables:
+          - group: gpg
         steps:
+          - task: DownloadSecureFile@1
+            name: gpgKeys
+            inputs:
+              secureFile: keys.asc
+          - bash: |
+              echo '$(gpg.passphrase)' | \
+              sh ./setupkeys.sh '$(gpgKeys.secureFilePath)'
+            displayName: Set up signing keys
           - task: Maven@3
             inputs:
-              options: -B -P ossrh
-              jdkVersion: "1.8"
-          - task: Maven@3
-            displayName: Sign artifacts
-            inputs:
-              goals: gpg:sign
+              goals: package gpg:sign
               options: -B -P ossrh
               jdkVersion: "1.8"
