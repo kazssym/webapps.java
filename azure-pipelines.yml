@@ -26,8 +26,15 @@ stages:
               echo '$(gpg.passphrase)' | \
               sh ./setupkeys.sh '$(gpgKeys.secureFilePath)'
             displayName: Set up signing keys
+          - task: Cache@2
+            inputs:
+              key: maven | $(Agent.OS) | **/pom.xml
+              path: $(Agent.BuildDirectory)/.m2/repository
+              restoreKeys: |
+                maven | $(Agent.OS)
+                maven
           - task: Maven@3
             inputs:
               goals: package gpg:sign
-              options: -B -P ossrh
+              options: -B -P ossrh -Duser.home=$(Agent.BuildDirectory)
               jdkVersion: "1.8"
