@@ -35,6 +35,7 @@ stages:
                 maven
           - task: Maven@3
             inputs:
-              goals: package gpg:sign
-              options: -B -P ossrh -Duser.home=$(Agent.BuildDirectory)
+              ${{if startsWith(variables['Build.SourceBranch'], 'refs/head/release/')}}:
+                goals: deploy
+              options: -B -Possrh -Dmaven.install.skip -Duser.home=$(Agent.BuildDirectory)
               jdkVersion: "1.8"
