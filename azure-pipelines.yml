@@ -35,7 +35,7 @@ stages:
                 maven
           - task: Maven@3
             inputs:
-              ${{if startsWith(variables['Build.SourceBranch'], 'refs/head/release/')}}:
+              ${{if startsWith(variables['Build.SourceBranch'], 'refs/heads/release/')}}:
                 goals: deploy
               options: -B -Possrh -Dmaven.install.skip -Duser.home=$(Agent.BuildDirectory)
               jdkVersion: "1.8"
