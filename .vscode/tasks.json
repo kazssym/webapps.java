@@ -2,37 +2,39 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "compile",
+            "label": "Build",
             "type": "process",
             "command": "${config:maven.executable.path}",
-            "args": ["-B", "compile"],
+            "args": [
+                "-Possrh",
+                "package"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": []
         },
         {
-            "label": "test",
+            "label": "Rebuild",
             "type": "process",
             "command": "${config:maven.executable.path}",
-            "args": ["-B", "test"],
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            }
+            "args": [
+                "-Possrh",
+                "clean",
+                "package"
+            ],
+            "group": "build",
+            "problemMatcher": []
         },
         {
-            "label": "install",
+            "label": "Clean",
             "type": "process",
             "command": "${config:maven.executable.path}",
-            "args": ["-B", "install"],
-            "group": "none"
-        },
-        {
-            "label": "clean",
-            "type": "process",
-            "command": "${config:maven.executable.path}",
-            "args": ["-B", "clean"],
+            "args": [
+                "-Possrh",
+                "clean"
+            ],
             "group": "none"
         }
     ]
