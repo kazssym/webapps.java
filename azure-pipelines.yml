@@ -27,7 +27,8 @@ stages:
                 maven
           - task: Maven@3
             inputs:
-              options: -B -Possrh -Duser.home=$(Agent.BuildDirectory)
+              options: -B -Possrh
+                -Dmaven.repo.local=$(Agent.BuildDirectory)/.m2/repository
               jdkVersion: "1.8"
   - stage: Release
     condition: >-
@@ -64,5 +65,6 @@ stages:
           - task: Maven@3
             inputs:
               goals: package gpg:sign nexus-staging:deploy
-              options: -B -Possrh -Duser.home=$(Agent.BuildDirectory)
+              options: -B -Possrh
+                -Dmaven.repo.local=$(Agent.BuildDirectory)/.m2/repository
               jdkVersion: "1.8"
