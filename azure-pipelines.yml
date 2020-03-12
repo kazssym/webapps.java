@@ -19,12 +19,12 @@ stages:
           - group: gpg
         steps:
           - task: DownloadSecureFile@1
-            name: gpgKeys
+            name: Keys
             inputs:
               secureFile: keys.asc
           - bash: |
               echo '$(gpg.passphrase)' | \
-              sh ./setupkeys.sh '$(gpgKeys.secureFilePath)'
+              sh ./setupkeys.sh '$(Keys.secureFilePath)'
             displayName: Set up signing keys
           - task: Cache@2
             inputs:
