@@ -6,7 +6,6 @@
             "type": "process",
             "command": "${config:maven.executable.path}",
             "args": [
-                "-Possrh",
                 "package"
             ],
             "group": {
@@ -20,9 +19,18 @@
             "type": "process",
             "command": "${config:maven.executable.path}",
             "args": [
-                "-Possrh",
                 "clean",
                 "package"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Install",
+            "type": "process",
+            "command": "${config:maven.executable.path}",
+            "args": [
+                "install",
             ],
             "group": "build",
             "problemMatcher": []
@@ -32,7 +40,6 @@
             "type": "process",
             "command": "${config:maven.executable.path}",
             "args": [
-                "-Possrh",
                 "clean"
             ],
             "group": "none"
