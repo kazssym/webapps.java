@@ -1,6 +1,6 @@
 /*
  * ImageResource.java - class ImageResource
- * Copyright (C) 2018 Kaz Nishimura
+ * Copyright (C) 2018-2020 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Affero General Public License as published by
@@ -24,6 +24,7 @@ import java.io.Serializable;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
+import javax.json.bind.annotation.JsonbProperty;
 
 /**
  * Image resource in a web app manifest.
@@ -47,16 +48,19 @@ public class ImageResource implements Cloneable, Serializable
     /**
      * URL ({@code src}) of the image resource.
      */
+    @JsonbProperty("src")
     private String src;
 
     /**
      * Sizes of the image resource.
      */
+    @JsonbProperty("sizes")
     private String sizes;
 
     /**
      * Media type of the image resource.
      */
+    @JsonbProperty("type")
     private String type;
 
     /**
