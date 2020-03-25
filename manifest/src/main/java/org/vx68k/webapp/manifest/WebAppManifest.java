@@ -1,6 +1,6 @@
 /*
  * WebAppManifest.java - class WebAppManifest
- * Copyright (C) 2018 Kaz Nishimura
+ * Copyright (C) 2018-2020 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Affero General Public License as published by
@@ -26,6 +26,7 @@ import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
+import javax.json.bind.annotation.JsonbProperty;
 
 /**
  * Web app manifest.
@@ -49,16 +50,19 @@ public class WebAppManifest implements Cloneable, Serializable
     /**
      * Name of the web app.
      */
+    @JsonbProperty("name")
     private String name;
 
     /**
      * Short name of the web app.
      */
+    @JsonbProperty("short_name")
     private String shortName;
 
     /**
      * Icons of the web app.
      */
+    @JsonbProperty("icons")
     private ImageResource[] icons;
 
     /**
