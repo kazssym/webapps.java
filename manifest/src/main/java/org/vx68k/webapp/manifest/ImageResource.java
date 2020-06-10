@@ -41,7 +41,7 @@ import javax.json.bind.annotation.JsonbProperty;
  * @since 1.0
  * @see <a href="https://www.w3.org/TR/appmanifest/">"Web App Manifest"</a>
  */
-public class ImageResource implements Cloneable, Serializable
+public class ImageResource implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -49,19 +49,41 @@ public class ImageResource implements Cloneable, Serializable
      * URL ({@code src}) of the image resource.
      */
     @JsonbProperty("src")
-    private String src;
+    private String src = null;
 
     /**
      * Sizes of the image resource.
      */
     @JsonbProperty("sizes")
-    private String sizes;
+    private String sizes = null;
 
     /**
      * Media type of the image resource.
      */
     @JsonbProperty("type")
-    private String type;
+    private String type = null;
+
+    /**
+     * Constructs an blank image resource.
+     */
+    public ImageResource()
+    {
+        // All the fields have the default values.
+    }
+
+    /**
+     * Constructs an image resource by copying another one.
+     *
+     * @param other another image resource
+     * @see #duplicate()
+     * @since 2.0
+     */
+    protected ImageResource(final ImageResource other)
+    {
+        this.src = other.src;
+        this.sizes = other.sizes;
+        this.type = other.type;
+    }
 
     /**
      * Returns the URL ({@code src}) of the image resource.
@@ -144,18 +166,14 @@ public class ImageResource implements Cloneable, Serializable
     }
 
     /**
-     * Returns a copy of this object.
+     * Returns a new copy of the image resource.
      *
-     * @return a copy
+     * @return a new copy of the image resource
+     * @see #ImageResource(ImageResource)
+     * @since 2.0
      */
-    @Override
-    public ImageResource clone()
+    public ImageResource duplicate()
     {
-        try {
-            return (ImageResource) super.clone();
-        }
-        catch (CloneNotSupportedException exception) {
-            throw new RuntimeException("Unexpected exception", exception);
-        }
+        return new ImageResource(this);
     }
 }
