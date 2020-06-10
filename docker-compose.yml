@@ -17,7 +17,7 @@ services:
       DEBUG_PORT: 0.0.0.0:8787
       OPENJ9_JAVA_OPTIONS: -Xtune:virtualized -Xshareclasses
     volumes:
-      - ./texteditor/target/texteditor-1.0-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war:ro
+      - ./texteditor/target/texteditor-2-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war:ro
       - javasharedresources:/root/javasharedresources:rw
     working_dir: /opt/jboss/wildfly/standalone
     command: /opt/jboss/wildfly/bin/standalone.sh -b=0.0.0.0
@@ -33,7 +33,7 @@ services:
       DEBUG_PORT: 0.0.0.0:8787
       OPENJ9_JAVA_OPTIONS: -Xtune:virtualized -Xshareclasses
     volumes:
-      - ./toybox/target/toybox-1.0-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war:ro
+      - ./toybox/target/toybox-2-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war:ro
       - javasharedresources:/root/javasharedresources:rw
     working_dir: /opt/jboss/wildfly/standalone
     command: /opt/jboss/wildfly/bin/standalone.sh -b=0.0.0.0
