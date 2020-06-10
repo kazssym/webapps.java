@@ -21,8 +21,6 @@ services:
       - javasharedresources:/root/javasharedresources:rw
     working_dir: /opt/jboss/wildfly/standalone
     command: /opt/jboss/wildfly/bin/standalone.sh -b=0.0.0.0
-    cap_drop:
-      - ALL
   toybox:
     image: kazssym/wildfly:latest
     ports:
@@ -37,7 +35,5 @@ services:
       - javasharedresources:/root/javasharedresources:rw
     working_dir: /opt/jboss/wildfly/standalone
     command: /opt/jboss/wildfly/bin/standalone.sh -b=0.0.0.0
-    cap_drop:
-      - ALL
 volumes:
   javasharedresources: {}
