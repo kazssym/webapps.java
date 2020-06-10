@@ -20,6 +20,9 @@
 
 package org.vx68k.webapp.manifest;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Arrays;
 import javax.json.Json;
@@ -64,6 +67,12 @@ public class WebAppManifest implements Serializable
      */
     @JsonbProperty("icons")
     private ImageResource[] icons = null;
+
+    /**
+     * Support object for {@link PropertyChangeListener}.
+     */
+    private PropertyChangeSupport propertyChangeSupport =
+        new PropertyChangeSupport(this);
 
     /**
      * Returns a new copy of an array of image resources.
@@ -116,6 +125,7 @@ public class WebAppManifest implements Serializable
      */
     public final void setName(final String name)
     {
+        propertyChangeSupport.firePropertyChange("name", this.name, name);
         this.name = name;
     }
 
@@ -136,6 +146,8 @@ public class WebAppManifest implements Serializable
      */
     public final void setShortName(final String shortName)
     {
+        propertyChangeSupport
+            .firePropertyChange("name", this.shortName, shortName);
         this.shortName = shortName;
     }
 
@@ -158,6 +170,7 @@ public class WebAppManifest implements Serializable
      */
     public final void setIcons(final ImageResource[] icons)
     {
+        propertyChangeSupport.firePropertyChange("icons", this.icons, icons);
         ImageResource[] copy = null;
         if (icons != null) {
             copy = duplicate(icons);
@@ -188,6 +201,30 @@ public class WebAppManifest implements Serializable
             object.add("icons", iconsArray);
         }
         return object.build();
+    }
+
+    /**
+     * Adds a listener for {@link PropertyChangeEvent}.
+     *
+     * @param listener a listener for {@link PropertyChangeEvent}
+     * @since 2.0
+     */
+    public void addPropertyChangeListener(
+        final PropertyChangeListener listener)
+    {
+        propertyChangeSupport.addPropertyChangeListener(listener);
+    }
+
+    /**
+     * Removes a listener for {@link PropertyChangeEvent}.
+     *
+     * @param listener a listener for {@link PropertyChangeEvent}
+     * @since 2.0
+     */
+    public void removePropertyChangeListener(
+        final PropertyChangeListener listener)
+    {
+        propertyChangeSupport.removePropertyChangeListener(listener);
     }
 
     /**
