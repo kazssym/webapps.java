@@ -22,8 +22,8 @@ package org.vx68k.webapp.manifest;
 
 import java.io.IOException;
 import java.util.Arrays;
-import javax.json.Json;
-import javax.json.JsonWriter;
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -183,18 +183,13 @@ public class WebAppManifestServlet extends HttpServlet
                          final HttpServletResponse response)
         throws IOException
     {
-        if (manifest == null) {
-            throw new IllegalStateException("Not initialized");
+        try (Jsonb jsonb = JsonbBuilder.create()) {
+            jsonb.toJson(manifest, response.getOutputStream());
         }
-
+        catch (Exception e) {
+            throw new IOException(e);
+        }
         response.setContentType(CONTENT_TYPE);
-        JsonWriter writer = Json.createWriter(response.getOutputStream());
-        try {
-            writer.writeObject(manifest.toJsonObject());
-        }
-        finally {
-            writer.close();
-        }
     }
 
     /**
