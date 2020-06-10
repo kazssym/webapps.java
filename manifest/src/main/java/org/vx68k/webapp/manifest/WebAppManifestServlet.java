@@ -153,12 +153,13 @@ public class WebAppManifestServlet extends HttpServlet
 
     /**
      * {@inheritDoc}
+     *
+     * <p>This implementation creates a new manifest.</p>
      */
     @Override
     public void init(final ServletConfig config)
         throws ServletException
     {
-        assert config != null;
         super.init(config);
         setManifest(createManifest(getServletConfig()));
     }
@@ -169,8 +170,8 @@ public class WebAppManifestServlet extends HttpServlet
     @Override
     public void destroy()
     {
-        super.destroy();
         manifest = null;
+        super.destroy();
     }
 
     /**
