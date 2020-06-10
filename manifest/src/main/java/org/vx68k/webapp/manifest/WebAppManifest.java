@@ -43,7 +43,7 @@ import javax.json.bind.annotation.JsonbProperty;
  * @since 1.0
  * @see <a href="https://www.w3.org/TR/appmanifest/">"Web App Manifest"</a>
  */
-public class WebAppManifest implements Cloneable, Serializable
+public class WebAppManifest implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -51,19 +51,46 @@ public class WebAppManifest implements Cloneable, Serializable
      * Name of the web app.
      */
     @JsonbProperty("name")
-    private String name;
+    private String name = null;
 
     /**
      * Short name of the web app.
      */
     @JsonbProperty("short_name")
-    private String shortName;
+    private String shortName = null;
 
     /**
      * Icons of the web app.
      */
     @JsonbProperty("icons")
-    private ImageResource[] icons;
+    private ImageResource[] icons = null;
+
+    /**
+     * Returns a new copy of an array of image resources.
+     *
+     * @param resources an array of image resources
+     * @return a new copy of the array of image resources
+     */
+    protected static ImageResource[] duplicate(final ImageResource[] resources)
+    {
+        return Arrays.stream(resources).map(ImageResource::duplicate)
+            .toArray(ImageResource[]::new);
+    }
+
+    /**
+     * Constructs a blank manifest.
+     */
+    public WebAppManifest()
+    {
+        // All the fields have the default values.
+    }
+
+    protected WebAppManifest(final WebAppManifest other)
+    {
+        this.name = other.name;
+        this.shortName = other.shortName;
+        this.icons = duplicate(other.icons);
+    }
 
     /**
      * Returns the name of the web app.
@@ -78,11 +105,11 @@ public class WebAppManifest implements Cloneable, Serializable
     /**
      * Sets the name of the web app.
      *
-     * @param value the new name
+     * @param name the new name
      */
-    public final void setName(final String value)
+    public final void setName(final String name)
     {
-        name = value;
+        this.name = name;
     }
 
     /**
@@ -98,11 +125,11 @@ public class WebAppManifest implements Cloneable, Serializable
     /**
      * Sets the short name of the web app.
      *
-     * @param value the new short name
+     * @param shortName the new short name
      */
-    public final void setShortName(final String value)
+    public final void setShortName(final String shortName)
     {
-        shortName = value;
+        this.shortName = shortName;
     }
 
     /**
@@ -112,13 +139,7 @@ public class WebAppManifest implements Cloneable, Serializable
      */
     public final ImageResource[] getIcons()
     {
-        ImageResource[] value = null;
-        if (icons != null) {
-            value = Arrays.stream(icons)
-                .map((icon) -> icon.clone())
-                .toArray(ImageResource[]::new);
-        }
-        return value;
+        return icons;
     }
 
     /**
@@ -126,18 +147,15 @@ public class WebAppManifest implements Cloneable, Serializable
      *
      * <p>Each element must not be {@code null}.</p>
      *
-     * @param value the new icons
+     * @param icons the new icons
      */
-    public final void setIcons(final ImageResource[] value)
+    public final void setIcons(final ImageResource[] icons)
     {
-        if (value != null) {
-            icons = Arrays.stream(value)
-                .map((icon) -> icon.clone())
-                .toArray(ImageResource[]::new);
+        ImageResource[] copy = null;
+        if (icons != null) {
+            copy = duplicate(icons);
         }
-        else {
-            icons = null;
-        }
+        this.icons = copy;
     }
 
     /**
@@ -166,19 +184,14 @@ public class WebAppManifest implements Cloneable, Serializable
     }
 
     /**
-     * Creates and returns a copy of this object.
+     * Returns a new copy of the manifest.
      *
-     * @return a copy of this object
+     * @return a new copy of the manifest
+     * @see #WebAppManifest(WebAppManifest)
+     * @since 2.0
      */
-    public WebAppManifest copy()
+    public WebAppManifest duplicate()
     {
-        try {
-            WebAppManifest manifest = (WebAppManifest) clone();
-            manifest.setIcons(icons); // This also makes a copy.
-            return manifest;
-        }
-        catch (CloneNotSupportedException exception) {
-            throw new RuntimeException("Unexpected exception", exception);
-        }
+        return new WebAppManifest(this);
     }
 }
