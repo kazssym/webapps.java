@@ -15,7 +15,6 @@ services:
     environment:
       DEBUG:
       DEBUG_PORT: 0.0.0.0:8787
-      OPENJ9_JAVA_OPTIONS: -Xtune:virtualized -Xshareclasses
     volumes:
       - ./texteditor/target/texteditor-2-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/texteditor.war:ro
     working_dir: /opt/jboss/wildfly/standalone
@@ -28,7 +27,6 @@ services:
     environment:
       DEBUG:
       DEBUG_PORT: 0.0.0.0:8787
-      OPENJ9_JAVA_OPTIONS: -Xtune:virtualized -Xshareclasses
     volumes:
       - ./toybox/target/toybox-2-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/toybox.war:ro
     working_dir: /opt/jboss/wildfly/standalone
