@@ -95,11 +95,11 @@ public class WebAppManifestServlet extends HttpServlet
     /**
      * Sets the manifest.
      *
-     * @param newManifest a new manifest
+     * @param manifest a new manifest
      */
-    public final void setManifest(final WebAppManifest newManifest)
+    public final void setManifest(final WebAppManifest manifest)
     {
-        manifest = newManifest.duplicate();
+        this.manifest = manifest.duplicate();
         lastModified = System.currentTimeMillis();
     }
 
