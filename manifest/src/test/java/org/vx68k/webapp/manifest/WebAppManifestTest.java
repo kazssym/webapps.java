@@ -21,10 +21,8 @@
 package org.vx68k.webapp.manifest;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-
 import org.junit.Test;
 
 /**
@@ -43,13 +41,9 @@ public final class WebAppManifestTest
     {
         WebAppManifest manifest = new WebAppManifest();
         assertNull("manifest.name", manifest.getName());
-        assertFalse("'name' in JSON(manifest)",
-            manifest.toJsonObject().containsKey("name"));
 
         manifest.setName("a name");
         assertEquals("manifest.name", "a name", manifest.getName());
-        assertEquals("JSON(manifest)['name']", "a name",
-            manifest.toJsonObject().getString("name"));
 
         manifest.setName(null);
         assertNull("manifest.name", manifest.getName());
@@ -63,14 +57,10 @@ public final class WebAppManifestTest
     {
         WebAppManifest manifest = new WebAppManifest();
         assertNull("manifest.shortName", manifest.getShortName());
-        assertFalse("'short_name' in JSON(manifest)",
-            manifest.toJsonObject().containsKey("short_name"));
 
         manifest.setShortName("a short name");
         assertEquals("manifest.shortName", "a short name",
             manifest.getShortName());
-        assertEquals("JSON(manifest)['short_name']", "a short name",
-            manifest.toJsonObject().getString("short_name"));
 
         manifest.setShortName(null);
         assertNull("manifest.shortName", manifest.getShortName());
@@ -84,18 +74,12 @@ public final class WebAppManifestTest
     {
         WebAppManifest manifest = new WebAppManifest();
         assertNull("manifest.icons", manifest.getIcons());
-        assertFalse("'icons' in JSON(manifest)",
-            manifest.toJsonObject().containsKey("icons"));
 
         manifest.setIcons(new ImageResource[0]);
         assertEquals("manifest.icons.length", 0, manifest.getIcons().length);
-        assertEquals("JSON(manifest)['icons'].length", 0,
-            manifest.toJsonObject().getJsonArray("icons").size());
 
         manifest.setIcons(new ImageResource[] {new ImageResource()});
         assertNotNull("manifest.icons[0]", manifest.getIcons()[0]);
-        assertNotNull("JSON(manifest)['icons'][0]",
-            manifest.toJsonObject().getJsonArray("icons").getJsonObject(0));
 
         manifest.setIcons(null);
         assertNull("manifest.icons", manifest.getIcons());

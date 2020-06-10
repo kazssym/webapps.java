@@ -25,10 +25,6 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Arrays;
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
 import javax.json.bind.annotation.JsonbProperty;
 
 /**
@@ -176,31 +172,6 @@ public class WebAppManifest implements Serializable
             copy = duplicate(icons);
         }
         this.icons = copy;
-    }
-
-    /**
-     * Returns a JSON object that represents this manifest.
-     *
-     * @return a JSON object
-     */
-    public final JsonObject toJsonObject()
-    {
-        JsonObjectBuilder object = Json.createObjectBuilder();
-        if (name != null) {
-            object.add("name", name);
-        }
-        if (shortName != null) {
-            object.add("short_name", shortName);
-        }
-        if (icons != null) {
-            JsonArrayBuilder iconsArray = Json.createArrayBuilder();
-            Arrays.stream(icons)
-                .forEachOrdered((icon) -> {
-                    iconsArray.add(icon.toJsonObject());
-                });
-            object.add("icons", iconsArray);
-        }
-        return object.build();
     }
 
     /**
