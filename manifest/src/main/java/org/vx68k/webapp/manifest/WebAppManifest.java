@@ -85,6 +85,13 @@ public class WebAppManifest implements Serializable
         // All the fields have the default values.
     }
 
+    /**
+     * Constructs a manifest by copying another one.
+     *
+     * @param other another manifest
+     * @see #duplicate()
+     * @since 2.0
+     */
     protected WebAppManifest(final WebAppManifest other)
     {
         this.name = other.name;
