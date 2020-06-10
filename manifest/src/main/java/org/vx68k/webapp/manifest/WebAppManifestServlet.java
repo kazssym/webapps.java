@@ -71,14 +71,14 @@ public class WebAppManifestServlet extends HttpServlet
     public static final String ICONS = "icons";
 
     /**
-     * Manifest that is served by this object.
+     * Manifest that is served by the servlet.
      */
-    private transient WebAppManifest manifest;
+    private WebAppManifest manifest = new WebAppManifest();
 
     /**
-     * Last modified time from {@code 1970-01-01T00:00:00Z} in milliseconds.
+     * Last modified time in milliseconds since 1970-01-01T00:00:00Z.
      */
-    private transient long lastModified;
+    private long lastModified = System.currentTimeMillis();
 
     /**
      * Returns the manifest that is served by the servlet.
