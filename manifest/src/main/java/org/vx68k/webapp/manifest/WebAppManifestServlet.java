@@ -72,13 +72,15 @@ public class WebAppManifestServlet extends HttpServlet
 
     /**
      * Manifest that is served by the servlet.
+     *
+     * It shall be created by {@link #init(ServletConfig)}.
      */
-    private WebAppManifest manifest = new WebAppManifest();
+    private WebAppManifest manifest = null;
 
     /**
      * Last modified time in milliseconds since 1970-01-01T00:00:00Z.
      */
-    private long lastModified = System.currentTimeMillis();
+    private long lastModified = 0;
 
     /**
      * Returns the manifest that is served by the servlet.
