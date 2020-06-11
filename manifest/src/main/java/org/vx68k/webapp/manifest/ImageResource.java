@@ -21,9 +21,6 @@
 package org.vx68k.webapp.manifest;
 
 import java.io.Serializable;
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
 import javax.json.bind.annotation.JsonbProperty;
 
 /**
@@ -143,26 +140,6 @@ public class ImageResource implements Serializable
     public final void setType(final String value)
     {
         type = value;
-    }
-
-    /**
-     * Returns a JSON object that represents this image resource.
-     *
-     * @return a JSON object
-     */
-    public final JsonObject toJsonObject()
-    {
-        JsonObjectBuilder object = Json.createObjectBuilder();
-        if (src != null) {
-            object.add("src", src);
-        }
-        if (sizes != null) {
-            object.add("sizes", sizes);
-        }
-        if (type != null) {
-            object.add("type", type);
-        }
-        return object.build();
     }
 
     /**

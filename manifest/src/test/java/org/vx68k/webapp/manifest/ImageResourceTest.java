@@ -21,7 +21,6 @@
 package org.vx68k.webapp.manifest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 
@@ -41,13 +40,9 @@ public final class ImageResourceTest
     {
         ImageResource image = new ImageResource();
         assertNull(image.getSrc(), "src");
-        assertFalse(image.toJsonObject().containsKey("src"),
-            "'src' in JSON(image)");
 
         image.setSrc("http://example.com/");
         assertEquals("http://example.com/", image.getSrc(), "src");
-        assertEquals("http://example.com/",
-            image.toJsonObject().getString("src", null), "JSON(image)['src']");
 
         image.setSrc(null);
         assertNull(image.getSrc(), "src");
@@ -61,13 +56,9 @@ public final class ImageResourceTest
     {
         ImageResource image = new ImageResource();
         assertNull(image.getSizes(), "sizes");
-        assertFalse(image.toJsonObject().containsKey("sizes"),
-            "'sizes' in JSON(image)");
 
         image.setSizes("48x48");
         assertEquals("48x48", image.getSizes(), "sizes");
-        assertEquals("48x48", image.toJsonObject().getString("sizes", null),
-            "JSON(image)['sizes']");
 
         image.setSizes(null);
         assertNull(image.getSizes(), "sizes");
@@ -81,13 +72,9 @@ public final class ImageResourceTest
     {
         ImageResource image = new ImageResource();
         assertNull(image.getType(), "type");
-        assertFalse(image.toJsonObject().containsKey("type"),
-            "'type' in JSON(image)");
 
         image.setType("image/png");
         assertEquals("image/png", image.getType(), "type");
-        assertEquals("image/png", image.toJsonObject().getString("type", null),
-            "JSON(image)['type']");
 
         image.setType(null);
         assertNull(image.getType(), "image.type");
