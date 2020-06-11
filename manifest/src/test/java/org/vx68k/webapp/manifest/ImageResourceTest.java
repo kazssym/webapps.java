@@ -20,11 +20,10 @@
 
 package org.vx68k.webapp.manifest;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test fixture for {@link ImageResource}.
@@ -41,17 +40,17 @@ public final class ImageResourceTest
     public void testSrc()
     {
         ImageResource image = new ImageResource();
-        assertNull("image.src", image.getSrc());
-        assertFalse("'src' in JSON(image)",
-            image.toJsonObject().containsKey("src"));
+        assertNull(image.getSrc(), "src");
+        assertFalse(image.toJsonObject().containsKey("src"),
+            "'src' in JSON(image)");
 
         image.setSrc("http://example.com/");
-        assertEquals("image.src", "http://example.com/", image.getSrc());
-        assertEquals("JSON(image)['src']", "http://example.com/",
-            image.toJsonObject().getString("src", null));
+        assertEquals("http://example.com/", image.getSrc(), "src");
+        assertEquals("http://example.com/",
+            image.toJsonObject().getString("src", null), "JSON(image)['src']");
 
         image.setSrc(null);
-        assertNull("image.src", image.getSrc());
+        assertNull(image.getSrc(), "src");
     }
 
     /**
@@ -61,17 +60,17 @@ public final class ImageResourceTest
     public void testSizes()
     {
         ImageResource image = new ImageResource();
-        assertNull("image.sizes", image.getSizes());
-        assertFalse("'sizes' in JSON(image)",
-            image.toJsonObject().containsKey("sizes"));
+        assertNull(image.getSizes(), "sizes");
+        assertFalse(image.toJsonObject().containsKey("sizes"),
+            "'sizes' in JSON(image)");
 
         image.setSizes("48x48");
-        assertEquals("image.sizes", "48x48", image.getSizes());
-        assertEquals("JSON(image)['sizes']", "48x48",
-            image.toJsonObject().getString("sizes", null));
+        assertEquals("48x48", image.getSizes(), "sizes");
+        assertEquals("48x48", image.toJsonObject().getString("sizes", null),
+            "JSON(image)['sizes']");
 
         image.setSizes(null);
-        assertNull("image.sizes", image.getSizes());
+        assertNull(image.getSizes(), "sizes");
     }
 
     /**
@@ -81,16 +80,16 @@ public final class ImageResourceTest
     public void testType()
     {
         ImageResource image = new ImageResource();
-        assertNull("image.type", image.getType());
-        assertFalse("'type' in JSON(image)",
-            image.toJsonObject().containsKey("type"));
+        assertNull(image.getType(), "type");
+        assertFalse(image.toJsonObject().containsKey("type"),
+            "'type' in JSON(image)");
 
         image.setType("image/png");
-        assertEquals("image.type", "image/png", image.getType());
-        assertEquals("JSON(image)['type']", "image/png",
-            image.toJsonObject().getString("type", null));
+        assertEquals("image/png", image.getType(), "type");
+        assertEquals("image/png", image.toJsonObject().getString("type", null),
+            "JSON(image)['type']");
 
         image.setType(null);
-        assertNull("image.type", image.getType());
+        assertNull(image.getType(), "image.type");
     }
 }

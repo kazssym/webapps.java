@@ -20,10 +20,10 @@
 
 package org.vx68k.webapp.manifest;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test fixture for {@link WebAppManifest}.
@@ -40,13 +40,13 @@ public final class WebAppManifestTest
     public void testName()
     {
         WebAppManifest manifest = new WebAppManifest();
-        assertNull("manifest.name", manifest.getName());
+        assertNull(manifest.getName(), "name");
 
         manifest.setName("a name");
-        assertEquals("manifest.name", "a name", manifest.getName());
+        assertEquals("a name", manifest.getName(), "name");
 
         manifest.setName(null);
-        assertNull("manifest.name", manifest.getName());
+        assertNull(manifest.getName(), "name");
     }
 
     /**
@@ -56,14 +56,13 @@ public final class WebAppManifestTest
     public void testShortName()
     {
         WebAppManifest manifest = new WebAppManifest();
-        assertNull("manifest.shortName", manifest.getShortName());
+        assertNull(manifest.getShortName(), "shortName");
 
         manifest.setShortName("a short name");
-        assertEquals("manifest.shortName", "a short name",
-            manifest.getShortName());
+        assertEquals("a short name", manifest.getShortName(), "shortName");
 
         manifest.setShortName(null);
-        assertNull("manifest.shortName", manifest.getShortName());
+        assertNull(manifest.getShortName(), "shortName");
     }
 
     /**
@@ -73,15 +72,15 @@ public final class WebAppManifestTest
     public void testIcons()
     {
         WebAppManifest manifest = new WebAppManifest();
-        assertNull("manifest.icons", manifest.getIcons());
+        assertNull(manifest.getIcons(), "icons");
 
         manifest.setIcons(new ImageResource[0]);
-        assertEquals("manifest.icons.length", 0, manifest.getIcons().length);
+        assertEquals(0, manifest.getIcons().length, "icons.length");
 
         manifest.setIcons(new ImageResource[] {new ImageResource()});
-        assertNotNull("manifest.icons[0]", manifest.getIcons()[0]);
+        assertNotNull(manifest.getIcons()[0], "icons[0]");
 
         manifest.setIcons(null);
-        assertNull("manifest.icons", manifest.getIcons());
+        assertNull(manifest.getIcons(), "icons");
     }
 }
