@@ -39,8 +39,8 @@
 </modules>
 
 <scm>
-<connection>scm:git:https://bitbucket.org/vx68k/webapps.java</connection>
-<developerConnection>scm:git:ssh://git@bitbucket.org/vx68k/webapps</developerConnection>
+<connection>scm:git:https://bitbucket.org/vx68k/webapps.java.git</connection>
+<developerConnection>scm:git:ssh://git@bitbucket.org/vx68k/webapps.java.git</developerConnection>
 <tag>master</tag>
 <url>https://bitbucket.org/vx68k/webapps.java/src/${project.scm.tag}/</url>
 </scm>
