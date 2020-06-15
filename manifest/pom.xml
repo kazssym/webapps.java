@@ -52,6 +52,27 @@
 <plugins>
 
 <plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<configuration>
+<source>1.8</source>
+<target>1.8</target>
+</configuration>
+</plugin>
+
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-javadoc-plugin</artifactId>
+<configuration>
+<source>1.8</source>
+<locale>en_US</locale>
+<links>
+<link>https://javaee.github.io/javaee-spec/javadocs/</link>
+</links>
+</configuration>
+</plugin>
+
+<plugin>
 <groupId>org.apache.felix</groupId>
 <artifactId>maven-bundle-plugin</artifactId>
 <extensions>true</extensions>
