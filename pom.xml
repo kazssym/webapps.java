@@ -52,8 +52,8 @@
 
 <distributionManagement>
 <site>
-<id>localhost</id>
-<url>file:site/</url>
+<id>public</id>
+<url>https://vx68k.bitbucket.io/webapps.java/1/</url>
 </site>
 </distributionManagement>
 
