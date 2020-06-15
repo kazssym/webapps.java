@@ -235,6 +235,7 @@
 <profiles>
 
 <profile>
+
 <id>ossrh</id>
 
 <distributionManagement>
@@ -245,7 +246,6 @@
 </distributionManagement>
 
 <build>
-
 <plugins>
 
 <plugin>
@@ -296,8 +296,12 @@
 <nexusUrl>https://oss.sonatype.org/</nexusUrl>
 </configuration>
 </plugin>
+
 </plugins>
 </build>
+
 </profile>
+
 </profiles>
+
 </project>
