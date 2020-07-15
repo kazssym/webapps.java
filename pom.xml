@@ -246,6 +246,8 @@
 <report>aggregate</report>
 </reports>
 <inherited>false</inherited>
+</reportSet>
+</reportSets>
 <configuration>
 <source>1.8</source>
 <locale>en_US</locale>
@@ -253,10 +255,6 @@
 <link>https://javaee.github.io/javaee-spec/javadocs/</link>
 </links>
 <doctitle>${project.name} ${project.version}</doctitle>
-</configuration>
-</reportSet>
-</reportSets>
-<configuration>
 <notimestamp>true</notimestamp>
 </configuration>
 </plugin>
