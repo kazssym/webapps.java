@@ -20,7 +20,7 @@
 <env-entry>
 <env-entry-name>signinClientId</env-entry-name>
 <env-entry-type>java.lang.String</env-entry-type>
-<env-entry-value>!</env-entry-value>
+<lookup-name>java:global/toybox/signinClientId</lookup-name>
 </env-entry>
 
 </web-app>
