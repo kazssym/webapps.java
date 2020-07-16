@@ -2,7 +2,7 @@
 <ui:composition template="/templates/default.xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <ui:define name="head:end">
-<script src="#{resource['ws/init.js']}" type="module"></script>
+<script src="#{request.contextPath}/resources/ws/init.js##{request.contextPath}" type="module"></script>
 </ui:define>
 
 <ui:define name="main">
