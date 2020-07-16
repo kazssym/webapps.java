@@ -17,3 +17,14 @@ agent.addEventListener("error", (event) => {
 agent.addEventListener("message", (event) => {
     console.log("%o", event.data);
 });
+
+function test()
+{
+    agent.send("aa");
+}
+
+for (let i of document.getElementsByClassName("site-button-test")) {
+    i.addEventListener("click", () => {
+        test();
+    });
+}
