@@ -44,14 +44,22 @@ public class ServerAgentEndpoint
     @OnMessage
     public void handleMessage(final ChannelMessage message, final Session session)
     {
+        throw new UnsupportedOperationException("handleMessage is not implemented yet");
     }
 
     /**
      * Decoder for {@link ChannelMessage}s.
      */
-    protected static class ChannelMessageDecoder implements
-        Decoder.Binary<ChannelMessage>
+    protected static class ChannelMessageDecoder
+        implements Decoder.Binary<ChannelMessage>
     {
+        private EndpointConfig endpointConfig;
+
+        public final EndpointConfig getEndpointConfig()
+        {
+            return endpointConfig;
+        }
+
         @Override
         public ChannelMessage decode(final ByteBuffer buffer) throws
             DecodeException
@@ -72,23 +80,31 @@ public class ServerAgentEndpoint
         }
 
         @Override
-        public void init(final EndpointConfig endpointConfig)
+        public final void init(final EndpointConfig endpointConfig)
         {
+            this.endpointConfig = endpointConfig;
         }
 
         @Override
-        public void destroy()
+        public final void destroy()
         {
+            // Nothing to do.
         }
-
     }
 
     /**
      * Encoder for {@link ChannelMessage}s.
      */
-    protected static class ChannelMessageEncoder implements
-        Encoder.Binary<ChannelMessage>
+    protected static class ChannelMessageEncoder
+        implements Encoder.Binary<ChannelMessage>
     {
+        private EndpointConfig endpointConfig;
+
+        public final EndpointConfig getEndpointConfig()
+        {
+            return endpointConfig;
+        }
+
         @Override
         public ByteBuffer encode(final ChannelMessage message) throws
             EncodeException
@@ -98,13 +114,15 @@ public class ServerAgentEndpoint
         }
 
         @Override
-        public void init(final EndpointConfig endpointConfig)
+        public final void init(final EndpointConfig endpointConfig)
         {
+            this.endpointConfig = endpointConfig;
         }
 
         @Override
-        public void destroy()
+        public final void destroy()
         {
+            // Nothing to do.
         }
     }
 }
