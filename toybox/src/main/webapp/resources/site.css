@@ -62,3 +62,21 @@ header
         flex-flow: row;
     }
 }
+
+header .pure-menu-link
+{
+    color: #dddddd;
+}
+
+header .pure-menu-active > .pure-menu-link,
+header .pure-menu-link:hover,
+header .pure-menu-link:focus
+{
+    background-color: #888888;
+}
+
+header .pure-menu-selected > .pure-menu-link,
+header .pure-menu-selected > .pure-menu-link:visited
+{
+    color: #cccccc;
+}
