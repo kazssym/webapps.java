@@ -17,3 +17,8 @@ navigator.serviceWorker.register(`${context}/service.js`)
     .catch((reason) => {
         console.log(reason);
     });
+
+let agent = new WebSocket(`wss://${url.host}${context}/agent`);
+agent.addEventListener("error", (e) => {
+    console.log(e);
+});
