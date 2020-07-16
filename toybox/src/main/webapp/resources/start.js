@@ -10,7 +10,11 @@
 let url = new URL(import.meta.url);
 let context = url.hash.substring(1);
 
-let agent = new WebSocket(`wss://${url.host}${context}/agent`);
-agent.addEventListener("error", (e) => {
-    console.log(e);
-});
+navigator.serviceWorker
+    .register(`${context}/service.js`, {scope: `${context}/`})
+    .then((registration) => {
+        console.debug("registered service worker: %o", registration);
+    })
+    .catch((reason) => {
+        console.log(reason);
+    });
