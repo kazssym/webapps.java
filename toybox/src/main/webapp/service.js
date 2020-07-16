@@ -14,6 +14,7 @@ self.addEventListener("install", (event) => {
         .then((cache) => {
             return cache.addAll([
                 "service.js",
+                "resources/start.js",
                 "index.jsf",
                 "ws/index.jsf",
                 "resources/site.css",
