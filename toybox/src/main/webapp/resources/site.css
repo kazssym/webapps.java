@@ -53,3 +53,12 @@ header
 {
     font-size: 1.5em;
 }
+
+@media (min-width: 384px)
+{
+    .site-w-hbox
+    {
+        display: flex;
+        flex-flow: row;
+    }
+}
