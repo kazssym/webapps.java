@@ -10,8 +10,7 @@
 let url = new URL(import.meta.url);
 let context = url.hash.substring(1);
 
-navigator.serviceWorker
-    .register(`${context}/service.js`, {scope: `${context}/`})
+navigator.serviceWorker.register(`${context}/service.js`)
     .then((registration) => {
         console.debug("registered service worker: %o", registration);
     })
