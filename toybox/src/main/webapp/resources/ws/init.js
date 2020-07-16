@@ -11,6 +11,9 @@ let url = new URL(import.meta.url);
 let context = url.hash.substring(1);
 
 let agent = new WebSocket(`wss://${url.host}${context}/agent`);
-agent.addEventListener("error", (e) => {
-    console.log(e);
+agent.addEventListener("error", (event) => {
+    console.error("%o", event);
+});
+agent.addEventListener("message", (event) => {
+    console.log("%o", event.data);
 });
