@@ -15,14 +15,6 @@ html
 body
 {
     height: 100%;
-    color: #333333;
-    background: #ffffff;
-}
-
-header
-{
-    color: #ffffff;
-    background: #666666;
 }
 
 .site-hbox
@@ -61,6 +53,18 @@ header
         display: flex;
         flex-flow: row;
     }
+}
+
+body
+{
+    color: #333333;
+    background: #ffffff;
+}
+
+header
+{
+    color: #ffffff;
+    background: #666666;
 }
 
 header .pure-menu-link
