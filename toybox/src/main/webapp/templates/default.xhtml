@@ -12,24 +12,30 @@
 </head>
 
 <body class="site-vbox" jsf:id="body">
-<header class="pure-menu pure-menu-horizontal site-hbox site-header">
-<span class="pure-menu-heading site-hbox-grow">Toybox App</span>
 
+<header class="site-vbox site-w-hbox">
+<div class="site-vbox-grow site-content">Toybox App</div>
+
+<div class="site-vbox">
+<div class="site-vbox-grow"></div>
+<div class="pure-menu pure-menu-horizontal" id="header-menu">
 <ul class="pure-menu-list">
 <li class="pure-menu-item">
-<a class="pure-menu-link pure-menu-disabled" title="Help"><i class="material-icons">help</i></a>
+<a class="pure-menu-link pure-menu-disabled" title="Help"><i class="material-icons site-icon">help</i></a>
 </li>
 </ul>
+</div>
+<div class="site-vbox-grow"></div>
+</div>
 </header>
 
 <div class="site-vbox-grow site-hbox">
 <ui:insert name="main">Main contents</ui:insert>
 </div>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" crossorigin="anonymous" rel="stylesheet" integrity="sha256-Q0zCrUs2IfXWYx0uMKJfG93CvF6oVII21waYsAV4/8Q=" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" crossorigin="anonymous" rel="stylesheet" media="screen" integrity="sha256-YqnnS/cQ7vE7gfVjdfx+JMi5EFD6m6Zqdemj81rs6PU=" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.css" crossorigin="anonymous" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" crossorigin="anonymous" rel="stylesheet"/>
-<link href="#{resource['stylesheets/site.css']}" rel="stylesheet"/>
+<link href="#{request.contextPath}/resources/site.css" rel="stylesheet"/>
 <ui:insert name="body:end"/>
 <ui:debug />
 </body>

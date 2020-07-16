@@ -1,0 +1,86 @@
+/*
+site.css
+Copyright (C) 2017-2020 Kaz Nishimura
+
+Copying and distribution of this file, with or without modification, are
+permitted in any medium without royalty provided the copyright notice and
+this notice are preserved.  This file is offered as-is, without any warranty.
+*/
+
+html
+{
+    height: 100%;
+}
+
+body
+{
+    height: 100%;
+}
+
+.site-hbox
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.site-vbox
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.site-hbox > .site-hbox-grow,
+.site-vbox > .site-vbox-grow
+{
+    flex: auto;
+}
+
+.site-content
+{
+    margin: 12px 12px;
+    overflow: auto;
+}
+
+.site-icon
+{
+    font-size: 1.5em;
+}
+
+@media (min-width: 384px)
+{
+    .site-w-hbox
+    {
+        display: flex;
+        flex-flow: row;
+    }
+}
+
+body
+{
+    color: #333333;
+    background: #ffffff;
+}
+
+header
+{
+    color: #ffffff;
+    background: #666666;
+}
+
+header .pure-menu-link
+{
+    color: #dddddd;
+}
+
+header .pure-menu-active > .pure-menu-link,
+header .pure-menu-link:hover,
+header .pure-menu-link:focus
+{
+    background-color: #888888;
+}
+
+header .pure-menu-selected > .pure-menu-link,
+header .pure-menu-selected > .pure-menu-link:visited
+{
+    color: #cccccc;
+}

@@ -20,12 +20,10 @@
 
 package org.vx68k.webapp.manifest;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test fixture for {@link WebAppManifest}.
@@ -42,17 +40,13 @@ public final class WebAppManifestTest
     public void testName()
     {
         WebAppManifest manifest = new WebAppManifest();
-        assertNull("manifest.name", manifest.getName());
-        assertFalse("'name' in JSON(manifest)",
-            manifest.toJsonObject().containsKey("name"));
+        assertNull(manifest.getName(), "name");
 
         manifest.setName("a name");
-        assertEquals("manifest.name", "a name", manifest.getName());
-        assertEquals("JSON(manifest)['name']", "a name",
-            manifest.toJsonObject().getString("name"));
+        assertEquals("a name", manifest.getName(), "name");
 
         manifest.setName(null);
-        assertNull("manifest.name", manifest.getName());
+        assertNull(manifest.getName(), "name");
     }
 
     /**
@@ -62,18 +56,13 @@ public final class WebAppManifestTest
     public void testShortName()
     {
         WebAppManifest manifest = new WebAppManifest();
-        assertNull("manifest.shortName", manifest.getShortName());
-        assertFalse("'short_name' in JSON(manifest)",
-            manifest.toJsonObject().containsKey("short_name"));
+        assertNull(manifest.getShortName(), "shortName");
 
         manifest.setShortName("a short name");
-        assertEquals("manifest.shortName", "a short name",
-            manifest.getShortName());
-        assertEquals("JSON(manifest)['short_name']", "a short name",
-            manifest.toJsonObject().getString("short_name"));
+        assertEquals("a short name", manifest.getShortName(), "shortName");
 
         manifest.setShortName(null);
-        assertNull("manifest.shortName", manifest.getShortName());
+        assertNull(manifest.getShortName(), "shortName");
     }
 
     /**
@@ -83,21 +72,15 @@ public final class WebAppManifestTest
     public void testIcons()
     {
         WebAppManifest manifest = new WebAppManifest();
-        assertNull("manifest.icons", manifest.getIcons());
-        assertFalse("'icons' in JSON(manifest)",
-            manifest.toJsonObject().containsKey("icons"));
+        assertNull(manifest.getIcons(), "icons");
 
         manifest.setIcons(new ImageResource[0]);
-        assertEquals("manifest.icons.length", 0, manifest.getIcons().length);
-        assertEquals("JSON(manifest)['icons'].length", 0,
-            manifest.toJsonObject().getJsonArray("icons").size());
+        assertEquals(0, manifest.getIcons().length, "icons.length");
 
         manifest.setIcons(new ImageResource[] {new ImageResource()});
-        assertNotNull("manifest.icons[0]", manifest.getIcons()[0]);
-        assertNotNull("JSON(manifest)['icons'][0]",
-            manifest.toJsonObject().getJsonArray("icons").getJsonObject(0));
+        assertNotNull(manifest.getIcons()[0], "icons[0]");
 
         manifest.setIcons(null);
-        assertNull("manifest.icons", manifest.getIcons());
+        assertNull(manifest.getIcons(), "icons");
     }
 }

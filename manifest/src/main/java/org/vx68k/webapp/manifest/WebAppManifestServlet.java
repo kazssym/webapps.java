@@ -22,8 +22,8 @@ package org.vx68k.webapp.manifest;
 
 import java.io.IOException;
 import java.util.Arrays;
-import javax.json.Json;
-import javax.json.JsonWriter;
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -71,33 +71,35 @@ public class WebAppManifestServlet extends HttpServlet
     public static final String ICONS = "icons";
 
     /**
-     * Manifest that is served by this object.
-     */
-    private transient WebAppManifest manifest;
-
-    /**
-     * Last modified time from {@code 1970-01-01T00:00:00Z} in milliseconds.
-     */
-    private transient long lastModified;
-
-    /**
-     * Creates and returns a copy of the manifest.
+     * Manifest that is served by the servlet.
      *
-     * @return a copy of the manifest
+     * It shall be created by {@link #init(ServletConfig)}.
+     */
+    private WebAppManifest manifest = null;
+
+    /**
+     * Last modified time in milliseconds since 1970-01-01T00:00:00Z.
+     */
+    private long lastModified = 0;
+
+    /**
+     * Returns the manifest that is served by the servlet.
+     *
+     * @return the manifest that is served by the servlet
      */
     public final WebAppManifest getManifest()
     {
-        return manifest.copy();
+        return manifest;
     }
 
     /**
      * Sets the manifest.
      *
-     * @param newManifest a new manifest
+     * @param manifest a new manifest
      */
-    public final void setManifest(final WebAppManifest newManifest)
+    public final void setManifest(final WebAppManifest manifest)
     {
-        manifest = newManifest.copy();
+        this.manifest = manifest.duplicate();
         lastModified = System.currentTimeMillis();
     }
 
@@ -151,12 +153,13 @@ public class WebAppManifestServlet extends HttpServlet
 
     /**
      * {@inheritDoc}
+     *
+     * <p>This implementation creates a new manifest.</p>
      */
     @Override
     public void init(final ServletConfig config)
         throws ServletException
     {
-        assert config != null;
         super.init(config);
         setManifest(createManifest(getServletConfig()));
     }
@@ -167,8 +170,8 @@ public class WebAppManifestServlet extends HttpServlet
     @Override
     public void destroy()
     {
-        super.destroy();
         manifest = null;
+        super.destroy();
     }
 
     /**
@@ -183,18 +186,13 @@ public class WebAppManifestServlet extends HttpServlet
                          final HttpServletResponse response)
         throws IOException
     {
-        if (manifest == null) {
-            throw new IllegalStateException("Not initialized");
+        try (Jsonb jsonb = JsonbBuilder.create()) {
+            jsonb.toJson(manifest, response.getOutputStream());
         }
-
+        catch (Exception e) {
+            throw new IOException(e);
+        }
         response.setContentType(CONTENT_TYPE);
-        JsonWriter writer = Json.createWriter(response.getOutputStream());
-        try {
-            writer.writeObject(manifest.toJsonObject());
-        }
-        finally {
-            writer.close();
-        }
     }
 
     /**

@@ -1,6 +1,6 @@
 /*
  * ImageResource.java - class ImageResource
- * Copyright (C) 2018 Kaz Nishimura
+ * Copyright (C) 2018-2020 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Affero General Public License as published by
@@ -21,9 +21,7 @@
 package org.vx68k.webapp.manifest;
 
 import java.io.Serializable;
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
+import javax.json.bind.annotation.JsonbProperty;
 
 /**
  * Image resource in a web app manifest.
@@ -40,24 +38,49 @@ import javax.json.JsonObjectBuilder;
  * @since 1.0
  * @see <a href="https://www.w3.org/TR/appmanifest/">"Web App Manifest"</a>
  */
-public class ImageResource implements Cloneable, Serializable
+public class ImageResource implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
     /**
      * URL ({@code src}) of the image resource.
      */
-    private String src;
+    @JsonbProperty("src")
+    private String src = null;
 
     /**
      * Sizes of the image resource.
      */
-    private String sizes;
+    @JsonbProperty("sizes")
+    private String sizes = null;
 
     /**
      * Media type of the image resource.
      */
-    private String type;
+    @JsonbProperty("type")
+    private String type = null;
+
+    /**
+     * Constructs an blank image resource.
+     */
+    public ImageResource()
+    {
+        // All the fields have the default values.
+    }
+
+    /**
+     * Constructs an image resource by copying another one.
+     *
+     * @param other another image resource
+     * @see #duplicate()
+     * @since 2.0
+     */
+    protected ImageResource(final ImageResource other)
+    {
+        this.src = other.src;
+        this.sizes = other.sizes;
+        this.type = other.type;
+    }
 
     /**
      * Returns the URL ({@code src}) of the image resource.
@@ -120,38 +143,14 @@ public class ImageResource implements Cloneable, Serializable
     }
 
     /**
-     * Returns a JSON object that represents this image resource.
+     * Returns a new copy of the image resource.
      *
-     * @return a JSON object
+     * @return a new copy of the image resource
+     * @see #ImageResource(ImageResource)
+     * @since 2.0
      */
-    public final JsonObject toJsonObject()
+    public ImageResource duplicate()
     {
-        JsonObjectBuilder object = Json.createObjectBuilder();
-        if (src != null) {
-            object.add("src", src);
-        }
-        if (sizes != null) {
-            object.add("sizes", sizes);
-        }
-        if (type != null) {
-            object.add("type", type);
-        }
-        return object.build();
-    }
-
-    /**
-     * Returns a copy of this object.
-     *
-     * @return a copy
-     */
-    @Override
-    public ImageResource clone()
-    {
-        try {
-            return (ImageResource) super.clone();
-        }
-        catch (CloneNotSupportedException exception) {
-            throw new RuntimeException("Unexpected exception", exception);
-        }
+        return new ImageResource(this);
     }
 }
