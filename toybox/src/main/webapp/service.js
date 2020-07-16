@@ -13,7 +13,11 @@ self.addEventListener("install", (event) => {
     event.waitUntil(caches.open(CACHE_NAME)
         .then((cache) => {
             return cache.addAll([
+                "service.js",
                 "index.jsf",
+                "ws/index.jsf",
+                "resources/site.css",
+                "resources/ws/init.js",
             ]);
         }));
 });
