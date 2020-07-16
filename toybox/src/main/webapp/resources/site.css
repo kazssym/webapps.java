@@ -19,7 +19,8 @@ body
     background: #ffffff;
 }
 
-.site-header
+.site-header,
+header
 {
     background: #eeeeee;
 }
