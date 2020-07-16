@@ -8,6 +8,7 @@
 <title><ui:insert name="title">Toybox App</ui:insert></title>
 
 <link href="#{facesContext.application.viewHandler.getActionURL(facesContext, view.viewId)}" rel="canonical" />
+<script src="#{request.contextPath}/resources/start.js##{request.contextPath}" type="module" async="async"></script>
 <ui:insert name="head:end"/>
 </head>
 
