@@ -19,10 +19,10 @@ body
     background: #ffffff;
 }
 
-.site-header,
 header
 {
-    background: #eeeeee;
+    color: #ffffff;
+    background: #666666;
 }
 
 .site-hbox
