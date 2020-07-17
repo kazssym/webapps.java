@@ -20,7 +20,10 @@ agent.addEventListener("message", (event) => {
 
 function test()
 {
-    agent.send("aa");
+    let buffer = new ArrayBuffer(1);
+    let view = new DataView(buffer);
+    view.setUint8(0, 1);
+    agent.send(buffer);
 }
 
 for (let i of document.getElementsByClassName("site-button-test")) {
