@@ -20,6 +20,7 @@
 
 package org.vx68k.webapp.toybox.ws;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import javax.websocket.DecodeException;
 import javax.websocket.Decoder;
@@ -28,6 +29,7 @@ import javax.websocket.Encoder;
 import javax.websocket.EndpointConfig;
 import javax.websocket.OnMessage;
 import javax.websocket.Session;
+import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.server.ServerEndpoint;
 
 /**
@@ -43,8 +45,11 @@ public class ServerAgentEndpoint
 {
     @OnMessage
     public void handleMessage(final ChannelMessage message, final Session session)
+        throws EncodeException, IOException
     {
-        throw new UnsupportedOperationException("handleMessage is not implemented yet");
+        // TODO: Replace this with a real data.
+        Basic remote = session.getBasicRemote();
+        remote.sendObject(message);
     }
 
     /**
