@@ -55,3 +55,30 @@ stages:
               goals: package gpg:sign nexus-staging:deploy
               options: -B -Possrh -Dmaven.repo.local=$(maven.localRepository)
               jdkVersion: "1.8"
+  - stage: Reporting
+    jobs:
+      - job: GenerateSite
+        displayName: Generate site
+        pool:
+          vmImage: ubuntu-latest
+        variables:
+          - name: maven.localRepository
+            value: $(Agent.BuildDirectory)/.m2/repository
+        steps:
+          - task: Cache@2
+            inputs:
+              key: maven | $(Agent.OS) | reporting | **/pom.xml
+              path: $(maven.localRepository)
+              restoreKeys: |
+                maven | $(Agent.OS) | reporting
+                maven | $(Agent.OS)
+                maven
+          - task: Maven@3
+            displayName: "Maven: site"
+            continueOnError: true
+            inputs:
+              goals: site site:stage
+              options: -B -Dmaven.repo.local=$(maven.localRepository)
+              jdkVersion: "1.11"
+          - publish: target/staging
+            artifact: site
