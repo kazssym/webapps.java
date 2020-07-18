@@ -32,6 +32,7 @@ import javax.websocket.OnMessage;
 import javax.websocket.Session;
 import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.server.ServerEndpoint;
+import org.vx68k.webapp.server.ChannelMessage;
 
 /**
  * WebSocket endpoint for server agents.
