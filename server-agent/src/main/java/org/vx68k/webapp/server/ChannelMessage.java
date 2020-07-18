@@ -1,6 +1,6 @@
 /*
  * ChannelMessage.java
- * Copyright (C) 2019 Kaz Nishimura
+ * Copyright (C) 2020 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Affero General Public License as published by
@@ -27,4 +27,15 @@ package org.vx68k.webapp.server;
  */
 public class ChannelMessage
 {
+    private int channel = 0;
+
+    public final int getChannel()
+    {
+        return channel;
+    }
+
+    public final void setChannel(final int channel)
+    {
+        this.channel = channel;
+    }
 }
