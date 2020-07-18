@@ -27,7 +27,7 @@ package org.vx68k.webapp.server;
  */
 public class ChannelMessage
 {
-    private int channel = 0;
+    private int channel = -1;
 
     public final int getChannel()
     {
