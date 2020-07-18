@@ -37,7 +37,10 @@ public class ChannelMessageEncoder implements Encoder.Binary<ChannelMessage>
     @Override
     public ByteBuffer encode(final ChannelMessage message) throws EncodeException
     {
+        int channel = message.getChannel();
+
         ByteBuffer buffer = ByteBuffer.allocate(1);
+        buffer.put(0, (byte)channel);
         return buffer;
     }
 
