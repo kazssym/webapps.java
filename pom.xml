@@ -34,6 +34,7 @@
 
 <modules>
 <module>manifest</module>
+<module>server-agent</module>
 <module>texteditor</module>
 <module>toybox</module>
 </modules>
