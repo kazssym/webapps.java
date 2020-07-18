@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="
+    http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<modelVersion>4.0.0</modelVersion>
+
+<parent>
+<groupId>org.vx68k.webapp</groupId>
+<artifactId>webapps-parent</artifactId>
+<version>2-SNAPSHOT</version>
+</parent>
+
+<artifactId>server-agent</artifactId>
+<name>Server Agent</name>
+<description>Multi-connection WebSocket server agent.</description>
+
+<dependencies>
+
+<dependency>
+<groupId>jakarta.websocket</groupId>
+<artifactId>jakarta.websocket-client-api</artifactId>
+<version>1.1.2</version>
+<scope>provided</scope>
+</dependency>
+
+<dependency>
+<groupId>org.glassfish.tyrus</groupId>
+<artifactId>tyrus-client</artifactId>
+<version>1.17</version>
+<scope>runtime</scope>
+</dependency>
+
+</dependencies>
+
+<build>
+<plugins>
+
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<configuration>
+<source>1.8</source>
+<target>1.8</target>
+</configuration>
+</plugin>
+
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-javadoc-plugin</artifactId>
+<configuration>
+<source>1.8</source>
+<locale>en_US</locale>
+<links>
+<link>https://javaee.github.io/javaee-spec/javadocs/</link>
+</links>
+</configuration>
+</plugin>
+
+</plugins>
+</build>
+
+</project>
