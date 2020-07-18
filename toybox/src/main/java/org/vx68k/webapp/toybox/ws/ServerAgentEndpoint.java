@@ -21,18 +21,15 @@
 package org.vx68k.webapp.toybox.ws;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import javax.inject.Inject;
-import javax.websocket.DecodeException;
-import javax.websocket.Decoder;
 import javax.websocket.EncodeException;
-import javax.websocket.Encoder;
-import javax.websocket.EndpointConfig;
 import javax.websocket.OnMessage;
 import javax.websocket.Session;
 import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.server.ServerEndpoint;
 import org.vx68k.webapp.server.ChannelMessage;
+import org.vx68k.webapp.server.ChannelMessageDecoder;
+import org.vx68k.webapp.server.ChannelMessageEncoder;
 
 /**
  * WebSocket endpoint for server agents.
@@ -41,8 +38,8 @@ import org.vx68k.webapp.server.ChannelMessage;
  */
 @ServerEndpoint(
     value="/agent",
-    decoders={ServerAgentEndpoint.ChannelMessageDecoder.class},
-    encoders={ServerAgentEndpoint.ChannelMessageEncoder.class})
+    decoders={ChannelMessageDecoder.class},
+    encoders={ChannelMessageEncoder.class})
 public class ServerAgentEndpoint
 {
     private ServerAgent serverAgent;
@@ -65,84 +62,5 @@ public class ServerAgentEndpoint
         // TODO: Replace this with a real data.
         Basic remote = session.getBasicRemote();
         remote.sendObject(message);
-    }
-
-    /**
-     * Decoder for {@link ChannelMessage}s.
-     */
-    protected static class ChannelMessageDecoder
-        implements Decoder.Binary<ChannelMessage>
-    {
-        private EndpointConfig endpointConfig;
-
-        public final EndpointConfig getEndpointConfig()
-        {
-            return endpointConfig;
-        }
-
-        @Override
-        public ChannelMessage decode(final ByteBuffer buffer) throws
-            DecodeException
-        {
-            return new ChannelMessage();
-        }
-
-        /**
-         * Returns {@code true}.
-         *
-         * @param buffer
-         * @return {@code true}
-         */
-        @Override
-        public boolean willDecode(final ByteBuffer buffer)
-        {
-            return true;
-        }
-
-        @Override
-        public final void init(final EndpointConfig endpointConfig)
-        {
-            this.endpointConfig = endpointConfig;
-        }
-
-        @Override
-        public final void destroy()
-        {
-            // Nothing to do.
-        }
-    }
-
-    /**
-     * Encoder for {@link ChannelMessage}s.
-     */
-    protected static class ChannelMessageEncoder
-        implements Encoder.Binary<ChannelMessage>
-    {
-        private EndpointConfig endpointConfig;
-
-        public final EndpointConfig getEndpointConfig()
-        {
-            return endpointConfig;
-        }
-
-        @Override
-        public ByteBuffer encode(final ChannelMessage message) throws
-            EncodeException
-        {
-            ByteBuffer buffer = ByteBuffer.allocate(1);
-            return buffer;
-        }
-
-        @Override
-        public final void init(final EndpointConfig endpointConfig)
-        {
-            this.endpointConfig = endpointConfig;
-        }
-
-        @Override
-        public final void destroy()
-        {
-            // Nothing to do.
-        }
     }
 }
