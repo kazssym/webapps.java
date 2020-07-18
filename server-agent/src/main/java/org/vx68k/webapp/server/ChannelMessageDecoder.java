@@ -37,7 +37,15 @@ public class ChannelMessageDecoder implements Decoder.Binary<ChannelMessage>
     @Override
     public ChannelMessage decode(final ByteBuffer buffer) throws DecodeException
     {
-        return new ChannelMessage();
+        int channel = -1;
+        byte byte0 = buffer.get(0);
+        if (byte0 <= 0x7f) {
+            channel = byte0;
+        }
+
+        ChannelMessage message = new ChannelMessage();
+        message.setChannel(channel);
+        return message;
     }
 
     /**
@@ -49,7 +57,12 @@ public class ChannelMessageDecoder implements Decoder.Binary<ChannelMessage>
     @Override
     public boolean willDecode(final ByteBuffer buffer)
     {
-        return true;
+        if (buffer.limit() < 1) {
+            return false;
+        }
+
+        byte byte0 = buffer.get(0);
+        return byte0 <= 0x7f;
     }
 
     @Override
