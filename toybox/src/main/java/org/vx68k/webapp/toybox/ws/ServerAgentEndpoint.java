@@ -1,6 +1,6 @@
 /*
  * ServerAgentEndpoint.java
- * Copyright (C) 2019 Kaz Nishimura
+ * Copyright (C) 2020 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Affero General Public License as published by
@@ -44,17 +44,17 @@ import org.vx68k.webapp.server.ChannelMessageEncoder;
     encoders={ChannelMessageEncoder.class})
 public class ServerAgentEndpoint
 {
-    private ServerProxyEndpont serverProxyEndpoint = null;
+    private ServerEndpont serverEndpoint = null;
 
-    public ServerProxyEndpont getServerProxyEndpoint()
+    public ServerEndpont getServerEndpoint()
     {
-        return serverProxyEndpoint;
+        return serverEndpoint;
     }
 
     @Inject
-    public void setServerProxyEndpoint(final ServerProxyEndpont serverProxyEndpoint)
+    public void setServerEndpoint(final ServerEndpont serverEndpoint)
     {
-        this.serverProxyEndpoint = serverProxyEndpoint;
+        this.serverEndpoint = serverEndpoint;
     }
 
     @OnMessage

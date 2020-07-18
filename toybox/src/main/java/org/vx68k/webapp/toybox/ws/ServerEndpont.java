@@ -1,5 +1,5 @@
 /*
- * ServerProxyEndpoint.java
+ * ServerEndpoint.java
  * Copyright (C) 2020 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -38,10 +38,10 @@ import org.vx68k.webapp.server.ChannelMessageEncoder;
  */
 @ApplicationScoped
 @ServerEndpoint(
-    value="/proxy",
+    value="/server",
     decoders={ChannelMessageDecoder.class},
     encoders={ChannelMessageEncoder.class})
-public class ServerProxyEndpont
+public class ServerEndpont
 {
     @OnMessage
     public void handleMessage(final ChannelMessage message, final Session session)
