@@ -21,6 +21,8 @@
 package org.vx68k.webapp.toybox.ws;
 
 import java.io.IOException;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.websocket.EncodeException;
 import javax.websocket.OnMessage;
 import javax.websocket.Session;
@@ -35,12 +37,26 @@ import org.vx68k.webapp.server.ChannelMessageEncoder;
  *
  * @author Kaz Nishimura
  */
+@ApplicationScoped
 @ServerEndpoint(
     value="/agent",
     decoders={ChannelMessageDecoder.class},
     encoders={ChannelMessageEncoder.class})
 public class ServerAgentEndpoint
 {
+    private ServerProxyEndpont serverProxyEndpoint = null;
+
+    public ServerProxyEndpont getServerProxyEndpoint()
+    {
+        return serverProxyEndpoint;
+    }
+
+    @Inject
+    public void setServerProxyEndpoint(final ServerProxyEndpont serverProxyEndpoint)
+    {
+        this.serverProxyEndpoint = serverProxyEndpoint;
+    }
+
     @OnMessage
     public void handleMessage(final ChannelMessage message, final Session session)
         throws EncodeException, IOException

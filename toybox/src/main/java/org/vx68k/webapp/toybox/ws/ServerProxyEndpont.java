@@ -21,6 +21,7 @@
 package org.vx68k.webapp.toybox.ws;
 
 import java.io.IOException;
+import javax.enterprise.context.ApplicationScoped;
 import javax.websocket.EncodeException;
 import javax.websocket.OnMessage;
 import javax.websocket.Session;
@@ -35,6 +36,7 @@ import org.vx68k.webapp.server.ChannelMessageEncoder;
  *
  * @author Kaz Nishimura
  */
+@ApplicationScoped
 @ServerEndpoint(
     value="/proxy",
     decoders={ChannelMessageDecoder.class},
