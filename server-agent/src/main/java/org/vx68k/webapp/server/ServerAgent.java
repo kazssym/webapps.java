@@ -42,7 +42,7 @@ public class ServerAgent
 
     public static final int DEFAULT_PORT = 6080;
 
-    private Session serverSession = null;
+    private static Session serverSession = null;
 
     private ServerSocketChannel socketChannel = null;
 
@@ -50,7 +50,7 @@ public class ServerAgent
     {
         try {
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-            container.connectToServer(ServerAgent.class,
+            serverSession = container.connectToServer(ServerAgent.class,
                 URI.create(args[0] + SERVER_ENDPOINT_PATH));
         }
         catch (final Exception e) {
@@ -62,8 +62,6 @@ public class ServerAgent
     @OnOpen
     public final void handleOpen(final Session session) throws IOException
     {
-        serverSession = session;
-
         socketChannel = ServerSocketChannel.open();
         socketChannel.bind(new InetSocketAddress(DEFAULT_PORT));
     }
