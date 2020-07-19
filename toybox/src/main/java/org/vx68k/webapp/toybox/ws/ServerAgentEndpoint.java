@@ -24,6 +24,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 import javax.websocket.EncodeException;
 import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.server.ServerEndpoint;
@@ -44,6 +45,8 @@ public class ServerAgentEndpoint
 {
     private ConnectionManager connectionManager = null;
 
+    private Session session = null;
+
     public final ConnectionManager getConnectionManager()
     {
         return connectionManager;
@@ -53,6 +56,22 @@ public class ServerAgentEndpoint
     public final void setConnectionManager(final ConnectionManager connectionManager)
     {
         this.connectionManager = connectionManager;
+    }
+
+    public final Session getSession()
+    {
+        return session;
+    }
+
+    public final void setSession(final Session session)
+    {
+        this.session = session;
+    }
+
+    @OnOpen
+    public void handleOpen(final Session session)
+    {
+        setSession(session);
     }
 
     @OnMessage
