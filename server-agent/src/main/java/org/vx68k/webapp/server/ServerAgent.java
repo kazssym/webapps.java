@@ -44,6 +44,7 @@ public class ServerAgent
         }
         catch (final Exception e) {
             e.printStackTrace();
+            System.exit(1);
         }
     }
 }
