@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.URI;
 import java.nio.channels.ServerSocketChannel;
+import java.util.concurrent.atomic.AtomicBoolean;
 import javax.websocket.ClientEndpoint;
 import javax.websocket.ContainerProvider;
 import javax.websocket.OnOpen;
@@ -34,7 +35,7 @@ import javax.websocket.WebSocketContainer;
     decoders={ChannelMessageDecoder.class},
     encoders={ChannelMessageEncoder.class}
 )
-public class ServerAgent
+public class ServerAgent implements Runnable
 {
     public static final String SERVER_ENDPOINT_PATH = "/server";
 
@@ -44,17 +45,23 @@ public class ServerAgent
 
     private static Session serverSession = null;
 
-    private ServerSocketChannel socketChannel = null;
+    private ServerSocketChannel listeningChannel = null;
+
+    private final AtomicBoolean running = new AtomicBoolean(false);
 
     public static void main(final String[] args)
     {
         try {
+            ServerAgent agent = new ServerAgent();
+
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-            serverSession = container.connectToServer(ServerAgent.class,
+            serverSession = container.connectToServer(agent,
                 URI.create(args[0] + SERVER_ENDPOINT_PATH));
+
+            agent.run();
         }
-        catch (final Exception e) {
-            e.printStackTrace();
+        catch (final Exception e1) {
+            e1.printStackTrace();
             System.exit(1);
         }
     }
@@ -62,7 +69,22 @@ public class ServerAgent
     @OnOpen
     public final void handleOpen(final Session session) throws IOException
     {
-        socketChannel = ServerSocketChannel.open();
-        socketChannel.bind(new InetSocketAddress(DEFAULT_PORT));
+        listeningChannel = ServerSocketChannel.open();
+        listeningChannel.bind(new InetSocketAddress(DEFAULT_PORT));
+    }
+
+    @Override
+    public void run()
+    {
+        running.set(true);
+        while (running.get()) {
+            try {
+                listeningChannel.accept();
+            }
+            catch (final IOException e1) {
+                e1.printStackTrace();
+                running.set(false); // TODO: Try to recover.
+            }
+        }
     }
 }
