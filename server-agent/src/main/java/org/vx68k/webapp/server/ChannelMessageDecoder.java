@@ -74,6 +74,6 @@ public class ChannelMessageDecoder implements Decoder.Binary<ChannelMessage>
     @Override
     public final void destroy()
     {
-        // Nothing to do.
+        endpointConfig = null;
     }
 }
