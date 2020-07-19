@@ -21,7 +21,6 @@
 package org.vx68k.webapp.toybox.ws;
 
 import java.io.IOException;
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.websocket.EncodeException;
 import javax.websocket.OnMessage;
@@ -37,24 +36,23 @@ import org.vx68k.webapp.server.ChannelMessageEncoder;
  *
  * @author Kaz Nishimura
  */
-@ApplicationScoped
 @ServerEndpoint(
     value="/agent",
     decoders={ChannelMessageDecoder.class},
     encoders={ChannelMessageEncoder.class})
 public class ServerAgentEndpoint
 {
-    private ServerEndpont serverEndpoint = null;
+    private ConnectionManager connectionManager = null;
 
-    public ServerEndpont getServerEndpoint()
+    public final ConnectionManager getConnectionManager()
     {
-        return serverEndpoint;
+        return connectionManager;
     }
 
     @Inject
-    public void setServerEndpoint(final ServerEndpont serverEndpoint)
+    public final void setConnectionManager(final ConnectionManager connectionManager)
     {
-        this.serverEndpoint = serverEndpoint;
+        this.connectionManager = connectionManager;
     }
 
     @OnMessage
