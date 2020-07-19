@@ -20,6 +20,15 @@
 
 package org.vx68k.webapp.server;
 
+import java.net.URI;
+import javax.websocket.ClientEndpoint;
+import javax.websocket.ContainerProvider;
+import javax.websocket.WebSocketContainer;
+
+@ClientEndpoint(
+    decoders={ChannelMessageDecoder.class},
+    encoders={ChannelMessageEncoder.class}
+)
 public class ServerAgent
 {
     public static final String SERVER_ENDPOINT_PATH = "/server";
@@ -28,6 +37,13 @@ public class ServerAgent
 
     public static void main(final String[] args)
     {
-        new ServerAgent();
+        try {
+            WebSocketContainer container = ContainerProvider.getWebSocketContainer();
+            container.connectToServer(ServerAgent.class,
+                URI.create(args[0] + SERVER_ENDPOINT_PATH));
+        }
+        catch (final Exception e) {
+            e.printStackTrace();
+        }
     }
 }
