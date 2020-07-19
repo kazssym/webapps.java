@@ -20,6 +20,8 @@
 
 package org.vx68k.webapp.server;
 
+import java.nio.ByteBuffer;
+
 /**
  * Channel message.
  *
@@ -27,7 +29,21 @@ package org.vx68k.webapp.server;
  */
 public class ChannelMessage
 {
-    private int channel = -1;
+    private int channel;
+
+    private ByteBuffer payload = null;
+
+    public ChannelMessage()
+    {
+        this(-1, null);
+    }
+
+    public ChannelMessage(final int channel, final ByteBuffer payload)
+    {
+        this.channel = channel;
+
+        setPayload(payload);
+    }
 
     public final int getChannel()
     {
@@ -37,5 +53,18 @@ public class ChannelMessage
     public final void setChannel(final int channel)
     {
         this.channel = channel;
+    }
+
+    public final ByteBuffer getPayload()
+    {
+        return payload;
+    }
+
+    public final void setPayload(ByteBuffer payload)
+    {
+        if (payload != null) {
+            payload = payload.duplicate();
+        }
+        this.payload = payload;
     }
 }
