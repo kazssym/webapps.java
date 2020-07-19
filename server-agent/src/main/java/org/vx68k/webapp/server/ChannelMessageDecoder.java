@@ -38,14 +38,12 @@ public class ChannelMessageDecoder implements Decoder.Binary<ChannelMessage>
     public final ChannelMessage decode(final ByteBuffer buffer) throws DecodeException
     {
         int channel = -1;
-        byte byte0 = buffer.get(0);
-        if (byte0 <= 0x7f) {
-            channel = byte0;
+        byte b1 = buffer.get();
+        if (b1 <= 0x7f) {
+            channel = b1;
         }
 
-        ChannelMessage message = new ChannelMessage();
-        message.setChannel(channel);
-        return message;
+        return new ChannelMessage(channel, buffer.slice());
     }
 
     /**
@@ -57,12 +55,11 @@ public class ChannelMessageDecoder implements Decoder.Binary<ChannelMessage>
     @Override
     public final boolean willDecode(final ByteBuffer buffer)
     {
-        if (buffer.limit() < 1) {
-            return false;
+        if (buffer.remaining() >= 1) {
+            byte b1 = buffer.duplicate().get();
+            return b1 <= 0x7f;
         }
-
-        byte byte0 = buffer.get(0);
-        return byte0 <= 0x7f;
+        return false;
     }
 
     @Override
