@@ -25,8 +25,8 @@ import javax.inject.Inject;
 import javax.websocket.EncodeException;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
+import javax.websocket.RemoteEndpoint;
 import javax.websocket.Session;
-import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.server.ServerEndpoint;
 import org.vx68k.webapp.server.ChannelMessage;
 import org.vx68k.webapp.server.ChannelMessageDecoder;
@@ -69,18 +69,24 @@ public class ServerAgentEndpoint
         this.session = session;
     }
 
+    public final void send(final ChannelMessage message)
+        throws EncodeException, IOException
+    {
+        RemoteEndpoint.Basic remote = session.getBasicRemote();
+        remote.sendObject(message);
+    }
+
     @OnOpen
-    public void handleOpen(final Session session)
+    public final void handleOpen(final Session session)
     {
         setSession(session);
     }
 
     @OnMessage
-    public void handleMessage(final ChannelMessage message, final Session session)
+    public final void handleMessage(final ChannelMessage message)
         throws EncodeException, IOException
     {
         // TODO: Replace this with a real data.
-        Basic remote = session.getBasicRemote();
-        remote.sendObject(message);
+        send(message);
     }
 }
