@@ -24,6 +24,12 @@ import java.nio.ByteBuffer;
 import javax.websocket.Decoder;
 import javax.websocket.EndpointConfig;
 
+/**
+ * Decoders for control messages.
+ *
+ * @author Kaz Nishimura
+ * @since 2.0
+ */
 public class ControlMessageDecoder implements Decoder.Binary<ControlMessage>
 {
     private EndpointConfig endpointConfig;

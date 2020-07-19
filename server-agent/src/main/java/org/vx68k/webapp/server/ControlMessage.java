@@ -20,6 +20,12 @@
 
 package org.vx68k.webapp.server;
 
+/**
+ * Control messages.
+ *
+ * @author Kaz Nishimura
+ * @since 2.0
+ */
 public class ControlMessage
 {
 }
