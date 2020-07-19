@@ -7,10 +7,12 @@
 
 // This file is a module script and shall be in strict mode by default.
 
+const SERVER_AGENT_ENDPOINT_PATH = "/server_agent";
+
 let url = new URL(import.meta.url);
 let context = url.hash.substring(1);
 
-let agent = new WebSocket(`wss://${url.host}${context}/agent`);
+let agent = new WebSocket(`wss://${url.host}${context}${SERVER_AGENT_ENDPOINT_PATH}`);
 agent.addEventListener("error", (event) => {
     console.error("%o", event);
 });

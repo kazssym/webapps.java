@@ -31,6 +31,7 @@ import javax.websocket.server.ServerEndpoint;
 import org.vx68k.webapp.server.ChannelMessage;
 import org.vx68k.webapp.server.ChannelMessageDecoder;
 import org.vx68k.webapp.server.ChannelMessageEncoder;
+import org.vx68k.webapp.server.ServerAgent;
 
 /**
  * WebSocket endpoint for server agents.
@@ -38,7 +39,7 @@ import org.vx68k.webapp.server.ChannelMessageEncoder;
  * @author Kaz Nishimura
  */
 @ServerEndpoint(
-    value="/agent",
+    value=ServerAgent.SERVER_AGENT_ENDPOINT_PATH,
     decoders={ChannelMessageDecoder.class},
     encoders={ChannelMessageEncoder.class})
 public class ServerAgentEndpoint
