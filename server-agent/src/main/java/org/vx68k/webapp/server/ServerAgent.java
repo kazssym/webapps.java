@@ -20,9 +20,14 @@
 
 package org.vx68k.webapp.server;
 
+import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.URI;
+import java.nio.channels.ServerSocketChannel;
 import javax.websocket.ClientEndpoint;
 import javax.websocket.ContainerProvider;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
 
 @ClientEndpoint(
@@ -35,6 +40,12 @@ public class ServerAgent
 
     public static final String SERVER_AGENT_ENDPOINT_PATH = "/server_agent";
 
+    public static final int DEFAULT_PORT = 6080;
+
+    private Session serverSession = null;
+
+    private ServerSocketChannel socketChannel = null;
+
     public static void main(final String[] args)
     {
         try {
@@ -46,5 +57,14 @@ public class ServerAgent
             e.printStackTrace();
             System.exit(1);
         }
+    }
+
+    @OnOpen
+    public final void handleOpen(final Session session) throws IOException
+    {
+        serverSession = session;
+
+        socketChannel = ServerSocketChannel.open();
+        socketChannel.bind(new InetSocketAddress(DEFAULT_PORT));
     }
 }
