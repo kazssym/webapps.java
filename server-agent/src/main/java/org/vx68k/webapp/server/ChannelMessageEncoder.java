@@ -35,7 +35,7 @@ public class ChannelMessageEncoder implements Encoder.Binary<ChannelMessage>
     }
 
     @Override
-    public ByteBuffer encode(final ChannelMessage message) throws EncodeException
+    public final ByteBuffer encode(final ChannelMessage message) throws EncodeException
     {
         int channel = message.getChannel();
 

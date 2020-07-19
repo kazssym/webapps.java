@@ -35,7 +35,7 @@ public class ChannelMessageDecoder implements Decoder.Binary<ChannelMessage>
     }
 
     @Override
-    public ChannelMessage decode(final ByteBuffer buffer) throws DecodeException
+    public final ChannelMessage decode(final ByteBuffer buffer) throws DecodeException
     {
         int channel = -1;
         byte byte0 = buffer.get(0);
@@ -55,7 +55,7 @@ public class ChannelMessageDecoder implements Decoder.Binary<ChannelMessage>
      * @return {@code true}
      */
     @Override
-    public boolean willDecode(final ByteBuffer buffer)
+    public final boolean willDecode(final ByteBuffer buffer)
     {
         if (buffer.limit() < 1) {
             return false;
