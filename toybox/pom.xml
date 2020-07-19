@@ -29,7 +29,7 @@
 <exclusions>
 <exclusion>
 <groupId>org.glassfish.tyrus</groupId>
-<artifactId>tyrus-client</artifactId>
+<artifactId>tyrus-container-grizzly-client</artifactId>
 </exclusion>
 </exclusions>
 </dependency>

@@ -26,7 +26,7 @@
 
 <dependency>
 <groupId>org.glassfish.tyrus</groupId>
-<artifactId>tyrus-client</artifactId>
+<artifactId>tyrus-container-grizzly-client</artifactId>
 <version>1.17</version>
 <scope>runtime</scope>
 </dependency>
@@ -55,6 +55,22 @@
 <link>https://javaee.github.io/javaee-spec/javadocs/</link>
 </links>
 </configuration>
+</plugin>
+
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-dependency-plugin</artifactId>
+<executions>
+<execution>
+<phase>package</phase>
+<goals>
+<goal>copy-dependencies</goal>
+</goals>
+<configuration>
+<outputDirectory>${project.build.directory}</outputDirectory>
+</configuration>
+</execution>
+</executions>
 </plugin>
 
 <plugin>
