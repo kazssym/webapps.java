@@ -34,8 +34,14 @@ import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
 
 @ClientEndpoint(
-    decoders={ChannelMessageDecoder.class},
-    encoders={ChannelMessageEncoder.class}
+    decoders={
+        ControlMessageDecoder.class,
+        ChannelMessageDecoder.class,
+    },
+    encoders={
+        ControlMessageEncoder.class,
+        ChannelMessageEncoder.class
+    }
 )
 public class ServerAgent implements Runnable
 {
