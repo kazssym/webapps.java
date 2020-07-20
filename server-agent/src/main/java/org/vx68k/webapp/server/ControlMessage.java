@@ -20,6 +20,8 @@
 
 package org.vx68k.webapp.server;
 
+import java.nio.ByteBuffer;
+
 /**
  * Control messages.
  *
@@ -28,4 +30,42 @@ package org.vx68k.webapp.server;
  */
 public class ControlMessage
 {
+    private int flags;
+
+    private ByteBuffer payload = null;
+
+    public ControlMessage(final int flags)
+    {
+        this(flags, null);
+    }
+
+    public ControlMessage(final int flags, final ByteBuffer payload)
+    {
+        this.flags = flags;
+
+        setPayload(payload);
+    }
+
+    public final int getFlags()
+    {
+        return flags;
+    }
+
+    public final void setFlags(final int flags)
+    {
+        this.flags = flags;
+    }
+
+    public final ByteBuffer getPayload()
+    {
+        return payload;
+    }
+
+    public final void setPayload(ByteBuffer payload)
+    {
+        if (payload != null) {
+            payload = payload.duplicate();
+        }
+        this.payload = payload;
+    }
 }
