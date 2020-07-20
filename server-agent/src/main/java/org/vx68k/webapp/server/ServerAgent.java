@@ -23,12 +23,14 @@ package org.vx68k.webapp.server;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.URI;
-import java.nio.channels.ServerSocketChannel;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.nio.channels.AsynchronousServerSocketChannel;
+import java.nio.channels.AsynchronousSocketChannel;
+import java.nio.channels.CompletionHandler;
 import java.util.logging.Logger;
 import javax.websocket.ClientEndpoint;
 import javax.websocket.ContainerProvider;
 import javax.websocket.EncodeException;
+import javax.websocket.OnClose;
 import javax.websocket.OnOpen;
 import javax.websocket.RemoteEndpoint;
 import javax.websocket.Session;
@@ -44,7 +46,7 @@ import javax.websocket.WebSocketContainer;
         ChannelMessageEncoder.class
     }
 )
-public class ServerAgent implements Runnable
+public class ServerAgent
 {
     public static final String SERVER_ENDPOINT_PATH = "/server";
 
@@ -52,11 +54,11 @@ public class ServerAgent implements Runnable
 
     public static final int DEFAULT_PORT = 6080;
 
+    private final int port;
+
     private Session serverSession = null;
 
-    private ServerSocketChannel listeningChannel = null;
-
-    private final AtomicBoolean running = new AtomicBoolean(false);
+    private AsynchronousServerSocketChannel serverSocket = null;
 
     /**
      * Returns the logger for this class.
@@ -75,12 +77,52 @@ public class ServerAgent implements Runnable
 
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
             container.connectToServer(agent, URI.create(args[0] + SERVER_ENDPOINT_PATH));
-
-            agent.run();
         }
         catch (final Exception e1) {
             e1.printStackTrace();
             System.exit(1);
+        }
+    }
+
+    public ServerAgent()
+    {
+        this(DEFAULT_PORT);
+    }
+
+    public ServerAgent(final int port)
+    {
+        this.port = port;
+    }
+
+    protected void openServerSocket() throws IOException
+    {
+        serverSocket = AsynchronousServerSocketChannel.open();
+        try {
+            serverSocket.bind(new InetSocketAddress(port));
+            serverSocket.accept(null,
+                new CompletionHandler<AsynchronousSocketChannel, Object>()
+                {
+                    @Override
+                    public void completed(final AsynchronousSocketChannel result,
+                        final Object attachment)
+                    {
+                        serverSocket.accept(attachment, this);
+
+                        // TODO: Store the socket.
+                    }
+
+                    @Override
+                    public void failed(final Throwable exception, final Object attachment)
+                    {
+                        exception.printStackTrace();
+                    }
+                }
+            );
+        }
+        catch (final IOException e1) {
+            serverSocket.close();
+            serverSocket = null;
+            throw e1;
         }
     }
 
@@ -94,23 +136,13 @@ public class ServerAgent implements Runnable
     public final void handleOpen(final Session session) throws IOException
     {
         serverSession = session;
-
-        listeningChannel = ServerSocketChannel.open();
-        listeningChannel.bind(new InetSocketAddress(DEFAULT_PORT));
+        openServerSocket();
     }
 
-    @Override
-    public void run()
+    @OnClose
+    public void handleClose() throws IOException
     {
-        running.set(true);
-        while (running.get()) {
-            try {
-                listeningChannel.accept();
-            }
-            catch (final IOException e1) {
-                e1.printStackTrace();
-                running.set(false); // TODO: Try to recover.
-            }
-        }
+        serverSocket.close();
+        serverSocket = null;
     }
 }
