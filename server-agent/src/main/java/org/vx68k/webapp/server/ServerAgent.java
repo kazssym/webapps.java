@@ -27,7 +27,9 @@ import java.nio.channels.ServerSocketChannel;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.websocket.ClientEndpoint;
 import javax.websocket.ContainerProvider;
+import javax.websocket.EncodeException;
 import javax.websocket.OnOpen;
+import javax.websocket.RemoteEndpoint;
 import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
 
@@ -63,6 +65,12 @@ public class ServerAgent implements Runnable
             e1.printStackTrace();
             System.exit(1);
         }
+    }
+
+    protected void send(final ChannelMessage message) throws EncodeException, IOException
+    {
+        RemoteEndpoint.Basic remote = serverSession.getBasicRemote();
+        remote.sendObject(message);
     }
 
     @OnOpen
