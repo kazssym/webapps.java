@@ -21,6 +21,7 @@
 package org.vx68k.webapp.server;
 
 import java.nio.ByteBuffer;
+import javax.websocket.DecodeException;
 import javax.websocket.Decoder;
 import javax.websocket.EndpointConfig;
 
@@ -40,21 +41,27 @@ public class ControlMessageDecoder implements Decoder.Binary<ControlMessage>
     }
 
     @Override
-    public final ControlMessage decode(final ByteBuffer buffer)
+    public final ControlMessage decode(final ByteBuffer buffer) throws DecodeException
     {
-        ControlMessage message = new ControlMessage();
-        return message;
+        byte b1 = buffer.get();
+        if (b1 != 0x80) {
+            throw new DecodeException(buffer, "not a control message");
+        }
+
+        int flags = buffer.get();
+        return new ControlMessage(flags, buffer.slice());
     }
 
     @Override
-    public final boolean willDecode(final ByteBuffer buffer)
+    public final boolean willDecode(ByteBuffer buffer)
     {
-        if (buffer.limit() < 1) {
-            return false;
-        }
+        if (buffer.remaining() >= 1) {
+            buffer = buffer.duplicate();
 
-        byte byte0 = buffer.get(0);
-        return byte0 == 0x80;
+            byte b1 = buffer.get();
+            return b1 == 0x80;
+        }
+        return false;
     }
 
     @Override
