@@ -42,21 +42,26 @@ public class ChannelMessageDecoder implements Decoder.Binary<ChannelMessage>
         if (b1 <= 0x7f) {
             channel = b1;
         }
+        else {
+            throw new DecodeException(buffer, "not a channel message");
+        }
 
         return new ChannelMessage(channel, buffer.slice());
     }
 
     /**
-     * Returns {@code true}.
+     * Tests if a buffer contains a channel message.
      *
-     * @param buffer
-     * @return {@code true}
+     * @param buffer a buffer that contains a byte sequence
+     * @return {@code true} if the buffer appears to contain a channel message.
      */
     @Override
-    public final boolean willDecode(final ByteBuffer buffer)
+    public final boolean willDecode(ByteBuffer buffer)
     {
         if (buffer.remaining() >= 1) {
-            byte b1 = buffer.duplicate().get();
+            buffer = buffer.duplicate();
+
+            byte b1 = buffer.get();
             return b1 <= 0x7f;
         }
         return false;
