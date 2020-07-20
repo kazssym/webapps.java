@@ -25,6 +25,7 @@ import java.net.InetSocketAddress;
 import java.net.URI;
 import java.nio.channels.ServerSocketChannel;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.logging.Logger;
 import javax.websocket.ClientEndpoint;
 import javax.websocket.ContainerProvider;
 import javax.websocket.EncodeException;
@@ -56,6 +57,16 @@ public class ServerAgent implements Runnable
     private ServerSocketChannel listeningChannel = null;
 
     private final AtomicBoolean running = new AtomicBoolean(false);
+
+    /**
+     * Returns the logger for this class.
+     *
+     * @return the logger for this class
+     */
+    protected static Logger getLogger()
+    {
+        return Logger.getLogger(ServerAgent.class.getPackage().getName());
+    }
 
     public static void main(final String[] args)
     {
