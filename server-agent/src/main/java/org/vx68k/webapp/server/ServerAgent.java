@@ -43,7 +43,7 @@ public class ServerAgent implements Runnable
 
     public static final int DEFAULT_PORT = 6080;
 
-    private static Session serverSession = null;
+    private Session serverSession = null;
 
     private ServerSocketChannel listeningChannel = null;
 
@@ -55,8 +55,7 @@ public class ServerAgent implements Runnable
             ServerAgent agent = new ServerAgent();
 
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-            serverSession = container.connectToServer(agent,
-                URI.create(args[0] + SERVER_ENDPOINT_PATH));
+            container.connectToServer(agent, URI.create(args[0] + SERVER_ENDPOINT_PATH));
 
             agent.run();
         }
@@ -69,6 +68,8 @@ public class ServerAgent implements Runnable
     @OnOpen
     public final void handleOpen(final Session session) throws IOException
     {
+        serverSession = session;
+
         listeningChannel = ServerSocketChannel.open();
         listeningChannel.bind(new InetSocketAddress(DEFAULT_PORT));
     }
